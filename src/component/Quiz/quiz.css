@@ -91,7 +91,8 @@
 .quiz-start-btn {
     background: rgba(0, 129, 254, 0.9);
     border-radius: 10px;
-    height: 43px;
+    height: 80px;
+    padding: 6px;
     border: none;
     color: white;
     width: 275px;

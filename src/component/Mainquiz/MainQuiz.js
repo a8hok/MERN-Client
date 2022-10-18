@@ -6,7 +6,7 @@ import Navbar from "../Navbar/navbar";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";
-import leftArrow from "../Login/Images/left back.svg"
+import leftArrow from "../Login/Images/left back.svg";
 import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,11 +18,12 @@ const MainQuiz = () => {
   const [noOfPages, setNoOfPages] = useState(5);
   const [quizData, setQuizData] = useState();
   const [respondedAnswer, setRespondedAnswer] = useState([]);
-  const [quizAnswer,setQuizAnswer] = useState([]);
-  const [finalQuizAnswer,setFinalQuizAnswer] =useState();
-  const [quizScoreStatus,setScoreStatus] =useState();
-  const[errorbtnstatus,setbtnstatus] =useState();
-  const [quizMarks,setQuizMarks]=useState();
+  const [quizAnswer, setQuizAnswer] = useState([]);
+  const [finalQuizAnswer, setFinalQuizAnswer] = useState();
+  const [quizScoreStatus, setScoreStatus] = useState();
+  const [errorbtnstatus, setbtnstatus] = useState();
+  const [quizMarks, setQuizMarks] = useState();
+  const [quizmarked, setQuizMarked] = useState();
   console.log(respondedAnswer);
   const handleQuestionPage = (data) => {
     setIndex(data.selected);
@@ -40,8 +41,11 @@ const MainQuiz = () => {
     const answer2 = element[1].checked;
     const answer3 = element[2].checked;
     const answer4 = element[3].checked;
-    setIndex(index + 1);
-    setIndexTo(indexTo + 1);
+    if (index < noOfPages - 1 && indexTo < noOfPages) {
+      setIndex(index + 1);
+      setIndexTo(indexTo + 1);
+    }
+
     console.log(answer1, answer2, answer3, answer4);
     element[0].checked = false;
     element[1].checked = false;
@@ -64,7 +68,7 @@ const MainQuiz = () => {
       respondedAnswer.push(answer4value);
     }
   };
- 
+
   const handelSkipPage = (e) => {
     e.preventDefault();
     setIndex(index + 1);
@@ -84,46 +88,51 @@ const MainQuiz = () => {
     if (quizInfo.data && quizInfo.data.data) {
       setQuizData(quizInfo.data.data);
       setNoOfPages(quizInfo.data.data.length);
-      console.log(quizInfo)
-      quizInfo.data.data.forEach(element => {
-        quizAnswer.push(element.quizAnswer)
-        
-      });
+      console.log(quizInfo);
+      quizInfo.data.data.forEach((element) => {
+        quizAnswer.push(element.quizAnswer);
+      }, []);
     }
-    setFinalQuizAnswer(quizAnswer.slice(0,10))
-    console.log(finalQuizAnswer);
+
     console.log(quizAnswer);
- 
+
     console.log(quizData);
     console.log(noOfPages);
   }, [quizInfo]);
 
+  useEffect(() => {
+    if (indexTo === noOfPages) {
+      setbtnstatus(1);
+    }
+  }, [indexTo, index]);
+
+  useEffect(() => {
+    setQuizMarked(respondedAnswer);
+    console.log(quizmarked);
+  }, []);
+  useEffect(() => {
+    setFinalQuizAnswer(quizAnswer.slice(0, noOfPages));
+    console.log(finalQuizAnswer);
+  }, [noOfPages]);
   const endTest = () => {
-    const a = window.confirm("Do you want to close your text")
+    const a = window.confirm("Do you want to close your text");
     console.log(a);
-    if(a === true)
-    {
+    if (a === true) {
       console.log(finalQuizAnswer);
-console.log(respondedAnswer);
-const correctAnswer = respondedAnswer.filter((element1) => finalQuizAnswer.some((element2) =>element1===element2));
-console.log(correctAnswer);
-const quizMarkss = correctAnswer.length
-console.log(quizMarks)
-setQuizMarks(quizMarkss)
-setScoreStatus(1);
-setbtnstatus(0)
-     
+      console.log(respondedAnswer);
+      const correctAnswer = respondedAnswer.filter((element1) =>
+        finalQuizAnswer.some((element2) => element1 === element2)
+      );
+      console.log(correctAnswer);
+      const quizMarkss = correctAnswer.length;
+      console.log(quizMarks);
+      setQuizMarks(quizMarkss);
+      setScoreStatus(1);
     }
   };
-  const closeQuiz = () =>
-  {
-    navigate("/quiz")
-
-  }
-  
-
-
-
+  const closeQuiz = () => {
+    navigate("/quiz");
+  };
 
   return (
     <div>
@@ -131,13 +140,35 @@ setbtnstatus(0)
       <div className="main-quiz--conatiner">
         <div className="quiz-questions">
           <div className="quiz-questions--header">
-            <h1 className="Question-number">Question 1</h1>
+            {
+              <div className="quiz-question-container">
+                {quizData &&
+                  quizData.slice(index, indexTo).map((obj) => (
+                    <>
+                      <h1 className="Question-number">
+                        Question {obj.quizQuestionNo}
+                      </h1>
+                      <h4>
+                        Completed:{" "}
+                        <meter min="0" max={noOfPages} value={index}></meter>
+                      </h4>
+                    </>
+                  ))}
+              </div>
+            }
+
             <div className="quizhint-logo--container">
               <img src={quizHintLogo} alt="no img found"></img>
             </div>
           </div>
 
           <div>
+            <div>
+              {errorbtnstatus === 1 ? (
+                <p className="after-quiz-questions">Quiz Completed please end test to view your scores</p>
+              ) : null}
+            </div>
+
             {
               <div>
                 {quizData &&
@@ -147,22 +178,40 @@ setbtnstatus(0)
                       <form onSubmit={handelQuizResponse}>
                         <div className="option--container">
                           <div className="question-option--1">
-                            <input type="radio" value={obj.quizOption1}></input>
+                            <input
+                              type="radio"
+                              value={obj.quizOption1}
+                              name="quizOption1"
+                            ></input>
                             <p>{obj.quizOption1}</p>
                           </div>
                           <div className="question-option--2">
-                            <input type="radio" value={obj.quizOption2}></input>
+                            <input
+                              type="radio"
+                              value={obj.quizOption2}
+                              name="quizOption2"
+                            ></input>
                             <p>{obj.quizOption2}</p>
                           </div>
                           <div className="question-option--3">
-                            <input type="radio" value={obj.quizOption3}></input>
+                            <input
+                              type="radio"
+                              value={obj.quizOption3}
+                              name="quizOption3"
+                            ></input>
                             <p>{obj.quizOption3}</p>
                           </div>
                           <div className="question-option--4">
-                            <input type="radio" value={obj.quizOption4}></input>
+                            <input
+                              type="radio"
+                              value={obj.quizOption4}
+                              name="quizOption4"
+                            ></input>
                             <p>{obj.quizOption4}</p>
                           </div>
-                          <button className="chapter-seemore-btn">Submit</button>
+                          <button className="chapter-seemore-btn">
+                            Submit
+                          </button>
                         </div>
                       </form>
                     </div>
@@ -184,48 +233,68 @@ setbtnstatus(0)
               nextLabel={">"}
               nextClassName={"previous-class"}
             />
-           
-          <div className="endtest-block">
-            <button className="Endtest-btn" onClick={endTest}>
-              End Test
-            </button>
-            <div>
-            {
-        quizScoreStatus === 1 ?(
-          <button type="button" class="Endtest-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  View Score
-</button>
 
-        ):null
-       }
-            </div>
-            <div>
-              <button onClick={handelSkipPage} className="Skip-btn">
-                Skip
+            <div className="endtest-block">
+              <button className="Endtest-btn" onClick={endTest}>
+                End Test
               </button>
+              <div>
+                {quizScoreStatus === 1 ? (
+                  <button
+                    type="button"
+                    class="Endtest-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    View Score
+                  </button>
+                ) : null}
+              </div>
+              <div>
+                <button onClick={handelSkipPage} className="Skip-btn">
+                  Skip
+                </button>
+              </div>
             </div>
-          
-          </div>
-      
 
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">quiz Scores</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-     you have scored:{quizMarks}/{noOfPages} in quiz 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={closeQuiz}>Close</button>
-      
-      </div>
-    </div>
-  </div>
-</div>
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      quiz Scores
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    You have scored:{quizMarks}/{noOfPages} in quiz
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      onClick={closeQuiz}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

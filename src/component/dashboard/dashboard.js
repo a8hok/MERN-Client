@@ -8,6 +8,7 @@ import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
+import editUniversities from "../../Store/Slice/EditUniversities";
 
 import {
   Box,
@@ -25,6 +26,8 @@ import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
+
+  const [tableData, setTableData] = useState(() => data);
 
   const locationState = useLocation().state;
   const dispatch = useDispatch();
@@ -64,11 +67,14 @@ const Dashboard = () => {
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      data[row.index] = values;
+      values = data[row.index];
+      // dispatch(editUniversities(values))
+      setTableData(values)
       //send/receive api updates here, then refetch or update local table data for re-render
       // setTableData([...tableData]);
       exitEditingMode(); //required to exit editing mode and close modal
     }
+
   };
 
   const handleDeleteRow = useCallback(

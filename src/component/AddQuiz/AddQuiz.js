@@ -10,7 +10,7 @@ const AddQuiz = () => {
   const handelAddQuiz = (e) => {
     e.preventDefault();
     const element = e.target.elements;
-
+    const quizQuestionNo = element[0].value;
     const quizQuestion = element[1].value;
     const quizOption1 = element[2].value;
     const quizOption2 = element[3].value;
@@ -35,6 +35,7 @@ const AddQuiz = () => {
     );
     dispatch(
       postQuizData({
+        quizQuestionNo,
         quizQuestion,
         quizOption1,
         quizOption2,
@@ -68,13 +69,14 @@ const AddQuiz = () => {
                   type="number"
                   placeholder="S/No"
                   className="input-que-box"
+                  min="1" max="100"
                 ></input>
-                <input
+                <textarea
                   required={true}
                   type="text"
                   placeholder="Enter The Quiz Questions"
                   className="input-box-1"
-                ></input>
+                ></textarea>
               </div>
               <label className="title-add-quiz">
                 If options are true or false leave last two fields empty

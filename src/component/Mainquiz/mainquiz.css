@@ -13,6 +13,38 @@
 .main-quiz--conatiner {
   display: flex;
 }
+.quiz-question-container
+{
+  display: flex;
+  justify-content: space-between;
+  gap: 150px;
+  align-items: center;
+}
+.quiz-question-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.after-quiz-questions
+{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: rgba(139, 222, 139, 0.776);
+  line-height: 50px;
+  letter-spacing: 1px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* footer txt */
+
+  color: #0a142f;
+}
 
 .Question-number {
   margin-top: 16px;

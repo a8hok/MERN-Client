@@ -1,6 +1,6 @@
 import axios from "axios";
 export const axio = axios.create({
-  baseURL: "https://average-gray-flannel-shirt.cyclic.app",
+  baseURL: "http://localhost:8001",
   headers: { 
   "X-Custom-Header": "foobar",
   "Accept": "application/json",
