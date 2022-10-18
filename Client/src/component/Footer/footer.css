@@ -1,0 +1,289 @@
+.footer {
+  padding: 0 4em;
+  margin-top: 10em;
+  display: flex;
+  flex-direction: column;
+}
+
+.Linepic {
+  background: rgb(57, 156, 255);
+  padding: 0.08em 0;
+  border-radius: 0.1em;
+  width: 100%;
+}
+
+.footer-divider {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+}
+
+
+.Social p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0a142f;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.Location-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+}
+
+.Location-footer p {
+  margin: 1em 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+  justify-items: center;
+  align-items: center;
+  font-size: 1em;
+  text-align: center;
+}
+
+.Caller-container, .printer-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.printer-container p, .Caller-container p {
+  margin: 1em 0;
+}
+
+.Social {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  gap: 1em;
+  justify-items: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Social p{
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.Social-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+  height: 1.6em;
+}
+
+.right-footer {
+  display: flex;
+  flex-direction: column;
+  height: 14em;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.Line2 {
+  padding: 0.04em 0em;
+  background: #748ca6;
+  opacity: 0.2;
+  width: 100%;
+  margin-top: 4em;
+}
+
+.hidden-copyright-container {
+  display: none;
+}
+
+.footer-link-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  text-decoration: none;
+  color: black;
+  align-items: center;
+}
+
+.Footer-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Footer-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.Copyright-container {
+  display: flex;
+  flex-direction: row;
+  color: rgb(129, 129, 131);
+  width: 100%;
+  justify-content: flex-end;
+  padding: 1em 0;
+}
+
+.Social-hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+  .footer{
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .Social {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .Social-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .Social-logos img {
+    width: 1.7em;
+  }
+
+  .Footer-link a {
+    font-size: 1em;
+  }
+
+  .footer-link-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    font-family: "Poppins";
+    gap: 1em;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .footer{
+    align-items: center;
+    margin: 3em 0;
+  }
+
+  .Logo {
+    margin: 2em 0;
+  }
+
+  .Linepic{
+    width: 120%;
+  }
+
+  .Footer-link {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    font-family: "Poppins";
+    gap: 0.5em;
+    height: 12em;
+    margin: 2em auto;
+  }
+
+  .Footer-link a {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right-footer {
+    display: none;
+  }
+
+  .Line2 {
+    display: none;
+  }
+
+  .Social-hidden{
+    display: flex;
+    flex-direction: row;
+    margin: 1em auto;
+    justify-content: space-evenly;
+    gap: 0.5em;
+  }
+
+  .Social-hidden img {
+    width: 1.2em;
+    height: 1.6em;
+  }
+
+  .footer-divider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .line-3 {
+    background: rgb(57, 156, 255);
+    padding: 0.08em 0;
+    border-radius: 0.1em;
+    width: 120%;
+  }
+
+  .Copyright-container {
+    display: none;
+  }
+
+  .hidden-copyright-container {
+    display: block;
+    text-align: center;
+    color: rgb(129, 129, 131);
+    font-weight: 600;
+    margin: 2em 0;
+  }
+
+  .footer-link-container{
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* @media only screen and (max-width: 580px) {
+  .Social-hidden{
+    display: flex;
+    flex-direction: row;
+    margin: 1em auto;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .Social-hidden img {
+    padding: 0.5em;
+    width: 1.4em;
+  }
+} */
+
+@media only screen and (max-width: 320px){
+  .footer-link-container{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+}

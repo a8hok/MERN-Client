@@ -1,0 +1,231 @@
+.user-Info {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 129, 254, 0.4);
+  box-shadow: 0px 10px 15px rgb(0 0 0 / 5%);
+  border-radius: 1em 1em 0em 0em;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em 0;
+  gap: 1em;
+  }
+
+  .edit-profile-btn button {
+    border: transparent;
+    background: transparent;
+  }
+
+  .img-indicator {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+  }
+
+  .userprofile-upload {
+    display: none;
+  }
+
+  .img-label {
+    cursor: pointer;
+}
+
+  .left-container--profilepage {
+    box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 110vh;
+  }
+
+  .left-container--dashboard--content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 1em;
+    gap: 1.5em;
+  }
+
+  .left-container--dashboard--content a {
+    text-decoration: none;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 1em;
+    color: #585555;
+  }
+
+  .left-container--dashboard--content:hover{
+      background-color:  #0081FE;
+      color:white;
+      cursor: pointer;   
+  }
+
+  .left-container--dashboard--content a:hover{
+      color:white;   
+      cursor: pointer;
+  }
+
+  .left-container-dashboard--contact a {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 1em;
+    text-decoration: none;
+    gap: 0.5em;
+    color: #ffffff;
+  }
+  
+  .dashboard-content-container {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .left-container--profilepage{
+    margin: 0 auto;
+    border-radius: 0em 0em 1em 1em;
+  }
+
+  .Read-More {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .Read-More a {
+    margin: 0;
+    gap: 0;
+  }
+
+  .user-data-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+  }
+
+  .user-data-container h3{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1em;
+  color: #2e1f27;
+}
+
+.user-data-container p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  color: #000000;
+  
+  }
+
+  .profilepage-container{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+    margin: 1em auto;
+  }
+
+  .profilepic-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .sub-top-1 {
+    padding: 1em;
+    width: 30em;
+  }
+
+  img.quiz-img {
+      width: 1.5em;
+  }
+
+  .eve-top {
+    font-family: 'Poppins';
+    font-style: normal;
+    text-align: justify;
+    font-size: 1.5em;
+    padding: 1em;
+    font-weight: 600;
+  }
+
+  .eve-top-header {
+    font-size: 1.6em;
+    padding: 1em;
+  }
+
+  .sub-top {
+    display: flex;
+    flex-direction: row;
+    gap: 1.4em;
+    padding: 1em;
+  }
+
+  .sub-container-pro {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    color: #898989;
+  }
+
+  .Loginlogo-pro {
+    background: rgb(83, 117, 226);
+    box-shadow: 0px 0px 4px rgb(176 16 48 / 30%);
+    width: 4em;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.third-full-con-pro {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  height: 30em;
+  background: rgb(231, 231, 231);
+  gap: 1em;
+  padding: 1em;
+}
+.center-pro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.edit-info {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.event-details {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.third-sub-con {
+  display: flex;
+  flex-direction: column;
+  margin: auto 1em;
+  height: 26em;
+  width: 18em;
+  background: #ffffff;
+  color: #4c4c4d;
+  box-shadow: 2px 2px 12px #e5d9db;
+  border-radius: 1em;
+}

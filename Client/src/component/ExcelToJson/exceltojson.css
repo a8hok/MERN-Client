@@ -1,0 +1,76 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding: 1em;
+    margin: 1em auto;
+    width: 50%;
+    align-items: center;
+}
+
+.admin-select {
+    width: 50em;
+    height: 4em;
+    background: #ffffff;
+    box-shadow: 2px 2px 12px #bdbdbd;
+    border-radius: 1em;
+    padding: 1em 2em;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.admin-submit {
+    padding: 1.2em 0em;
+    text-transform: uppercase;
+    background: rgb(15, 136, 196);
+    color: white;
+    font-weight: 700;
+    font-size: medium;
+    border: transparent;
+    border-radius: 0.8em;
+    cursor: pointer;
+}
+
+.admin-file-upload {
+    display: none;
+}
+
+.file-label {
+    background: url("../Landing/Img/file-icon-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    padding: 3em 5em;
+    border-radius: 1em;
+}
+
+.success-snippets {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: -8em;
+    flex-direction: row;
+    background: rgb(67, 126, 67);
+    color: white;
+    text-decoration: none;
+    padding: 1em 1.4em;
+    font-weight: 500;
+    border-radius: 0.5em;
+    font-size:x-small;
+    width: 100%;
+    word-spacing: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.success-file-msg {
+    color: blue;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+.upload-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}

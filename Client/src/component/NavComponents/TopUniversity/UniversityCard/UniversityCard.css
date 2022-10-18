@@ -1,0 +1,46 @@
+.uni-card-container {
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    gap: 1em;
+    justify-content: space-between;
+    width: 100%;
+    height: 30vh;
+    margin: 1em 1em;
+    border-radius: 0.4em;
+    background:#cbe7ff;
+}
+
+.uni-img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.4em 0 0 0.4em;
+}
+
+.uni-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
+}
+
+.uni-title a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+}
+
+.uni-place {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(100, 100, 100);
+}
+
+.uni-other-container {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(43, 43, 43);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}

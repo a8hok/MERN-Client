@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+body {
+  margin: 0;
+}
+
+.navbars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10.9em;
+  justify-items: center;
+  box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
+}
+
+.mid-navmenus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em 3em;
+}
+
+.top-navmenus,
+.bot-navmenus {
+  background: rgb(83, 117, 226);
+  width: 100%;
+  padding: 0.5em 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.visible-nav-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.visible-nav-option a,
+.top-navmenus a {
+  font-size: 1em;
+}
+
+.visible-nav-option a:hover,
+.top-navmenus a:hover {
+  color: white;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.4em;
+  text-align: center;
+  margin: 0 auto;
+  align-self: center;
+}
+
+header .nav-btn {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#logout-button {
+  cursor: pointer;
+  width: 8em;
+  height: 2.5em;
+  border: 1px solid #e25353;
+  color: white;
+  background: #fb4b4b;
+  border-radius: 1.5em;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.hidden-navbar-options {
+  display: none;
+}
+.hidden-divider {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .visible-nav-option a,
+  .top-navmenus a {
+    font-size: 1.5em;
+  }
+
+  .logo-img-contain {
+    object-fit: contain;
+  }
+
+  .hidden-divider {
+    padding: 0.1em;
+    display: block;
+    background: rgb(144, 144, 249);
+    height: 70%;
+  }
+
+  .top-navmenus,
+  .bot-navmenus {
+    background: transparent;
+  }
+
+  .navbars {
+    box-shadow: 0 0 1em rgb(95, 95, 95);
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5em;
+    align-items: center;
+    height: 6em;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    justify-content: center;
+    transition: 1s;
+    transform: translatex(-200vh);
+  }
+
+  header .responsive_nav {
+    transform: none;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: rgb(223, 236, 238);
+    overflow: hidden;
+    gap: 3em;
+  }
+
+  .inside-nav-option {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8em;
+    width: 100%;
+  }
+
+  header .responsive_nav a:hover {
+    background: rgb(201, 228, 241);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    width: 90%;
+    padding: 0 0.5em;
+    font-family: "Poppins";
+    text-align: center;
+  }
+
+  #logout-button {
+    border: 2px solid #e25353;
+    background: transparent;
+    color: #e25353;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  header .responsive_nav {
+    padding: 1em;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+    gap: 2em;
+  }
+  .inside-nav-option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    width: 100%;
+  }
+  .inside-nav-option a {
+    font-size: 0.8em;
+    padding: 0.1em;
+  }
+  .hidden-divider {
+    display: none;
+  }
+  header nav {
+    gap: 0;
+  }
+  header .responsive_nav {
+    padding: 1em;
+    height: 40em;
+  }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 5rem;
+  }
+  nav a {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* .Login-btn {
+  width: 130px;
+  height: 32px;
+  border: 1px solid #E25353;
+  border-radius: 22.3022px;
+  color: #C00000;
+  background: #FFFFFF;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+} */
+
+@media only screen and (max-width: 770px) {
+  .inside-nav-option a {
+    font-size: 0.8em;
+    padding: 0.1em;
+    text-align: justify;
+  }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 0.6em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  header {
+    width: 100%;
+  }
+
+  header .responsive_nav {
+    transform: none;
+    height: 90vh;
+  }
+  .inside-nav-option a {
+    font-size: 0.6em;
+    padding: 0;
+  }
+}

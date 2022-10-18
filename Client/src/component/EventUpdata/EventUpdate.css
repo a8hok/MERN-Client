@@ -1,0 +1,33 @@
+.update-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+    margin: 5em auto;
+    height: 45em;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(0, 129, 254, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.update-title, .update-discription, .update-date, .update-time {
+    width: 90%;
+    height: 3.5em;
+    border: none;
+    border-radius: 1em;
+    padding: 0 2em;
+}
+
+.update-submit {
+    cursor: pointer;
+    background: #5375e2;
+    width: 90%;
+    height: 3.5em;
+    border-radius: 1em;
+    border: none;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    color: white;
+}

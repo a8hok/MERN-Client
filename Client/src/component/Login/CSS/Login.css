@@ -1,0 +1,218 @@
+.Loginlogo {
+  background-position: center;
+  background: #5375e2;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
+  width: 4em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.Loginlogo img {
+  padding: 2em;
+}
+
+.hidden,
+.hidden-pagename,
+.hidden-container {
+  display: none;
+}
+
+.Login-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  padding: 1em;
+  align-items: center;
+  justify-items: center;
+  width: 30em;
+  gap: 2em;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+}
+
+.Login-main {
+  display: flex;
+  padding-top: 5em;
+  justify-content: center;
+}
+
+.image {
+  background-image: url("../Images/Background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 46em;
+}
+
+.Emails-input,
+.passwords-input {
+  width: 90%;
+  height: 4em;
+  padding: 0 1em;
+  background: #ffffff;
+  border-radius: 1em;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.login-btn {
+  cursor: pointer;
+  background: rgb(83, 117, 226);
+  height: 3.5em;
+  border-radius: 1em;
+  width: 90%;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1em;
+  color: white;
+}
+
+.login-footer {
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1em;
+  gap: 0.5em;
+  line-height: 1.5em;
+  color: #ffffff;
+}
+
+.login-footer a {
+  text-decoration: none;
+  color: #0081fe;
+  /* text-shadow: 1px 1px 2px white; */
+}
+
+@media only screen and (max-width: 1200px) {
+  .Emails-input,
+  .passwords-input {
+    border: 2px solid gray;
+    width: 80%;
+    padding: 0 1em;
+    height: 3em;
+    margin: 0 auto;
+  }
+  .Loginlogo {
+    display: none;
+  }
+  .Login-container {
+    display: grid;
+    grid-auto-flow: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 20em;
+    margin: 0 auto;
+    background: transparent;
+  }
+  .image {
+    background: transparent;
+  }
+  .Login-main {
+    margin: 0 auto;
+  }
+  .login-footer p {
+    margin: 0;
+  }
+  .login-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    height: 5em;
+    padding: 1em;
+    align-items: center;
+    text-align: center;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.1em;
+    color: #000000;
+  }
+  .login-footer a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #0081fe;
+    align-items: center;
+    font-size: 1em;
+  }
+  .hidden {
+    display: block;
+    margin: 2em auto;
+    background-image: url("../Images/Frame.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20em;
+    height: 20em;
+  }
+  .hidden-pagename {
+    display: block;
+    font-weight: 800;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 2.2em;
+    text-transform: capitalize;
+    width: 60%;
+    margin: 1em auto;
+  }
+  .hidden-container {
+    display: block;
+  }
+  .login-btn {
+    height: 3em;
+    border-radius: 1em;
+    width: 80%;
+    padding: 0 1em;
+    border: none;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4em;
+    color: white;
+  }
+  .all-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .Login-container {
+    width: 30em;
+    margin: 0 auto;
+  }
+  .Email-input,
+  .password-input {
+    border: 2px solid gray;
+    width: 80%;
+  }
+  .image {
+    /* width: 35em; */
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+  }
+  .hidden-container {
+    width: 35em;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .all-login-container {
+    width: 35em;
+  }
+}

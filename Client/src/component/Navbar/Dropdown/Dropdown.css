@@ -1,0 +1,44 @@
+#info-box {
+    width: 16em;
+    background: #ffffff;
+    margin-top: 5em;
+}
+
+a#link {
+    text-decoration: none;
+    color: black;
+}
+
+h5#name {
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 23px;
+    
+}
+p#email {
+   
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 18px;
+}
+a:hover#link {
+   
+    color: blue;
+}
+
+.list-group-flush {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.user-avatar-btns {
+    border: none;
+    background: transparent;
+}
+
+.user-avatar-btns a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+}

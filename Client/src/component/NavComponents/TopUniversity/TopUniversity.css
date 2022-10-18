@@ -1,0 +1,42 @@
+.university-main-heading {
+    width: 100%;
+    margin: 0.8em 7em;
+    font-size: 2.5em;
+    color: rgb(0, 0, 48);
+}
+
+.selecting-preferences {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 60%;
+    margin: 1em 1em;
+    border: 0.1em solid rgb(0, 0, 48);
+    height: 3.5em;
+}
+
+.guide-selection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 0.1em solid rgb(0, 0, 48);
+}
+
+.guide-selector {
+    padding: 0 1.5em;
+    border: 0.1em solid rgb(0, 0, 48);
+}
+
+.uni-main-container {
+    display: flex;
+    width: 100%;
+    gap: 2em;
+}
+
+.uni-list-main-container {
+    width: 60%;
+}
+
+.uni-right-sidebar {
+    width: 37%;
+}

@@ -1,0 +1,67 @@
+.form-container{
+    width: 35em;
+    height: 55em;
+    margin: 5em auto;
+}
+
+.form-content{
+    display: flex;
+    justify-content:center;
+    gap: 2em;
+    flex-direction: column;
+    width: 100%;
+    height: 58em;
+    padding: 2em;
+    align-items: center;
+    background: rgba(0, 129, 254, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 1em;
+}
+
+.input-img-label,.input-img{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;  
+}
+
+.input-title,.input-discription,.input-time,.input-date{
+    color: #000000;
+    width: 90%;
+    height: 3.5em;
+    background: #ffffff;
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    /* border: 2px solid #a7abaf; */
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    margin: 0 auto;
+}
+
+.btn-submit{
+    cursor: pointer;
+    background: #5375e2;
+    width: 90%;
+    height: 3.5em;
+    border-radius: 1em;
+    border: none;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    color: white;
+}
+
+.addEvent-success-msg {
+    background: rgb(26, 158, 26);
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 1em;
+    padding: 1em;
+    width: 90%;
+    text-align: center;
+}

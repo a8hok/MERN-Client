@@ -1,0 +1,249 @@
+.quiz-questions {
+  width: 924px;
+  
+  left: 0px;
+  top: 0px;
+
+  background: rgba(244, 250, 255, 0.7);
+  border-radius: 10px;
+  margin-left: 100px;
+  margin-top: 41px;
+}
+
+.main-quiz--conatiner {
+  display: flex;
+}
+
+.Question-number {
+  margin-top: 16px;
+  margin-left: 16px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 33px;
+  line-height: 50px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  /* footer txt */
+
+  color: #0a142f;
+}
+
+.question {
+  margin-top: 16px;
+  margin-left: 16px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  /* footer txt */
+
+  color: #0a142f;
+}
+
+.question-option--1,
+.question-option--2,
+.question-option--3,
+.question-option--4 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 550;
+  font-size: 17px;
+
+  line-height: 22px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+
+  display: flex;
+  gap: 10px;
+}
+.question-option--1,
+.question-option--2,
+.question-option--3,
+.question-option--4:hover {
+  cursor: pointer;
+}
+.option--container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.Endtest-btn {
+  width: 128px;
+  height: 34px;
+  border: 1.58025px solid #fb4b4b;
+  border-radius: 7.90123px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* alert */
+
+  color: #fb4b4b;
+}
+.Endtest-btn {
+  cursor: pointer;
+}
+.react-paginate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.react-paginate--container {
+ 
+  height: 60px;
+  justify-content: space-evenly;
+  gap: 100px;
+  align-items: center;
+  margin-top: 78px;
+}
+.previous-class {
+  width: 128px;
+  height: 34px;
+  border-radius: 7.90123px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  /* text */
+
+  color: rgba(70, 70, 70, 0.64);
+}
+.page-class {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e7e7e7;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* text */
+
+  color: rgba(70, 70, 70, 0.64);
+}
+
+
+.page-class:hover {
+  color: rgba(0, 129, 254, 0.9);
+  cursor: pointer;
+}
+.previous-class:hover {
+  color: rgba(0, 129, 254, 0.9);
+  cursor: pointer;
+}
+
+.endtest-block {
+  margin-top: 44px;
+  margin-left: 16px;
+  
+}
+.quiz-questions--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quizhint-logo--container {
+  margin-right: 107px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 2px 2px 12px #d5d7d8;
+}
+.quizhint-logo--container:hover {
+  background-color: rgba(0, 129, 254, 0.9);
+  cursor: pointer;
+}
+.previous-class a
+{
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(70, 70, 70, 0.64);
+}
+.previous-class a{
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(70, 70, 70, 0.64);
+}
+.Skip-btn {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 128px;
+  height: 34px;
+  /* text */
+  border: none;
+  border-radius: 8px;
+  margin-left:20px;
+  color:  #fb4b4b;
+  border: 1.58025px solid #fb4b4b;
+}
+.Skip-btn:hover {
+  color: rgba(0, 129, 254, 0.9);
+  cursor: pointer;
+}
+.endtest-block
+{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}

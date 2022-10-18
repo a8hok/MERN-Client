@@ -1,0 +1,100 @@
+.clg-head-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: aliceblue;
+}
+.clg-name {
+  font-family: "Poppins";
+  font-size: 35px;
+  font-weight: 600;
+}
+.clg-city {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.clg-district {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.clg-state {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.clg-head-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: aliceblue;
+  align-items: center;
+}
+img.clg-img {
+  border-radius: 135px;
+  width: 9%;
+}
+h3.clg-topic {
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.clg-year {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img.uni-logo {
+  width: 40px;
+}
+.edu-logo {
+  width: 100px;
+}
+.clg-co-education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: aliceblue;
+}
+
+.clg-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: aliceblue;
+}
+.clg-sec-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clg-campus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.clg-faculty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.clg-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button.clg-detail-button {
+  border-radius: 4px;
+  width: 20%;
+  background: #edeae7;
+  /* border: aliceblue; */
+  border-top-color: aliceblue;
+  border-left-color: white;
+  border-bottom-color: white;
+}

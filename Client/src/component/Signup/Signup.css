@@ -1,0 +1,184 @@
+.Signup-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  padding: 1em;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  width: 34em;
+  height: 39em;
+  gap: 2em;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+}
+
+.Signinlogo{
+  background-position: center;
+  background: #5375e2;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
+  width: 4em;
+  height: 4em;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.Signup-main {
+  display: flex;
+  padding-top: 5em;
+  justify-content: center;
+}
+
+.fistname-input,.LastName-input,.password-input,.Email-input {
+  width: 100%;
+  height: 3.5em;
+  background: #ffffff;
+  border-radius: 1em;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  color: #000000;
+  padding-left:0.5em;
+}
+
+.fistname-input,.LastName-input{
+  width: 100%;
+}
+
+.Name-input-container {
+  display: flex;
+  flex-direction: row;
+  width: 29em;
+  gap: 1.5em;
+}
+
+.Signup-btn {
+  cursor: pointer;
+  background: hsl(226, 71%, 61%);
+  width: 29em;
+  height: 3.5em;
+  border-radius: 1em;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  color: white;
+}
+
+.Signup-footer {
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1em;
+  gap: 0.5em;
+  color: #ffffff;
+}
+
+.Signup-footer a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #0081fe;
+  align-items: center;
+  font-size: 1em;
+}
+.sign-success {
+  color: #ffff;
+  background: #60b660;
+  display: flex;
+  height: 55px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 7px;
+}
+.sign-failure {
+  color: #ffff;
+  background: #f44d4d;
+  display: flex;
+  height: 54px;
+  width: 456px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 7px;
+}
+.sign-success span {
+  display: flex;
+  gap: 15px;
+}
+a.sign-success-link {
+  text-decoration: none;
+  color: #1f4bda;
+}
+
+a.sign-success-link {}
+/* .form-signup{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+} */
+
+@media only screen and (max-width: 1200px) {
+  .Email-input, .password-input,.fistname-input, .LastName-input  {
+    border: 2px solid gray;
+    width: 100%;
+    height: 3em;
+    margin: 0 auto;
+  }
+  .Signup-main {
+    margin: 0 auto;
+  }
+  .form-signup{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .Signup-container{
+    display: grid;
+    grid-auto-flow: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 30em;
+    margin: 0 auto;
+    background: transparent;
+  }
+  .Name-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2em;
+    align-items: center;
+  }
+  .Signup-footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    margin: 0 auto;
+  }
+  .Signup-btn {
+    height: 3em;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .Signup-footer p {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  
+}

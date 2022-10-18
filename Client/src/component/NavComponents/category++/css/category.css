@@ -1,0 +1,45 @@
+.category-page-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 95%;
+    margin: 1em auto;
+}
+
+.category-options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F4FAFF;
+}
+
+.category-details {
+    background: rgb(255, 255, 255);
+}
+
+.category-options {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: solid 0.15em rgb(242 242 242);
+    background: transparent;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 1.5em 2.5em;
+}
+
+.category-options:hover {
+    background: rgb(83, 117, 226);
+    color: white;
+}
+
+.category-details-card {
+    background: rgb(215, 215, 255);
+    border-radius: 1em;
+    box-shadow: 1em 1em 1em gray;
+    width: 60%;
+    margin: 15em auto;
+    height: 30vh;
+    padding: 2em;
+}

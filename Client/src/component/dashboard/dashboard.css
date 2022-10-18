@@ -1,0 +1,92 @@
+.dashboard-divider {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin: 0.4em 0;
+}
+
+.option-toggle{
+  overflow-y: scroll;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  text-align: center;
+  height: 100vh;
+  box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
+}
+
+.dropbtn {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 1em;
+  padding: 1em;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(202, 223, 255);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 100%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 1em 2em;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: rgb(176, 213, 255)}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(31, 72, 177);
+}
+
+.toggle-heading{
+  font-size: 2em;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.option-toggle button {
+  background: none;
+  border: none;
+  padding: 1em;
+  font-style: "poppins";
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.option-toggle button:hover {
+  background: rgb(83, 117, 226);
+}
+
+/* ::-webkit-scrollbar {
+  width: 14px;
+  background: rgb(3, 51, 77);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(10, 110, 110);
+  -webkit-border-radius: 0.1em;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+} */
