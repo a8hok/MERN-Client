@@ -2,7 +2,83 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 8rem;
     font-family: Poppins;
     line-height: 2;
+    width: 35em;
+}
+
+.about-right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.all-about-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 30em;
+}
+
+.all-img {
+    width: 20em;
+    margin: auto;
+}
+
+.all-img-container {
+    margin: auto;
+}
+
+@media only screen and (max-width: 970px) {
+    .all-about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 3em auto;
+        gap: 1.5em;
+    }
+
+    .all-img-container {
+        
+    }
+
+    .about-right-container {
+        width: 100%;
+    }
+
+    .about-container {
+        width: 80%;
+        margin: auto;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .all-about-container {
+        margin: 5em auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .all-about-container {
+        margin: 3em auto;
+        height: 50em;
+        gap: 2em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .all-img-container {
+        /* width: 80%; */
+        margin: 1em auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .all-img {
+        width: 60%;
+        margin: auto;
+    }
 }

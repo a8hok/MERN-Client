@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 10.9em;
+  height: 15em;
   justify-items: center;
   box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
 }
@@ -26,7 +26,7 @@ body {
 .bot-navmenus {
   background: rgb(83, 117, 226);
   width: 100%;
-  padding: 0.5em 3em;
+  padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -75,6 +75,11 @@ nav {
   width: 100%;
 }
 
+.AcademyLogo {
+  width: 7em;
+  height: 7em;
+}
+
 #logout-button {
   cursor: pointer;
   width: 8em;
@@ -119,21 +124,25 @@ nav {
     height: 70%;
   }
 
-  .top-navmenus,
+  .top-navmenus{
+    background: transparent;
+    display: none;
+  }
+
   .bot-navmenus {
     background: transparent;
   }
 
   .navbars {
     box-shadow: 0 0 1em rgb(95, 95, 95);
-    padding: 1em;
+    padding: 2em;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 0.5em;
     align-items: center;
-    height: 6em;
+    height: 8em;
   }
 
   header nav {
@@ -193,12 +202,28 @@ nav {
     color: #e25353;
     font-weight: 700;
   }
+
+  .AcademyLogo {
+    width: 70%;
+    height: 70%;
+  }
 }
 
-@media only screen and (max-width: 900px) {
-  header {
+@media only screen and (max-width: 1025px) {
+  .AcademyLogo {
+    width: 15em;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .AcademyLogo {
+    width: 70%;
+    height: 70%;
+  }
+  .navbars {
     display: flex;
     flex-direction: row;
+    width: 100%;
   }
   header .responsive_nav {
     padding: 1em;
@@ -269,6 +294,21 @@ nav {
     top: 1rem;
     right: 2rem;
     width: 0.6em;
+  }
+  .AcademyLogo {
+    width: 8em;
+  }
+  .mid-navmenus {
+    padding: 0 2em;
+  }
+  .navbars {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .navbars {
+    width: 100%;
   }
 }
 

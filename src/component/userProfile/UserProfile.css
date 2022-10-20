@@ -192,10 +192,10 @@
   overflow: hidden;
   overflow-x: scroll;
   width: 100%;
-  height: 30em;
-  background: rgb(231, 231, 231);
+  height: 34em;
+  background: rgba(149, 200, 251, 0.4);
   gap: 1em;
-  padding: 1em;
+  padding: 3em 1em;
 }
 .center-pro {
   display: flex;

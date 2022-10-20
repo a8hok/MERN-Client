@@ -104,24 +104,9 @@ const UserProfile = () => {
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>Student</p>
                 </div>
-                {/* <div className="edit-profile-btn">
-                onClick={() => setcontent("edit-profile")}
-                  <button >
-                    Edit
-                  </button>
-                </div> */}
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
-                  {/* <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={dashIconImg}
-                      alt="no img found"
-                    ></img>
-                    <a href="/admin/dashboard">Dashboard</a>
-                  </div> */}
-
                   <div className="left-container--dashboard--content">
                     <img
                       className="quiz-img"

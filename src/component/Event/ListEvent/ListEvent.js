@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import EditEvents from "../../EditProfile/EditProfile";
+import loader from "../img/loader.gif"
+import { useSelector } from "react-redux";
+import "./ListEvent.css";
 
 function ListEvent({ eventsData, editImg }) {
   const [state, setState] = useState("event-list");
   const [data, setData] = useState();
+
+  const {eventLoading } = useSelector((state) => state.eventsInfo);
 
   const redirect = (e) => {
     setData(e);
@@ -12,7 +17,8 @@ function ListEvent({ eventsData, editImg }) {
 
   return (
     <>
-      {state === "event-list" && (
+    {eventLoading && <img src={loader} className="for-loader"/>}
+      {eventLoading === false && state === "event-list" && (
         <div className="third-full-con-pro">
           {eventsData.length > 0 &&
             eventsData.map((obj) => {

@@ -11,6 +11,7 @@ import instagram from "../Login/Images/Instagram.svg";
 import google from "../Login/Images/GooglePlus.svg";
 import pinster from "../Login/Images/Pinterest.svg";
 import Wifilogo from "../Login/Images/wifilogo.svg";
+import logo from "../About/img/Learn.svg";
 import './footer.css'
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
 
       <div className="footer-divider">
 
-        <img className="Logo" src={Logo} alt="no img found"></img>
+        <img className="Logo" src={logo} alt="no img found"></img>
 
         <div className="right-footer">
 

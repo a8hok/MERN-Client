@@ -1,10 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginUser } from "../../../Store/Slice/LoginSlice.js";
 import Loginlogo from "../../Login/Images/Vector.svg";
 import { PopupMenu } from "react-simple-widgets";
 import "../Dropdown/Dropdown.css";
 const Dropdown = ({ profileInfo }) => {
+
+  const navRef = useRef();
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_Dropdown");
+  };
+
   const navigate = useNavigate();
   const logout = (e) => {
     navigate("/", {
@@ -12,60 +20,63 @@ const Dropdown = ({ profileInfo }) => {
     });
   };
   return (
-    <div id="app">
+    <div id="">
       <div className="text-end">
-        <PopupMenu>
-          <div className="Loginlogo">
-            <img src={Loginlogo} alt="no img found"></img>
+        <div>
+          <div className="Avatarlogo-container" onClick={showNavbar}>
+            <img src={Loginlogo} alt="no img found" className="Avatarlogo"></img>
           </div>
-          <div className="card text-start" id="info-box">
-            <div className="card-body px-4 py-4" id="card">
+          <div className="dropdown-all-Container" ref={navRef}>
+            <div className="dropdown-container">
               <div
                 id="circle-avatar"
-                className="text-center mx-auto mb-4"
               ></div>
 
-              <h5 className="text-center mb-2" id="name">
+              <h5 className="Dropdown_Profile-UserName">
                 {profileInfo.userFirstName}
               </h5>
-              <p className="text-center mb-2" id="email">
+              <p className="Dropdown_Profile-UserEmail">
                 {profileInfo.userEmail}
               </p>
 
-              <hr className="user-fn-divider" />
+              <hr className="dropdown-divider" />
 
-              <div className="list-group list-group-flush" id="link-but">
+              <div className="dropdown-options" id="">
                 {profileInfo.superAdminStatus && (
-                  <button className="user-avatar-btns">
-                    <Link to="/admin" state={profileInfo.userEmail}>
+                  <button className="dropdown-options-button">
+                    <Link to="/admin" state={profileInfo.userEmail}
+                    className="dropdown-options-link">
                       Excel Upload
                     </Link>
                   </button>
                 )}
                 {profileInfo.superAdminStatus && (
-                  <button className="user-avatar-btns">
-                    <Link to="/admin/dashboard" state={profileInfo.userEmail}>
+                  <button className="dropdown-options-button">
+                    <Link to="/admin/dashboard"
+                    className="dropdown-options-link"
+                     state={profileInfo.userEmail}>
                       Dashboard
                     </Link>
                   </button>
                 )}
-                <button className="user-avatar-btns">
-                  <Link to="/profile" state={profileInfo.userEmail}>
+                <button className="dropdown-options-button">
+                  <Link to="/profile" state={profileInfo.userEmail}
+                  className="dropdown-options-link">
                     Edit Profile
                   </Link>
                 </button>
               </div>
 
-              <hr className="user-fn-divider" />
+              <hr className="dropdown-divider" />
 
-              <div className="d-grid">
-                <button className="btn btn-primary" onClick={logout}>
-                  <small>Logout</small>
+              <div className="">
+                <button className="dropdown-Logout_button" onClick={logout}>
+                  Logout
                 </button>
               </div>
             </div>
           </div>
-        </PopupMenu>
+        </div>
       </div>
     </div>
   );

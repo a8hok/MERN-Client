@@ -9,7 +9,7 @@ const eventsReducers = createSlice({
   name: "events",
   initialState: {
     eventsData: [],
-    eventLoading: false,
+    eventLoading: true,
   },
   reducers: {},
   extraReducers: {
