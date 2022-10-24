@@ -1,4 +1,12 @@
 .for-loader {
+    width: 75%;
+    margin: auto;
+}
+
+.loader-Container {
     width: 100%;
-    margin: 4em auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }

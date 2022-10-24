@@ -55,7 +55,6 @@ const AddQuiz = () => {
 
   return (
     <div className="total-page">
-      <Navbar />
       <div className="form">
         <div className="form-add">
           <form onSubmit={handelAddQuiz} className="form-data">

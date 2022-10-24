@@ -17,11 +17,13 @@
     display: grid;
     grid-template-columns: 40% 60%;
     height: 30em;
+    width: 85%;
+    margin: auto;
 }
 
 .all-img {
     width: 20em;
-    margin: auto;
+    margin: auto auto auto 10em;
 }
 
 .all-img-container {
@@ -37,10 +39,6 @@
         width: 80%;
         margin: 3em auto;
         gap: 1.5em;
-    }
-
-    .all-img-container {
-        
     }
 
     .about-right-container {

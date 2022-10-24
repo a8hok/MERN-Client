@@ -3,31 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import AdminNavBar from "./AdminNavBar";
-import EditProfile from "../EditProfile/EditProfile";
-import profilepic from "../Login/Images/PROFILEPIC.svg";
-import ProfileImg from "../../component/Login/Images/Vector.svg";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import "./UserProfile.css";
-import enrolledImg from "../Login/Images/enrollImg.svg";
-// import editProfileImg from "../Login/Images/edit.svg";
-import logoutImg from "../Login/Images/log-img.svg";
-import quizImg from "../Login/Images/quizImg.svg";
-import dashImg from "../Login/Images/dashboard-img.svg";
-import contactImg from "../Login/Images/contact-img.svg";
-import img4 from "../Landing/Img/Rectangle-14.jpg";
-import profilequiz from "../Login/Images/profilequiz.svg";
-import dashIconImg from "../Login/Images/dash-icon.png";
-import eventImg from "../Login/Images/event-icon.png";
 import AddEvent from "../Event/AddEvent";
 import { GetProfilepic } from "../../Store/Slice/getProfilepic";
 import { getEventInfo } from "../../Store/Slice/EventSlice";
 import { PostProfilepic } from "../../Store/Slice/profilepicpost";
 import editImg from "../Event/img/edit.svg";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ListEvent from "../Event/ListEvent/ListEvent";
-//dashboard, program, fileupload, addevent-(superadmin) superadmin@gmail.com superadmin
-
-//normal login - addevent
+import AddQuiz from "../AddQuiz/AddQuiz";
+import SaveAltOutlinedIcon from '@mui/icons-material/SaveAltOutlined';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import EventIcon from '@mui/icons-material/Event';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 
 const UserProfile = () => {
   const [name, setname] = useState();
@@ -35,6 +26,7 @@ const UserProfile = () => {
   const locationState = useLocation()?.state;
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { userImage, userImageloading } = useSelector(
     (state) => state.newprofilepicInfo
   );
@@ -45,6 +37,7 @@ const UserProfile = () => {
     if(locationState){
       dispatch(userProfileData(locationState));
     }
+    return () => {}
   }, []);
 
   useEffect(() => {
@@ -66,6 +59,10 @@ const UserProfile = () => {
     dispatch(PostProfilepic(imagefile));
     setimg("changed");
   };
+
+  const navigation = (e) => {
+    navigate("/quiz")
+  }
 
   return (
     <>
@@ -108,44 +105,28 @@ const UserProfile = () => {
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
                   <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={quizImg}
-                      alt="no img found"
-                    ></img>
-                    <a href="/quiz">Quiz</a>
+                    <QuizOutlinedIcon/>
+                    <button onClick={navigation}>Quiz</button>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={enrolledImg}
-                      alt="no img found"
-                    ></img>
-                    <a href="/#">Enrolled Course</a>
+                    <AssignmentOutlinedIcon/>
+                    <button>Enrolled Course</button>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={quizImg}
-                      alt="no img found"
-                    ></img>
-                    <a href="/#">Saved Items</a>
+                    <SaveAltOutlinedIcon/>
+                    <button>Saved Items</button>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={editImg}
-                      alt="no img found"
-                    ></img>
-                    <a onClick={() => setcontent("user-profile")}>Profile</a>
+                    <PermIdentityOutlinedIcon/>
+                    <button onClick={() => setcontent("user-profile")}>Profile</button>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img
-                      className="quiz-img"
-                      src={eventImg}
-                      alt="no img found"
-                    ></img>
-                    <a onClick={() => setcontent("add-event")}>Add Event</a>
+                    <EventIcon/>
+                    <button onClick={() => setcontent("add-event")}>Add Event</button>
+                  </div>
+                  <div className="left-container--dashboard--content">
+                    <PostAddIcon/>
+                    <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
                   </div>
                 </div>
               </div>
@@ -162,6 +143,7 @@ const UserProfile = () => {
             </div>
           )}
           {content === "add-event" && <AddEvent />}
+          {content === "add-quiz" && <AddQuiz/>}
           {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>

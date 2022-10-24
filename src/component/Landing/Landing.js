@@ -80,35 +80,7 @@ function Landing() {
           </button>
         </div>
       </div>
-      {/* <div className="second-contant">
-          <div className="sub-con">
-            <h1 className="topic"> Topics</h1>
-
-            <div className="sub-top">
-              {topicData.length > 0 &&
-                topicData.map((obj) => {
-                  return (
-                    <div className="sub-top-1" key={obj.id}>
-                      <h2 className="topic1">{obj.topicTitle}</h2>
-                      <p className="sub-contain">{obj.topicDescription}</p>
-
-                      <div className="Read-More">
-                        <a href="/detail">
-                          <img src={img6} className="book-logo"></img>
-                          Read More
-                        </a>
-                      </div>
-                    </div>
-                  );
-                })}
-              <div className="next-but">
-                <button onClick={navigateDetail}>
-                  <img className="click-but" src={img7}></img>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
+      
       <div className="third-container">
         <div className="third-content">
           <div className="third-top">

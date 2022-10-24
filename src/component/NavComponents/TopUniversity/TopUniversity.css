@@ -1,6 +1,6 @@
 .university-main-heading {
     width: 100%;
-    margin: 0.8em 7em;
+    padding: 1em 5.5em;
     font-size: 2.5em;
     color: rgb(0, 0, 48);
 }
@@ -10,8 +10,8 @@
     grid-template-columns: 25% 25% 25% 25%;
     width: 60%;
     margin: 1em 1em;
-    border: 0.1em solid rgb(0, 0, 48);
     height: 3.5em;
+    gap: 0;
 }
 
 .guide-selection {
@@ -19,12 +19,21 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 0.1em solid rgb(0, 0, 48);
+    background: rgb(117, 167, 253);
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 1em 0 0 1em;
 }
 
 .guide-selector {
     padding: 0 1.5em;
-    border: 0.1em solid rgb(0, 0, 48);
+    border: none;
+    background: rgb(240, 240, 240);
+}
+
+.guide-Selector_Last {
+    border-radius: 0 1em 1em 0;
 }
 
 .uni-main-container {

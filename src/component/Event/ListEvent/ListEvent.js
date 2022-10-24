@@ -17,7 +17,10 @@ function ListEvent({ eventsData, editImg }) {
 
   return (
     <>
-    {eventLoading && <img src={loader} className="for-loader"/>}
+    {eventLoading &&<div className="loader-Container">
+                      <img src={loader} className="for-loader"/>
+                    </div>
+    }
       {eventLoading === false && state === "event-list" && (
         <div className="third-full-con-pro">
           {eventsData.length > 0 &&

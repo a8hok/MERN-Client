@@ -1,119 +1,165 @@
 .quiz-questions {
-  width: 924px;
-  
-  left: 0px;
-  top: 0px;
+  width: 90%;
+  background: rgba(240, 240, 240, 0.7);
+  border-radius: 1em;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  margin: 0 auto;
+}
 
-  background: rgba(244, 250, 255, 0.7);
-  border-radius: 10px;
-  margin-left: 100px;
-  margin-top: 41px;
+.meter-scale {
+  width: 100%;
+  margin: 0 auto;
+  height: 2em;
 }
 
 .main-quiz--conatiner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  width: 95%;
+  margin: 2em auto;
 }
-.quiz-question-container
-{
+
+.quiz-questions--header {
   display: flex;
   justify-content: space-between;
-  gap: 150px;
   align-items: center;
 }
-.quiz-question-container
-{
+
+.quiz-question-container{
   display: flex;
   justify-content: center;
+  gap: 4em;
   align-items: center;
 }
-.after-quiz-questions
-{
+
+.quiz-Choose_testPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.after-quiz-questions{
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.2em;
   background-color: rgba(139, 222, 139, 0.776);
-  line-height: 50px;
+  line-height: 2.5em;
   letter-spacing: 1px;
-  /* identical to box height */
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* footer txt */
-
   color: #0a142f;
 }
 
 .Question-number {
-  margin-top: 16px;
-  margin-left: 16px;
+  margin: 1em;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 33px;
-  line-height: 50px;
-  /* identical to box height */
-
+  font-size: 1.8em;
   display: flex;
   align-items: center;
-
-  /* footer txt */
-
   color: #0a142f;
 }
 
 .question {
-  margin-top: 16px;
-  margin-left: 16px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
-  /* identical to box height */
-
+  font-size: 1.4em;
+  line-height: 2em;
   display: flex;
   align-items: center;
-
-  /* footer txt */
-
   color: #0a142f;
 }
 
-.question-option--1,
-.question-option--2,
-.question-option--3,
-.question-option--4 {
+.quiz-test_Choose {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1.5em;
+}
+
+.question-option{
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 550;
-  font-size: 17px;
-
-  line-height: 22px;
-  /* identical to box height */
-
+  font-weight: 600;
+  font-size: 1em;
   display: flex;
-  align-items: center;
-
-  color: #000000;
-
-  display: flex;
-  gap: 10px;
+  flex-direction: row;
+  gap: 1.5em;
 }
-.question-option--1,
-.question-option--2,
-.question-option--3,
-.question-option--4:hover {
+
+.question-option p {
+  margin: 0;
+}
+
+.question-option:hover {
   cursor: pointer;
 }
+
+.next {
+    width: 100%;
+    background: #09829D;
+    border-radius: 0.5em;
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.submit {
+    width: 60%;
+    background: #099d33;
+    border-radius: 0.5em;
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.submitted {
+    width: 60%;
+    cursor:not-allowed;
+    background: rgb(165, 168, 166);
+    border-radius: 0.5em;
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
 .option--container {
   display: flex;
   flex-direction: column;
-  row-gap: 25px;
-  margin-top: 16px;
-  margin-left: 16px;
+  row-gap: 2em;
 }
 
 .Endtest-btn {
@@ -126,33 +172,31 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 22px;
-  /* identical to box height */
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* alert */
-
   color: #fb4b4b;
 }
+
 .Endtest-btn {
   cursor: pointer;
 }
+
 .react-paginate {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
 }
+
 .react-paginate--container {
- 
   height: 60px;
   justify-content: space-evenly;
   gap: 100px;
   align-items: center;
   margin-top: 78px;
 }
+
 .previous-class {
   width: 128px;
   height: 34px;
@@ -165,12 +209,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-
-  /* text */
-
   color: rgba(70, 70, 70, 0.64);
 }
+
 .page-class {
   width: 25px;
   height: 25px;
@@ -184,17 +225,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* text */
-
   color: rgba(70, 70, 70, 0.64);
 }
-
 
 .page-class:hover {
   color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
 }
+
 .previous-class:hover {
   color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
@@ -203,13 +241,8 @@
 .endtest-block {
   margin-top: 44px;
   margin-left: 16px;
-  
 }
-.quiz-questions--header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .quizhint-logo--container {
   margin-right: 107px;
   width: 30px;
@@ -221,12 +254,13 @@
   background: #ffffff;
   box-shadow: 2px 2px 12px #d5d7d8;
 }
+
 .quizhint-logo--container:hover {
   background-color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
 }
-.previous-class a
-{
+
+.previous-class a {
   text-decoration: none;
   font-family: "Poppins";
   font-style: normal;
@@ -238,6 +272,7 @@
   justify-content: center;
   color: rgba(70, 70, 70, 0.64);
 }
+
 .previous-class a{
   text-decoration: none;
   font-family: "Poppins";
@@ -250,6 +285,7 @@
   justify-content: center;
   color: rgba(70, 70, 70, 0.64);
 }
+
 .Skip-btn {
   font-family: "Poppins";
   font-style: normal;
@@ -262,19 +298,19 @@
   text-align: center;
   width: 128px;
   height: 34px;
-  /* text */
   border: none;
   border-radius: 8px;
   margin-left:20px;
   color:  #fb4b4b;
   border: 1.58025px solid #fb4b4b;
 }
+
 .Skip-btn:hover {
   color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
 }
-.endtest-block
-{
+
+.endtest-block {
 display: flex;
 align-items: center;
 justify-content: space-between;

@@ -8,23 +8,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 15em;
+  height: 12em;
   justify-items: center;
   box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
 }
 
 .mid-navmenus {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1em 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50%;
+    padding: 0em 3em;
 }
 
 .top-navmenus,
 .bot-navmenus {
-  background: rgb(83, 117, 226);
+  background: rgb(117, 167, 253);;
   width: 100%;
   padding: 0.5em 1em;
   display: flex;
@@ -76,8 +77,8 @@ nav {
 }
 
 .AcademyLogo {
-  width: 7em;
-  height: 7em;
+  width: 6em;
+  height: 6em;
 }
 
 #logout-button {

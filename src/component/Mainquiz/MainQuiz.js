@@ -6,7 +6,6 @@ import Navbar from "../Navbar/navbar";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";
-import leftArrow from "../Login/Images/left back.svg";
 import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -23,12 +22,16 @@ const MainQuiz = () => {
   const [quizScoreStatus, setScoreStatus] = useState();
   const [errorbtnstatus, setbtnstatus] = useState();
   const [quizMarks, setQuizMarks] = useState();
-  const [quizmarked, setQuizMarked] = useState();
-  console.log(respondedAnswer);
+
+  const [buttonText, setButtonText] = useState("next")
+  const [mark, setMark] = useState(0)
+  const [popup, setPopup] = useState(false)
+
   const handleQuestionPage = (data) => {
     setIndex(data.selected);
     setIndexTo(data.selected + 1);
   };
+
   const handelQuizResponse = (e) => {
     e.preventDefault();
 
@@ -41,41 +44,40 @@ const MainQuiz = () => {
     const answer2 = element[1].checked;
     const answer3 = element[2].checked;
     const answer4 = element[3].checked;
+
     if (index < noOfPages - 1 && indexTo < noOfPages) {
       setIndex(index + 1);
       setIndexTo(indexTo + 1);
     }
 
-    console.log(answer1, answer2, answer3, answer4);
     element[0].checked = false;
     element[1].checked = false;
     element[2].checked = false;
     element[3].checked = false;
+
     if (answer1 === true) {
-      console.log(answer1value);
       respondedAnswer.push(answer1value);
     }
     if (answer2 === true) {
-      console.log(answer2value);
       respondedAnswer.push(answer2value);
     }
     if (answer3 === true) {
-      console.log(answer3value);
       respondedAnswer.push(answer3value);
     }
     if (answer4 === true) {
-      console.log(answer4value);
       respondedAnswer.push(answer4value);
+    }
+
+    if (buttonText === "submit") {
+      setPopup(true)
     }
   };
 
-  const handelSkipPage = (e) => {
-    e.preventDefault();
+  const handelSkipPage = () => {
+    // e.preventDefault();
     setIndex(index + 1);
     setIndexTo(indexTo + 1);
   };
-  console.log(index);
-  console.log(indexTo);
 
   useEffect(() => {
     dispatch(getQuizData());
@@ -88,51 +90,48 @@ const MainQuiz = () => {
     if (quizInfo.data && quizInfo.data.data) {
       setQuizData(quizInfo.data.data);
       setNoOfPages(quizInfo.data.data.length);
-      console.log(quizInfo);
       quizInfo.data.data.forEach((element) => {
         quizAnswer.push(element.quizAnswer);
       }, []);
     }
 
-    console.log(quizAnswer);
-
-    console.log(quizData);
-    console.log(noOfPages);
   }, [quizInfo]);
 
   useEffect(() => {
     if (indexTo === noOfPages) {
       setbtnstatus(1);
+      setFinalQuizAnswer(quizAnswer.slice(0, noOfPages));
     }
   }, [indexTo, index]);
 
-  useEffect(() => {
-    setQuizMarked(respondedAnswer);
-    console.log(quizmarked);
-  }, []);
-  useEffect(() => {
-    setFinalQuizAnswer(quizAnswer.slice(0, noOfPages));
-    console.log(finalQuizAnswer);
-  }, [noOfPages]);
   const endTest = () => {
-    const a = window.confirm("Do you want to close your text");
-    console.log(a);
+      console.log(respondedAnswer, "responded answer")
+      console.log(finalQuizAnswer, "final quiz answer")
+    const a = window.confirm("Do you want to close your test");
     if (a === true) {
-      console.log(finalQuizAnswer);
-      console.log(respondedAnswer);
       const correctAnswer = respondedAnswer.filter((element1) =>
         finalQuizAnswer.some((element2) => element1 === element2)
       );
-      console.log(correctAnswer);
+      console.log(correctAnswer, "correct answer")
       const quizMarkss = correctAnswer.length;
-      console.log(quizMarks);
       setQuizMarks(quizMarkss);
       setScoreStatus(1);
+      setButtonText("submitted")
     }
   };
+
   const closeQuiz = () => {
     navigate("/quiz");
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (errorbtnstatus === 1) {
+        setButtonText("submit")
+      }
+    }, "10000")
+  }, [errorbtnstatus, buttonText])
+
 
   return (
     <div>
@@ -144,15 +143,9 @@ const MainQuiz = () => {
               <div className="quiz-question-container">
                 {quizData &&
                   quizData.slice(index, indexTo).map((obj) => (
-                    <>
-                      <h1 className="Question-number">
-                        Question {obj.quizQuestionNo}
-                      </h1>
-                      <h4>
-                        Completed:{" "}
-                        <meter min="0" max={noOfPages} value={index}></meter>
-                      </h4>
-                    </>
+                    <h1 className="Question-number">
+                      Question {obj.quizQuestionNo}
+                    </h1>
                   ))}
               </div>
             }
@@ -162,55 +155,63 @@ const MainQuiz = () => {
             </div>
           </div>
 
-          <div>
+          <div className="quiz-Choose_testPage">
             <div>
-              {errorbtnstatus === 1 ? (
+              {popup === true ? (
                 <p className="after-quiz-questions">Quiz Completed please end test to view your scores</p>
               ) : null}
             </div>
+
+            <meter min="0" max={noOfPages} value={index + 0.5} className="meter-scale"></meter>
 
             {
               <div>
                 {quizData &&
                   quizData.slice(index, indexTo).map((obj) => (
-                    <div>
+                    <div className="quiz-test_Choose">
                       <p className="question">{obj.quizQuestion}</p>
                       <form onSubmit={handelQuizResponse}>
                         <div className="option--container">
-                          <div className="question-option--1">
+                          <label className="question-option">
                             <input
                               type="radio"
                               value={obj.quizOption1}
-                              name="quizOption1"
+                              key={obj.quizOption1}
+                              name="quizOption"
                             ></input>
                             <p>{obj.quizOption1}</p>
-                          </div>
-                          <div className="question-option--2">
+                          </label>
+                          <label className="question-option">
                             <input
                               type="radio"
                               value={obj.quizOption2}
-                              name="quizOption2"
+                              key={obj.quizOption2}
+                              name="quizOption"
                             ></input>
                             <p>{obj.quizOption2}</p>
-                          </div>
-                          <div className="question-option--3">
+                          </label>
+                          <label className="question-option">
                             <input
                               type="radio"
                               value={obj.quizOption3}
-                              name="quizOption3"
+                              key={obj.quizOption3}
+                              name="quizOption"
                             ></input>
                             <p>{obj.quizOption3}</p>
-                          </div>
-                          <div className="question-option--4">
+                          </label>
+                          <label className="question-option">
                             <input
                               type="radio"
                               value={obj.quizOption4}
-                              name="quizOption4"
+                              key={obj.quizOption4}
+                              name="quizOption"
+                              className="question-option-input"
                             ></input>
                             <p>{obj.quizOption4}</p>
-                          </div>
-                          <button className="chapter-seemore-btn">
-                            Submit
+                          </label>
+                          <button className={buttonText}
+                            onClick={buttonText === "submit" && (endTest)}>
+                            {buttonText}
                           </button>
                         </div>
                       </form>

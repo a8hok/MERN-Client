@@ -41,7 +41,7 @@ function TopUniversity() {
           <option>preferences</option>
           <option>preferences</option>
         </select>
-        <select className="guide-selector">
+        <select className="guide-selector guide-Selector_Last">
           <option>District</option>
           <option>preferences</option>
           <option>preferences</option>

@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 4em;
-    height: 4em;
+    width: 3.5em;
+    height: 3.5em;
     background: rgb(83, 117, 226);
     border-radius: 50%;
     cursor: pointer;
@@ -92,6 +92,7 @@
   .dropdown-Logout_button {
     padding: 0.5em 2.5em;
     border-radius: 0.5em;
+    border: none;
     width: 12em;
     color: white;
     font-weight: 600;
