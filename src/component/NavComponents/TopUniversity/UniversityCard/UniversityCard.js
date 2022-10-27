@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function UniversityCard({ uniInfo }) {
-  console.log(uniInfo);
   const navigate = useNavigate();
   const location = useLocation().state;
 

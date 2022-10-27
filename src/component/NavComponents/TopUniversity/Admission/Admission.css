@@ -1,0 +1,91 @@
+.ad-top-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+img.ad-logo {
+  width: 100px;
+}
+h1.ad-right-head {
+  font-family: "Poppins";
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: -45px;
+}
+h1.ad-head {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+h3.ad-center-head {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+h1.ad-left-head {
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+  width: 235px;
+}
+img.ad-right-logo {
+  width: 155px;
+}
+.ad-but {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+button.ad-but-1 {
+  width: 50%;
+  border: white;
+  background: #90c1f8;
+  scroll-behavior: smooth;
+  height: 40px;
+}
+button.ad-but-2 {
+  width: 50%;
+  border: white;
+  background: #90c1f8;
+  height: 40px;
+}
+.ad-third-head {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  margin-top: 15px;
+}
+#show {
+  display: none;
+}
+#show2 {
+  display: none;
+}
+h1.clg-seats {
+  font-family: "poppins";
+  font-size: 14px;
+}
+h3.seats-num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "poppins";
+  font-size: 16px;
+}
+button.ad-but-1:hover {
+  background: #0281fe;
+  transition: all 0.6s ease-in-out;
+  color: white;
+}
+button.ad-but-2:hover {
+  background: #0281fe;
+  color: white;
+  transition: all 0.6s ease-in-out;
+}

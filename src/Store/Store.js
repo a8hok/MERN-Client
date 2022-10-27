@@ -16,6 +16,7 @@ import getQuizDataReducer from "./Slice/QuizDataSlice";
 import addProfilepic from "./Slice/profilepicpost";
 import UserProfilepic from "./Slice/getProfilepic";
 import editedEventReducer from "./Slice/editEvent";
+import removingSelectedUniversity from "./Slice/deleteUniversity";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
   profilepicInfo: addProfilepic,
   newprofilepicInfo: UserProfilepic,
   editEvent: editedEventReducer,
+  selectDeletingUniversity: removingSelectedUniversity,
 });
 
 const store = configureStore({

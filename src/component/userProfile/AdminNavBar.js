@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./adminNav.css";
 import AcademyLogo from "../Login/Images/Academy.svg";
-import Logo from "../About/img/Learn.svg"
+import Logo from "../About/img/Learn.svg";
 import Dropdown from "../Navbar/Dropdown/Dropdown";
 
 const AdminNavBar = ({ profileInfo }) => {

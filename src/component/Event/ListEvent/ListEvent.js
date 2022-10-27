@@ -25,10 +25,11 @@ function ListEvent({ eventsData, editImg }) {
         <div className="third-full-con-pro">
           {eventsData.length > 0 &&
             eventsData.map((obj) => {
+              // const base64String = btoa(
+              //   String.fromCharCode(...new Uint8Array(obj?.eventImage?.data?.data)));
               const base64String = btoa(
-                String.fromCharCode(
-                  ...new Uint8Array(obj?.eventImage?.data?.data)
-                )
+                new Uint8Array(obj?.eventImage?.data?.data)
+                  .reduce((data, byte) => data + String.fromCharCode(byte), '')
               );
               return (
                 <div key={obj.eve}>

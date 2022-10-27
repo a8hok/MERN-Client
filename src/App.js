@@ -22,6 +22,7 @@ import TopUniversity from "./component/NavComponents/TopUniversity/TopUniversity
 import Category from "./component/NavComponents/category++/Category";
 import Specialization from "./component/NavComponents/specialization++/specialization";
 import UniversityCardDetails from "./component/NavComponents/TopUniversity/UniversityCardDetails/UniversityCardDetails";
+import Admission from "./component/NavComponents/TopUniversity/Admission/Admission";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -54,6 +55,7 @@ function App() {
         <Route path="/universities" element={<TopUniversity />}></Route>
         <Route path="/colleges" element={<TopColleges />}></Route>
         <Route path="/universities/details" element={<UniversityCardDetails />}></Route>
+        <Route path="/admission" element={<Admission />}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
       </Routes>
     </div>

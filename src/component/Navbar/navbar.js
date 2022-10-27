@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import "./landingNav.css";
-import Logo from "../About/img/Learn.svg"
+import Logo from "../About/img/Learn.svg";
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from "./Dropdown/Dropdown";

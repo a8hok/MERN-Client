@@ -1,9 +1,14 @@
 .clg-head-top {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
-  gap: 6px;
-  background: aliceblue;
+  gap: 20px;
+  background: #ffffff;
+  /* background: aliceblue; */
+}
+.clg-name-head {
+  width: 100px;
+  margin-left: 15px;
 }
 .clg-name {
   font-family: "Poppins";
@@ -14,6 +19,7 @@
   font-family: inherit;
   font-size: 16px;
   font-weight: 400;
+  margin-left: 50px;
 }
 .clg-district {
   font-family: inherit;
@@ -29,12 +35,30 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: aliceblue;
+  background: white;
   align-items: center;
+  margin-top: 20px;
 }
 img.clg-img {
-  border-radius: 135px;
+  /* border-radius: 135px; */
+  border-radius: 10px;
   width: 9%;
+  margin-left: -4px;
+}
+button.button-menu {
+  width: 40px;
+  height: 36px;
+  background: #ffffff;
+  border: #ffffff;
+}
+img.menu-icon {
+  width: 23px;
+}
+
+.clg-name-logo {
+  border-radius: 80px;
+  /* border-radius: 10px; */
+  width: 80%;
 }
 h3.clg-topic {
   font-size: 20px;
@@ -57,19 +81,20 @@ img.uni-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: aliceblue;
+  background: white;
 }
 
 .clg-type {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: aliceblue;
+  background: white;
 }
 .clg-sec-row {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 15px;
 }
 .clg-campus {
   display: flex;
@@ -90,11 +115,13 @@ img.uni-logo {
   align-items: center;
 }
 button.clg-detail-button {
-  border-radius: 4px;
   width: 20%;
-  background: #edeae7;
-  /* border: aliceblue; */
-  border-top-color: aliceblue;
-  border-left-color: white;
-  border-bottom-color: white;
+  border: white;
+  height: 40px;
+  background: #90c1f8;
+}
+button.clg-detail-button:hover {
+  background: #0281fe;
+  transition: all 0.6s ease-in-out;
+  color: white;
 }
