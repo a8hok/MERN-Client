@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
@@ -15,7 +16,7 @@ import Dashboard from "./component/dashboard/dashboard";
 import EditEvents from "./component/EditProfile/EditProfile.js";
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/Event/AddEvent";
-import Navbar from "./component/Navbar/navbar";
+// import Navbar from "./component/Navbar/navbar";
 import About from "./component/About/About";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
 import TopUniversity from "./component/NavComponents/TopUniversity/TopUniversity";
@@ -23,18 +24,20 @@ import Category from "./component/NavComponents/category++/Category";
 import Specialization from "./component/NavComponents/specialization++/specialization";
 import UniversityCardDetails from "./component/NavComponents/TopUniversity/UniversityCardDetails/UniversityCardDetails";
 import Admission from "./component/NavComponents/TopUniversity/Admission/Admission";
+import Internship from "./component/NavComponents/Internship/Internship";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
 
 function App() {
+  
   return (
     <div>
       <Routes>
-        {/* <Route path="/nav" element={<Navbar />}></Route> */}
-        <Route path="/categories" element={<Category/>}></Route>
-        <Route path="/specialization" element={<Specialization/>}></Route>
+        
+        <Route path="/categories" element={<Category />}></Route>
+        <Route path="/specialization" element={<Specialization />}></Route>
         <Route path="/" element={<Landing />} exact></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
@@ -56,10 +59,11 @@ function App() {
         <Route path="/colleges" element={<TopColleges />}></Route>
         <Route path="/universities/details" element={<UniversityCardDetails />}></Route>
         <Route path="/admission" element={<Admission />}></Route>
-        {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
+        <Route path="/internship" element={<Internship/>}></Route>
+       
       </Routes>
     </div>
   );
 }
 
-export default App;
+export default App;  

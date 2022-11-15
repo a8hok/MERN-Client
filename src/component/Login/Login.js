@@ -15,6 +15,8 @@ const Login = () => {
   const { loginData, loading } = useSelector((state) => state.loginInfo);
   const locationState = useLocation().state;
 
+  console.log(loginData)
+
   const HandleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;

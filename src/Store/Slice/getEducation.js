@@ -27,4 +27,4 @@ const educationInfo = createSlice({
 
 const educationDetails = educationInfo.reducer;
 
-export default educationDetails
+export default educationDetails;

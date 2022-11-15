@@ -1,31 +1,95 @@
-import React, { useEffect } from "react";
-import Navbar from "../../Navbar/navbar";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
+import { topColleges } from "../ConstNavComponents/ConstNavComponents";
+import { specialization } from "../ConstNavComponents/ConstNavComponents";
 import UniversityCard from "./UniversityCard/UniversityCard";
-import RightSideBar from "../../NavComponents/RightSideBar";
+import RightSideBar from "../RightSideBar";
+import Navbar from "../../Navbar/navbar";
+
 import "./TopUniversity.css";
+import LoaderGif from "../../Event/img/loader.gif";
 
 function TopUniversity() {
-  const options = [
-    "Top Arts, Science & Commerce Colleges",
-    "Top Engineering Colleges",
-    "Top Pharmacy Colleges",
-    "Top Medical Colleges",
-    "Top G Dental Colleges",
-    "Top Law Colleges",
-    "Top Architecture Colleges",
-  ];
-  const dispatch = useDispatch();
+  const state = [];
+  const [stateSelected, setState] = useState([]);
+  const [district, setDistrict] = useState([]);
+  const [districtDisplayed, setDistrictDisplayed] = useState([]);
   const { universitiesData, universitiesLoading } = useSelector(
     (state) => state.universitiesInfo
   );
+  const [universityDatafinal, setuniversityStateData] = useState([]);
+  const pageIndex = 1;
+  const pageSize = 2000;
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getUniversitiesInfo());
+    dispatch(getUniversitiesInfo({ pageIndex, pageSize }));
   }, []);
+  universitiesData.forEach((element) => {
+    if (!state.includes(element.State)) {
+      state.push(element.State);
+    }
+  });
+
+  const handelstate = (e) => {
+    e.preventDefault();
+    var select = document.getElementById("state");
+    if (select) {
+      var value = select.options[select.selectedIndex].value;
+
+      setState(value);
+    }
+  };
+  const handelDistrict = (e) => {
+    e.preventDefault();
+    var select = document.getElementById("district");
+    if (select) {
+      var value = select.options[select.selectedIndex].value;
+
+      setDistrictDisplayed(value);
+    }
+  };
+
+  useEffect(() => {
+    function generateRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const randomNumber = generateRandomInt(universitiesData.length - 10);
+    console.log(randomNumber);
+    setuniversityStateData(
+      universitiesData.slice(randomNumber, randomNumber + 10)
+    );
+  }, [universitiesData]);
+  useEffect(() => {
+    setuniversityStateData(
+      universitiesData.filter((element) => {
+        if (element.State == stateSelected) return element;
+      })
+    );
+  }, [stateSelected]);
+  useEffect(() => {
+    setuniversityStateData(
+      universitiesData.filter((element) => {
+        if (element.District == districtDisplayed) return element;
+      })
+    );
+  }, [districtDisplayed]);
+
+  useEffect(() => {
+    district.splice(0, district.length);
+    universitiesData.forEach((element) => {
+      if (element.State === stateSelected) district.push(element.District);
+    });
+  }, [stateSelected]);
+
   return (
     <>
       <Navbar />
+      <div className="uni-right-sidebar">
+        <RightSideBar options={topColleges} />
+      </div>
       <div className="university-main-heading">Top Universities</div>
       <div className="selecting-preferences">
         <div className="guide-selection">
@@ -33,29 +97,34 @@ function TopUniversity() {
         </div>
         <select className="guide-selector">
           <option>Specialization</option>
-          <option>preferences</option>
-          <option>preferences</option>
+          {specialization.length > 0 &&
+            specialization.map((obj) => <option>{obj}</option>)}
         </select>
-        <select className="guide-selector">
+        <select onChange={handelstate} id="state" className="guide-selector">
           <option>State</option>
-          <option>preferences</option>
-          <option>preferences</option>
+          {state.length > 0 &&
+            state.map((obj) => <option value={obj}>{obj}</option>)}
         </select>
-        <select className="guide-selector guide-Selector_Last">
+        <select
+          onChange={handelDistrict}
+          id="district"
+          className="guide-selector guide-Selector_Last"
+        >
           <option>District</option>
-          <option>preferences</option>
-          <option>preferences</option>
+          {district.length > 0 && district.map((obj) => <option>{obj}</option>)}
         </select>
       </div>
       <div className="uni-main-container">
         <div className="uni-list-main-container">
-        {universitiesData.length &&
-          universitiesData.map((obj, index) => (
-            <UniversityCard key={index} uniInfo={obj}></UniversityCard>
-          ))}
-        </div>
-        <div class="uni-right-sidebar">
-          <RightSideBar options={options} />
+          {universitiesLoading === true && (
+            <div className="loader">
+              <img className="loadergif" src={LoaderGif}></img>
+            </div>
+          )}
+          {universityDatafinal.length > 0 &&
+            universityDatafinal.map((obj, index) => (
+              <UniversityCard key={index} uniInfo={obj}></UniversityCard>
+            ))}
         </div>
       </div>
     </>

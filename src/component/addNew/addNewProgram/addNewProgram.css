@@ -1,0 +1,53 @@
+.Add-new_program-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 129, 254, 0.4);
+    border-radius: 1em;
+    width: 60%;
+    height: 50em;
+    margin: auto;
+    padding: 2em;
+}
+
+.Add-new_program-form-container {
+    width: 100%;
+}
+
+.Add-new_program-form input {
+    width: 70%;
+    height: 3em;
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.Add-new_program-form-save {
+    background: rgb(42, 105, 240);
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    width: 70%;
+    border: none;
+    font-size: 1.5em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.Add-new_program-form-saved {
+    background: gray;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    width: 70%;
+    border: none;
+    font-size: 1.5em;
+    font-weight: 500;
+    cursor: not-allowed;
+}
+
+.Add-new_program-form p {
+    color: red;
+    font-size: 1em;
+}

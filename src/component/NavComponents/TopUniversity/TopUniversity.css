@@ -1,51 +1,56 @@
 .university-main-heading {
-    width: 100%;
-    padding: 1em 5.5em;
-    font-size: 2.5em;
-    color: rgb(0, 0, 48);
+  width: 100%;
+  padding: 1em 5.5em;
+  font-size: 2.5em;
+  color: rgb(0, 0, 48);
+  display: flex;
+  justify-content: center;
 }
 
 .selecting-preferences {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    width: 60%;
-    margin: 1em 1em;
-    height: 3.5em;
-    gap: 0;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 60%;
+  justify-content: center;
+  margin-left: 21%;
+  height: 3.5em;
+  gap: 0;
 }
-
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .guide-selection {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: rgb(117, 167, 253);
-    color: white;
-    font-size: 1em;
-    font-weight: 600;
-    border-radius: 1em 0 0 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgb(117, 167, 253);
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 1em 0 0 1em;
 }
 
 .guide-selector {
-    padding: 0 1.5em;
-    border: none;
-    background: rgb(240, 240, 240);
+  padding: 0 1.5em;
+  border: none;
+  background: rgb(240, 240, 240);
 }
 
 .guide-Selector_Last {
-    border-radius: 0 1em 1em 0;
+  border-radius: 0 1em 1em 0;
 }
 
 .uni-main-container {
-    display: flex;
-    width: 100%;
-    gap: 2em;
+  display: flex;
+  width: 100%;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
 }
 
 .uni-list-main-container {
-    width: 60%;
-}
-
-.uni-right-sidebar {
-    width: 37%;
+  width: 60%;
 }

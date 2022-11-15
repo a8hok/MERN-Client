@@ -15,7 +15,6 @@ function UniversityCardDetail() {
       <Navbar />
       <div className="clg-heading">
         <div className="clg-head-top">
-
           <div className="clg-name-head">
             <img className="clg-name-logo" src={details.Logo}></img>
           </div>
@@ -72,6 +71,10 @@ function UniversityCardDetail() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="about_university_Card">
+        <p>{details.AboutCollege}</p>
       </div>
     </>
   );

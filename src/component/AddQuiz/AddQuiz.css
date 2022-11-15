@@ -18,11 +18,10 @@ label {
   /* border: 2px solid #a7abaf; */
   border-radius: 1em;
   display: flex;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding: 3em 0;
 }
 
-.input-box {
+.add-quiz-container input {
   color: #000000;
   width: 60%;
   height: 3.5em;
@@ -37,7 +36,7 @@ label {
   margin: 0 auto;
 }
 
-label.title-add-quiz {
+/* label.title-add-quiz {
   font-family: revert;
   font-style: normal;
   font-weight: 600;
@@ -45,9 +44,9 @@ label.title-add-quiz {
   justify-content: space-around;
   font-size: 19px;
   margin-right: 90px;
-}
+} */
 
-button.add-button {
+.add-button-Add-Quiz {
   width: 60%;
   height: 55px;
   border-radius: 10px;
@@ -55,12 +54,21 @@ button.add-button {
   background: #5375e2;
   border: #5375e2;
 }
-.first-box {
-  display: flex;
+
+.add-button-Added-Quiz {
   width: 60%;
-  gap: 7px;
+  height: 55px;
+  border-radius: 10px;
+  color: rgb(134, 134, 134);
+  background: rgb(220, 220, 220);
+  border: none;
 }
-input.input-que-box {
+
+.show-Image-upload {
+  width: 1em;
+}
+
+/* input.input-que-box {
   color: #000000;
   width: 20%;
   height: 3.5em;
@@ -72,10 +80,10 @@ input.input-que-box {
   font-style: normal;
   font-weight: 500;
   font-size: 1em;
-}
-textarea.input-box-1 {
+} */
+.add-quiz-container textarea {
   color: #000000;
-  width: 85%;
+  width: 60%;
   height: 3.5em;
   background: #ffffff;
   padding: 1em;
@@ -86,4 +94,28 @@ textarea.input-box-1 {
   font-weight: 500;
   font-size: 1em;
   margin: 0 auto;
+}
+
+.select-new-Quiz-Picture{
+  display: none;
+  border: none;
+  background: transparent;
+}
+
+.quiz_Question_Image {
+  width: 5em;
+  border-radius: 1em;
+}
+
+.add-New-Quiz_Question {
+  border: dotted 4px black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(244, 243, 243);
+  gap: 1em;
+  padding: 1.5em;
+  width: 15em;
+  cursor: pointer;
 }

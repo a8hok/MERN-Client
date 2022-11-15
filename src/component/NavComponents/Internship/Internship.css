@@ -1,0 +1,51 @@
+.internship-Button_Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.internship-Button_Container button, .internship-Mid-Button_Container button {
+    padding: 0.5em 2em;
+    background: transparent;
+    border: solid 1px black;
+}
+
+.internship_Container {
+    padding: 1em;
+}
+
+.internship_About-Container {
+    width: 90%;
+    margin: 1em auto;
+    line-height: 2.5em;
+}
+
+.internship-All-button_Container {
+    width: 100%;
+    display: flex;
+}
+
+.internship-Mid-Button_Container {
+    align-self: center;
+    margin: auto;
+}
+
+.internship_Details-Container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 95%;
+    margin: 1em auto;
+}
+
+.internship_Left-Details-Floater {
+    display: flex;
+    flex-direction: column;
+    padding: 4em;
+    background: rgb(197, 197, 197);
+}
+
+.internship_Right-Details {
+    background: rgb(230, 230, 230);
+}

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
+import { getUniversityInfoByName } from "../../Store/Slice/SearchUniversity";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import ListEvent from "../Event/ListEvent/ListEvent";
 
@@ -34,6 +35,14 @@ function Landing() {
     dispatch(getEventInfo());
     dispatch(userProfileData(locationState?.email));
   }, []);
+  const handelSearch = (e) => {
+    e.preventDefault();
+    const ele = e.target.elements
+    const searchedUniversity =ele[0].value
+    console.log( searchedUniversity)
+    dispatch(getUniversityInfoByName({searchedUniversity}))
+  
+  };
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
@@ -67,27 +76,31 @@ function Landing() {
           </div>
         </div>
       </div>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="  Search  a words you prefer"
-          className="search-box"
-          required={true}
-        ></input>
-        <div className="search-img">
-          <button className="but-click" onClick={navigateSearch}>
-            <img className="search-but" src={img3}></img>
-          </button>
+
+      <form onSubmit={handelSearch}>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="  Search  a words you prefer"
+            className="search-box"
+            required={true}
+          ></input>
+          <div className="search-img">
+            <button className="but-click">
+              <img className="search-but" src={img3}></img>
+            </button>
+          </div>
         </div>
-      </div>
-      
+      </form>
+
+
       <div className="third-container">
         <div className="third-content">
           <div className="third-top">
             <h1>Top Events</h1>
           </div>
           <div className="third-full-con">
-          <ListEvent eventsData = {eventsData}/>
+            <ListEvent eventsData={eventsData} />
           </div>
         </div>
       </div>

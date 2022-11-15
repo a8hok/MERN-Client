@@ -186,15 +186,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 2em;
 }
 
 .react-paginate--container {
-  height: 60px;
   justify-content: space-evenly;
-  gap: 100px;
   align-items: center;
-  margin-top: 78px;
+  margin-top: 5em;
 }
 
 .previous-class {
@@ -314,4 +312,15 @@
 display: flex;
 align-items: center;
 justify-content: space-between;
+}
+
+.quiz-Question_Image {
+  border-radius: 1em;
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+}
+
+.hint_Box {
+  display: none;
 }

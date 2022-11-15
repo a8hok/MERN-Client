@@ -83,7 +83,7 @@ const Navbar = ({ profileInfo }) => {
             <a href="/#">Top Placements</a>
             <a href="/#">Top Events</a>
             <a href="/#">Resources</a>
-            <a href="/#">Internships/Jobs</a>
+            <a href="/internship">Internships/Jobs</a>
           </div>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <CloseIcon />

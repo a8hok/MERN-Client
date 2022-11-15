@@ -1,9 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
-export const getUniversitiesInfo = createAsyncThunk("Universities", async () => {
-  return axio.get(`/api/universities`);
-});
+export const getUniversitiesInfo = createAsyncThunk(
+  "Universities",
+  async (data) => {
+    const alternative = 1;
+    return axio.get(
+      `/api/universities/?limit=${data.pageSize}&page=${
+        data.pageIndex === 0 ? alternative : data.pageIndex
+      }`
+    ); //
+  }
+);
 
 export const universitiesReducer = createSlice({
   name: "Universities",

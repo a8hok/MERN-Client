@@ -8,6 +8,11 @@ import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";
 import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
+import TipsAndUpdatesOutlinedIcon from '@mui/icons-material/TipsAndUpdatesOutlined';
+import TipsAndUpdatesRoundedIcon from '@mui/icons-material/TipsAndUpdatesRounded';
+import Loader from "../Event/img/loader.gif";
+import { Checkbox } from "@mui/material";
+import { yellow } from '@mui/material/colors';
 
 const MainQuiz = () => {
   const navigate = useNavigate();
@@ -22,10 +27,9 @@ const MainQuiz = () => {
   const [quizScoreStatus, setScoreStatus] = useState();
   const [errorbtnstatus, setbtnstatus] = useState();
   const [quizMarks, setQuizMarks] = useState();
-
-  const [buttonText, setButtonText] = useState("next")
-  const [mark, setMark] = useState(0)
-  const [popup, setPopup] = useState(false)
+  const [buttonText, setButtonText] = useState("next");
+  const [popup, setPopup] = useState(false);
+  const [checked, setChecked] = useState(false)
 
   const handleQuestionPage = (data) => {
     setIndex(data.selected);
@@ -69,12 +73,11 @@ const MainQuiz = () => {
     }
 
     if (buttonText === "submit") {
-      setPopup(true)
+      setPopup(true);
     }
   };
 
   const handelSkipPage = () => {
-    // e.preventDefault();
     setIndex(index + 1);
     setIndexTo(indexTo + 1);
   };
@@ -86,16 +89,22 @@ const MainQuiz = () => {
   const { quizInfo, getQuizDataLoading } = useSelector(
     (state) => state.getQuizInfo
   );
+
+  const handleToggle = (e) => {
+    setChecked(e.target.checked)
+  }
+
   useEffect(() => {
     if (quizInfo.data && quizInfo.data.data) {
       setQuizData(quizInfo.data.data);
       setNoOfPages(quizInfo.data.data.length);
       quizInfo.data.data.forEach((element) => {
-        quizAnswer.push(element.quizAnswer);
+        quizAnswer.push(element.Key);
       }, []);
     }
-
   }, [quizInfo]);
+
+  console.log(quizData)
 
   useEffect(() => {
     if (indexTo === noOfPages) {
@@ -105,20 +114,28 @@ const MainQuiz = () => {
   }, [indexTo, index]);
 
   const endTest = () => {
-      console.log(respondedAnswer, "responded answer")
-      console.log(finalQuizAnswer, "final quiz answer")
+    const forAnswer = []
+    console.log(finalQuizAnswer, "final quiz answer");
+    respondedAnswer.map((e) => {
+      forAnswer.push(parseInt(e))
+    })
+    console.log(forAnswer, "responded answer");
     const a = window.confirm("Do you want to close your test");
     if (a === true) {
-      const correctAnswer = respondedAnswer.filter((element1) =>
+      const correctAnswer = forAnswer.filter((element1) =>
         finalQuizAnswer.some((element2) => element1 === element2)
       );
-      console.log(correctAnswer, "correct answer")
+      console.log(correctAnswer, "correct answer");
       const quizMarkss = correctAnswer.length;
       setQuizMarks(quizMarkss);
       setScoreStatus(1);
-      setButtonText("submitted")
+      setButtonText("submitted");
     }
   };
+
+  console.log(quizData?.slice(index, indexTo))
+  console.log(index)
+  console.log(indexTo)
 
   const closeQuiz = () => {
     navigate("/quiz");
@@ -127,90 +144,109 @@ const MainQuiz = () => {
   useEffect(() => {
     setTimeout(() => {
       if (errorbtnstatus === 1) {
-        setButtonText("submit")
+        setButtonText("submit");
       }
-    }, "10000")
-  }, [errorbtnstatus, buttonText])
-
+    }, "10000");
+  }, [errorbtnstatus, buttonText]);
 
   return (
     <div>
       <Navbar />
       <div className="main-quiz--conatiner">
-        <div className="quiz-questions">
+        {!getQuizDataLoading && quizInfo ? <div className="quiz-questions">
           <div className="quiz-questions--header">
-            {
               <div className="quiz-question-container">
-                {quizData &&
-                  quizData.slice(index, indexTo).map((obj) => (
-                    <h1 className="Question-number">
-                      Question {obj.quizQuestionNo}
-                    </h1>
-                  ))}
+                <h1 className="Question-number">
+                  Question {indexTo}
+                </h1>
               </div>
-            }
-
-            <div className="quizhint-logo--container">
-              <img src={quizHintLogo} alt="no img found"></img>
-            </div>
           </div>
 
           <div className="quiz-Choose_testPage">
             <div>
               {popup === true ? (
-                <p className="after-quiz-questions">Quiz Completed please end test to view your scores</p>
+                <p className="after-quiz-questions">
+                  Quiz Completed please end test to view your scores
+                </p>
               ) : null}
             </div>
 
-            <meter min="0" max={noOfPages} value={index + 0.5} className="meter-scale"></meter>
+            <meter
+              min="0"
+              max={noOfPages}
+              value={index + 1}
+              className="meter-scale"
+            ></meter>
 
             {
               <div>
                 {quizData &&
                   quizData.slice(index, indexTo).map((obj) => (
                     <div className="quiz-test_Choose">
-                      <p className="question">{obj.quizQuestion}</p>
+                      {obj.Hint != "NA" && <div className="quizhint-logo--container">
+                        <Checkbox checked={checked} 
+                        onChange={handleToggle} 
+                        icon={<TipsAndUpdatesOutlinedIcon/>} 
+                        checkedIcon={<TipsAndUpdatesRoundedIcon/>} 
+                        className="hint_Box"
+                        sx={{
+                          color: yellow[800],
+                          '&.Mui-checked': {
+                            color: yellow[600],
+                          },
+                        }}/>
+                      </div>}
+                      {checked && <div>
+                          <h2>{obj.Hint}</h2>
+                        </div>
+                      }
+                      <p className="question">{obj.Stem}</p>
+                      {obj.Image != "NA" && <div>
+                        <img src={`${obj.Image}`} alt="" className="quiz-Question_Image"/>
+                      </div>}
                       <form onSubmit={handelQuizResponse}>
                         <div className="option--container">
                           <label className="question-option">
                             <input
                               type="radio"
-                              value={obj.quizOption1}
-                              key={obj.quizOption1}
+                              value={1}
+                              key={obj.distractor1}
                               name="quizOption"
                             ></input>
-                            <p>{obj.quizOption1}</p>
+                            <p>{obj.distractor1}</p>
                           </label>
                           <label className="question-option">
                             <input
                               type="radio"
-                              value={obj.quizOption2}
-                              key={obj.quizOption2}
+                              value={2}
+                              key={obj.distractor2}
                               name="quizOption"
                             ></input>
-                            <p>{obj.quizOption2}</p>
+                            <p>{obj.distractor2}</p>
                           </label>
                           <label className="question-option">
                             <input
                               type="radio"
-                              value={obj.quizOption3}
-                              key={obj.quizOption3}
+                              value={3}
+                              key={obj.distractor3}
                               name="quizOption"
                             ></input>
-                            <p>{obj.quizOption3}</p>
+                            <p>{obj.distractor3}</p>
                           </label>
                           <label className="question-option">
                             <input
                               type="radio"
-                              value={obj.quizOption4}
-                              key={obj.quizOption4}
+                              value={4}
+                              key={obj.distractor4}
                               name="quizOption"
                               className="question-option-input"
                             ></input>
-                            <p>{obj.quizOption4}</p>
+                            <p>{obj.distractor4}</p>
                           </label>
-                          <button className={buttonText}
-                            onClick={buttonText === "submit" && (endTest)}>
+                          <button
+                            className={buttonText}
+                            onClick={buttonText === "submit" && endTest}
+                          >
                             {buttonText}
                           </button>
                         </div>
@@ -297,7 +333,7 @@ const MainQuiz = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> : <img src={Loader} alt="" />}
 
         <div>
           <div className="chapters-container">
@@ -309,7 +345,7 @@ const MainQuiz = () => {
             <p>C++</p>
             <p>Python</p>
             <p>Javascript</p>
-            <button className="chapter-seemore-btn">See More</button>
+            {/* <button className="chapter-seemore-btn">See More</button> */}
           </div>
         </div>
       </div>

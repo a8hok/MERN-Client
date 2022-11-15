@@ -32,7 +32,7 @@
   .left-container--profilepage {
     box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.1);
     width: 90%;
-    height: 110vh;
+    height: 125vh;
   }
 
   .left-container--dashboard--content {
@@ -85,7 +85,7 @@
     margin: 2em;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 0.7em;
   }
 
   .left-container--profilepage{
@@ -230,7 +230,7 @@
   display: flex;
   flex-direction: column;
   margin: auto 1em;
-  height: 26em;
+  height: 100%;
   width: 18em;
   background: #ffffff;
   color: #4c4c4d;

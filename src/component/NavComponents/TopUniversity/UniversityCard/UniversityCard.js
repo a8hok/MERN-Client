@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function UniversityCard({ uniInfo }) {
   const navigate = useNavigate();
   const location = useLocation().state;
-
+  // const UniversityCardData = uni
   const handelDetail = (e) => {
     navigate("/universities/details", { state: { state: uniInfo } });
   };
@@ -23,8 +23,7 @@ function UniversityCard({ uniInfo }) {
         </div>
         <div className="uni-place-container">
           <p className="uni-place">
-            <span className="uni-district">{uniInfo.District}</span>
-            -
+            <span className="uni-district">{uniInfo.District}</span>-
             <span className="uni-state">{uniInfo.State}</span>
           </p>
         </div>
