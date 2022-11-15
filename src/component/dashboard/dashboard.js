@@ -272,7 +272,7 @@ const Dashboard = () => {
             value="Collages"
             onClick={(e) => setDataState(e.target.value)}
           >
-            Collages
+            Colleges
           </button>
           <hr className="group-divider"></hr>
           <button>Table</button>

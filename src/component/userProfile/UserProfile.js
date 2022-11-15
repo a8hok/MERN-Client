@@ -154,7 +154,7 @@ const UserProfile = () => {
                   </div>
                   <div className="left-container--dashboard--content">
                     <AddchartIcon/>
-                    <button onClick={() => setcontent("new-Collage")}>Add collage</button>
+                    <button onClick={() => setcontent("new-Collage")}>Add college</button>
                   </div>
                 </div>
               </div>
