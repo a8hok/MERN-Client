@@ -274,7 +274,7 @@ const Dashboard = () => {
           >
             Colleges
           </button>
-          <hr className="group-divider"></hr>
+          {/* <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>
           <div className="dropdown">
@@ -284,17 +284,7 @@ const Dashboard = () => {
               <a href="#/">Link 2</a>
               <a href="#/">Link 3</a>
             </div>
-          </div>
-          <button>Our Services</button>
-          <button>Our Services</button>
-          <hr className="group-divider"></hr>
-          <label>Group - 1</label>
-          <button>Our Services</button>
-          <button>Our Services</button>
-          <button>Our Services</button>
-          <hr className="group-divider"></hr>
-          <button>Our Services</button>
-          <button>Our Services</button>
+          </div> */}
         </div>
         {data ? <MaterialReactTable
           displayColumnDefOptions={{

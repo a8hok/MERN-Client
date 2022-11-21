@@ -1,16 +1,34 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import NavBar from "../Navbar/navbar";
 import startQuizLogo from "../Login/Images/startquiz.svg";
 import quizImage from "../Login/Images/quiz.svg";
 import "./quiz.css";
 import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 
 const Quiz = () => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const startQuiz = () => {
     navigate("/quiz/start");
   };
+
+  const { quizInfo, getQuizDataLoading } = useSelector(
+    (state) => state.getQuizInfo
+  );
+
+  useEffect(() => {
+    dispatch(getQuizData());
+  }, []);
+
+  const quizDetails = quizInfo?.data?.data
+
+  const forQuizData = (quizDetails?.slice(0,1))
+
   let newDate = new Date()
   let date = newDate.getDate();
   let month = newDate.getMonth()+1;
@@ -32,16 +50,18 @@ const Quiz = () => {
               <div className="quiz-details">
                 <div className="quiz-details-left">
                   <p>Date : </p>
-                  <p>Time Limit : </p>
-                  <p>Attempts :</p>
-                  <p>Points :</p>
+                  <p>Title : </p>
+                  <p>Level :</p>
+                  <p>Code :</p>
                 </div>
-                <div className="quiz-details-right">
+                {forQuizData?.length>0 && forQuizData.map ((data) => {
+                  return <div className="quiz-details-right">
                   <p>{todayDate}</p>
-                  <p>30 Mins</p>
-                  <p>Once</p>
-                  <p>200 Points</p>
+                  <p>{data?.CourseTitle}</p>
+                  <p>{data["Cognitive Level"]}</p>
+                  <p>{data?.PurposeCode}</p>
                 </div>
+                })}
               </div>
               <button onClick={startQuiz} className="quiz-start-btn">
                 Start

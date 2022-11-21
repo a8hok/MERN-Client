@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import './About.css';
-import Logo from "./img/Learn.svg"
+import Logo from "./img/existLogo.png";
 
 function About() {
   return (
