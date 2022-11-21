@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import "./landingNav.css";
-import Logo from "../About/img/Learn.svg";
+import Logo from "../About/img/existLogo.png";
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from "./Dropdown/Dropdown";
@@ -79,7 +79,7 @@ const Navbar = ({ profileInfo }) => {
             <a href="/specialization">Specialization++</a>
             <a href="/universities">Top Universities</a>
             <a href="/colleges">Top Colleges</a>
-            <a href="/#">Top Schools</a>
+            <a href="/schools">Top Schools</a>
             <a href="/#">Top Placements</a>
             <a href="/#">Top Events</a>
             <a href="/#">Resources</a>

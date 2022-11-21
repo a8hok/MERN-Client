@@ -23,12 +23,15 @@ import TopUniversity from "./component/NavComponents/TopUniversity/TopUniversity
 import Category from "./component/NavComponents/category++/Category";
 import Specialization from "./component/NavComponents/specialization++/specialization";
 import UniversityCardDetails from "./component/NavComponents/TopUniversity/UniversityCardDetails/UniversityCardDetails";
+import TopCollageCardDetail from "./component/NavComponents/TopColleges/TopCollageCardDetails/TopCollageCardDetails";
+import TopSchoolsCardDetail from "./component/NavComponents/TopSchools/TopSchoolCardDetails/TopSchoolCardDetails";
 import Admission from "./component/NavComponents/TopUniversity/Admission/Admission";
 import Internship from "./component/NavComponents/Internship/Internship";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
+import TopSchools from "./component/NavComponents/TopSchools/TopSchools";
 
 function App() {
   
@@ -57,7 +60,10 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/universities" element={<TopUniversity />}></Route>
         <Route path="/colleges" element={<TopColleges />}></Route>
+        <Route path="/schools" element={<TopSchools/>}></Route>
         <Route path="/universities/details" element={<UniversityCardDetails />}></Route>
+        <Route path="/colleges/details" element={<TopCollageCardDetail />}></Route>
+        <Route path="/schools/details" element={<TopSchoolsCardDetail/>}></Route>
         <Route path="/admission" element={<Admission />}></Route>
         <Route path="/internship" element={<Internship/>}></Route>
        

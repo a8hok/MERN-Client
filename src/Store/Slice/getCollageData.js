@@ -9,18 +9,18 @@ const CollageInfo = createSlice({
     name: "CollageExcel",
     initialState: {
         CollageData: [],
-        eventLoading: true,
+        CollageLoading: true,
       },
     extraReducers: {
         [getCollageInfo.pending]: (state, action) => {
-            state.eventLoading = true
+            state.CollageLoading = true
         },
         [getCollageInfo.fulfilled]: (state, action) => {
             state.CollageData = action.payload.data.data;
-            state.eventLoading = false
+            state.CollageLoading = false
         },
         [getCollageInfo.rejected]: (state, action) => {
-            state.eventLoading = false
+            state.CollageLoading = false
         }
     }
 })

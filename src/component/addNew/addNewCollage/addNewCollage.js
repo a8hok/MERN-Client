@@ -32,14 +32,14 @@ const AddNewCollage = () => {
         Image_Gallery: "",
         Logo: "",
         About: "",
-        Updates: "",
-        Programmes_Offered: "",
-        Admissions: "",
-        Placement: "",
-        admissio_Test: "",
-        Perceptions: "",
-        NAAC_Grade_Validity: "",
-        Ranking: "",
+        // Updates: "",
+        // Programmes_Offered: "",
+        // Admissions: "",
+        // Placement: "",
+        // admissio_Test: "",
+        // Perceptions: "",
+        // NAAC_Grade_Validity: "",
+        // Ranking: "",
         fB: "",
         tR: "",
         yT: "",
@@ -54,8 +54,8 @@ const AddNewCollage = () => {
 
     const validate = (e) => {
       const errors={}
-      if (!e.SNo){
-        errors.SNo = "enter the serial number"
+      if (!e.c_id){
+        errors.c_id = "enter the collage Id"
       }
 
       return errors
@@ -131,7 +131,7 @@ const AddNewCollage = () => {
             <textarea placeholder="About the Institution" name="About" onChange={handleChange} className="textarea-collage_about"></textarea>
             <p>{error.About}</p>
 
-            <input type="text" name="Updates" placeholder="updates" onChange={handleChange}></input>
+            {/* <input type="text" name="Updates" placeholder="updates" onChange={handleChange}></input>
             <p>{error.Updates}</p>
 
             <input type="text" name="Programmes_Offered" placeholder="Programms Offered" onChange={handleChange}></input>
@@ -153,7 +153,7 @@ const AddNewCollage = () => {
             <p>{error.NAAC_Grade_Validity}</p>
 
             <input type="text" name="Ranking" placeholder="Ranking" onChange={handleChange}></input>
-            <p>{error.Ranking}</p>
+            <p>{error.Ranking}</p> */}
 
             <input type="text" name="fB" placeholder="faceBook" onChange={handleChange}></input>
             <p>{error.fB}</p>

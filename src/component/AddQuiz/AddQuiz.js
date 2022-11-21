@@ -115,16 +115,16 @@ const AddQuiz = () => {
               <textarea name="Stem" placeholder="Stem" onChange={handleChange}></textarea>
               <p>{error.Stem}</p>
 
-              <input type="text" name="distractor1" placeholder="first option" onChange={handleChange}></input>
+              <input type="text" name="distractor1" placeholder="distractor 1" onChange={handleChange}></input>
               <p>{error.distractor1}</p>
 
-              <input type="text" name="distractor2" placeholder="second option" onChange={handleChange}></input>
+              <input type="text" name="distractor2" placeholder="distractor 2" onChange={handleChange}></input>
               <p>{error.distractor2}</p>
 
-              <input type="text" name="distractor3" placeholder="third option" onChange={handleChange}></input>
+              <input type="text" name="distractor3" placeholder="distractor 3" onChange={handleChange}></input>
               <p>{error.distractor3}</p>
 
-              <input type="text" name="distractor4" placeholder="fourth option" onChange={handleChange}></input>
+              <input type="text" name="distractor4" placeholder="distractor 4" onChange={handleChange}></input>
               <p>{error.distractor4}</p>
 
               <input type="Number" name="Key" placeholder="Key" onChange={handleChange}></input>
