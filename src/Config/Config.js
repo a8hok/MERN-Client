@@ -1,7 +1,7 @@
 import axios from "axios";
 export const axio = axios.create({
-  baseURL: "http://localhost:8001",
-  //https://learning-mern-academy.herokuapp.com
+  baseURL: "https://learning-mern-academy.herokuapp.com",
+  //http://localhost:8001
   headers: { 
   "X-Custom-Header": "foobar",
   "Accept": "application/json",
