@@ -8,6 +8,13 @@
   margin: 0 auto;
 }
 
+.quiz-Hint_Container {
+  background: rgb(255, 255, 255);
+  padding: 1em;
+  border-radius: 1em;
+  border: solid 3px rgb(255, 229, 36);
+}
+
 .meter-scale {
   width: 100%;
   margin: 0 auto;

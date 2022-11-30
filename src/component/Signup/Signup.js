@@ -12,6 +12,27 @@ const Signup = () => {
   const { signupData } = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
 
+  const rolseJson = [{
+    value: 0,
+    name: "",
+    option: "Please select your type of affiliation"
+  },
+  {
+    value: "College",
+    name: "",
+    option: "College"
+  },
+  {
+    value: "School",
+    name: "",
+    option: "School"
+  },
+  {
+    value: "University",
+    name: "",
+    option: "University"
+  }]
+
   useEffect(() => {
     if (
       signupData &&
@@ -43,13 +64,17 @@ const Signup = () => {
     const userFirstName = ele[0].value;
     const userLastName = ele[1].value;
     const userEmail = ele[2].value;
-    const userPassword = ele[3].value;
+    const userAffiliationId = ele[3].value;
+    const userAffiliation = ele[4].value;
+    const userPassword = ele[5].value;
     ele[0].value = "";
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
+    ele[4].value = "";
+    ele[5].value = "";
     dispatch(
-      postSignupData({ userFirstName, userLastName, userEmail, userPassword })
+      postSignupData({ userFirstName, userLastName, userEmail, userPassword, userAffiliationId, userAffiliation })
     );
   };
 
@@ -81,12 +106,32 @@ const Signup = () => {
                   required
                 ></input>
               </div>
+
               <input
                 className="Email-input"
                 placeholder="Email Address *"
                 type="email"
                 required
               ></input>
+
+              <input
+                className="Email-input"
+                placeholder="ID *"
+                type="text"
+              ></input>
+
+              <select
+                className="Email-input"
+                placeholder="ID *">
+                  {rolseJson.map((e) => {
+                    return<option value={e.value}>
+                            {e.option}
+                          </option>
+                      }
+                    )
+                  }   
+              </select>
+              
               <input
                 className="password-input"
                 type="password"

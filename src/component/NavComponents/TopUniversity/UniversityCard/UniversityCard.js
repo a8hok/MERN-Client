@@ -1,16 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import "./UniversityCard.css";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import EditSelectedUniversity from "../../../Edit/EditUniversity";
 
-function UniversityCard({ uniInfo }) {
+function UniversityCard({ uniInfo, editBtn }) {
   const navigate = useNavigate();
+  const [showEdit, setShowEdit] = useState(false);
   const location = useLocation().state;
-  // const UniversityCardData = uni
+
+const showEditForm = () => {
+  setShowEdit(true)
+}
+
   const handelDetail = (e) => {
     navigate("/universities/details", { state: { state: uniInfo } });
   };
   return (
+    <>
+    {!!showEdit ? <EditSelectedUniversity value={uniInfo}/>:
+    <>
+    {editBtn && 
+          <label onClick={showEditForm} className="edit-Icon-Card-Label">
+            <p className="edit-Icon-Card" title="edit details">Edit</p>
+          </label>
+            }
     <div className="uni-card-container" onClick={handelDetail}>
       <div className="uni-img-container">
         <img src={uniInfo.Image}></img>
@@ -38,6 +51,9 @@ function UniversityCard({ uniInfo }) {
         <div className="uni-stat-value"></div>
       </div>
     </div>
+    </>
+    }
+    </>
   );
 }
 

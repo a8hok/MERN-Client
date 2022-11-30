@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "./ListEvent.css";
 
 function ListEvent({ eventsData, editImg }) {
+
   const [state, setState] = useState("event-list");
   const [data, setData] = useState();
 
@@ -42,7 +43,7 @@ function ListEvent({ eventsData, editImg }) {
                     </div>
                     <div className="center-pro">
                       <div className="third-head">{obj.eventName}</div>
-                      {editImg && (
+                      {editImg &&(
                         <div className="button-pro">
                           <button
                             className="edit-info"
