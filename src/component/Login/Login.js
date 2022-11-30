@@ -6,14 +6,19 @@ import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
+import useAuth from "../CustomComponents/useAuth";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {setAuth} = useAuth();
   const { loginData, loading } = useSelector((state) => state.loginInfo);
-  const locationState = useLocation().state;
+  const location = useLocation()
+  const locationState = location.state;
+
+  const from = location?.state?.from?.pathname || "/"
 
   console.log(loginData)
 
@@ -26,6 +31,8 @@ const Login = () => {
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
   };
+
+  console.log(loginData?.data?.superAdminStatus)
 
   useEffect(() => {
     if (!locationState?.logout) {
@@ -45,6 +52,7 @@ const Login = () => {
         navigate("/profile", { state: loginData.data.userEmail });
       } else if (loginData.error) {
         console.log("No user found");
+        // navigate(from, {replace: true})
       }
     }
   }, [loginData]);

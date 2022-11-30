@@ -4,6 +4,7 @@ import Logo from "../About/img/existLogo.png";
 import Dropdown from "../Navbar/Dropdown/Dropdown";
 
 const AdminNavBar = ({ profileInfo }) => {
+  console.log(profileInfo)
   return (
     <header className="admin-navs">
       <div className="mid-navs">

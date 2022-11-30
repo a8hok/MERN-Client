@@ -196,7 +196,7 @@ const MainQuiz = () => {
                           },
                         }}/>
                       </div>}
-                      {checked && <div>
+                      {checked && <div className="quiz-Hint_Container">
                           <h2>{obj.Hint}</h2>
                         </div>
                       }

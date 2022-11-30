@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
@@ -33,31 +34,25 @@ import "./App.css";
 import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
 import TopSchools from "./component/NavComponents/TopSchools/TopSchools";
 
+import PrivateRoutes from "./component/CustomComponents/PrivateRoute";
+
 function App() {
+
+  const { userData } = useSelector((state) => state.userProfileInfo);
   
   return (
     <div>
       <Routes>
-        
-        <Route path="/categories" element={<Category />}></Route>
-        <Route path="/specialization" element={<Specialization />}></Route>
-        <Route path="/" element={<Landing />} exact></Route>
-        <Route path="/login" element={<Login />}></Route>
+
+      {/* common files */}
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/login" element={<Login />}exact></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/landing" element={<Landing />}></Route>
         <Route path="/quiz" element={<Quiz />}></Route>
-        <Route path="/search" element={<SearchPage />}></Route>
-        <Route path="/detail" element={<DetailPage />}></Route>
-        <Route path="/quiz/start" element={<MainQuiz />}></Route>
-        <Route path="/profile" element={<UserProfile />}></Route>
-        <Route path="/dropdown" element={<Dropdown />}></Route>
-        <Route path="/admin" element={<PostUniversity />}></Route>
-        <Route path="/admin/dashboard" element={<Dashboard />}></Route>
-        <Route path="/editevents" element={<EditEvents />}></Route>
-        <Route path="/profile/addevent" element={<AddEvent />}></Route>
-        <Route path="/EventUpdate" element={<EventUpdate />}></Route>
-        <Route path="/addquiz" element={<AddQuiz />}></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route path="/categories" element={<Category />}></Route>
+        <Route path="/specialization" element={<Specialization />}></Route>
+        <Route path="/" element={<Landing />} exact></Route>
         <Route path="/universities" element={<TopUniversity />}></Route>
         <Route path="/colleges" element={<TopColleges />}></Route>
         <Route path="/schools" element={<TopSchools/>}></Route>
@@ -66,6 +61,28 @@ function App() {
         <Route path="/schools/details" element={<TopSchoolsCardDetail/>}></Route>
         <Route path="/admission" element={<Admission />}></Route>
         <Route path="/internship" element={<Internship/>}></Route>
+
+        
+          <Route path="/search" element={<SearchPage />}></Route>
+        
+        
+        <Route path="/detail" element={<DetailPage />}></Route>
+
+        <Route path="/quiz/start" element={<MainQuiz />}></Route>
+
+        <Route path="/profile" element={<UserProfile />}></Route>
+
+        <Route path="/dropdown" element={<Dropdown />}></Route>
+
+        {/* admin */}
+        <Route element={<PrivateRoutes/>}>
+          <Route path="/admin" element={<PostUniversity />}></Route>
+          <Route path="/admin/dashboard" element={<Dashboard />}></Route>
+          <Route path="/editevents" element={<EditEvents />}></Route>
+          <Route path="/profile/addevent" element={<AddEvent />}></Route>
+          <Route path="/EventUpdate" element={<EventUpdate />}></Route>
+          <Route path="/addquiz" element={<AddQuiz />}></Route>
+        </Route>
        
       </Routes>
     </div>

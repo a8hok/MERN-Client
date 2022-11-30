@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { axio } from "../../Config/Config";
 import { useDispatch, useSelector } from "react-redux";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
@@ -24,11 +25,16 @@ import AddchartIcon from '@mui/icons-material/Addchart';
 import AddNewUniversity from "../addNew/addNewUniversity/addNewUniversity";
 import AddNewSchool from "../addNew/addNewSchool/addNewSchool";
 import AddNewCollage from "../addNew/addNewCollage/addNewCollage";
+import { getSelectedUniversityInfo } from "../../Store/Slice/selectedUniversity";
+import CollageCard from "../NavComponents/TopColleges/TopCollageCard/TopCollageCard";
+import UniversityCard from "../NavComponents/TopUniversity/UniversityCard/UniversityCard";
 
 const UserProfile = () => {
-  const [name, setname] = useState();
+  // const [name, setname] = useState();
+  // const [selectedData, setSelectedData] = useState(null)
   const [img, setimg] = useState();
   const locationState = useLocation()?.state;
+  const [editBtn, setEditBtn] = useState(true)
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -38,6 +44,8 @@ const UserProfile = () => {
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
 
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
+
+  const { SelectedUniversitiesData } = useSelector((state) => state.getUniversity);
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
@@ -63,8 +71,21 @@ const UserProfile = () => {
 
   const lastimg = userImage.slice(forsecondlastimg, forlastimg);
 
-  // const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
-  // console.log(eventsData)
+  const userStatus = userData?.data?.superAdminStatus
+
+  const userAffiliation = userData?.data?.userAffiliation
+
+  const S_No = userData?.data?.userAffiliationId
+
+  const S_no = parseInt(S_No,10)
+
+  useEffect(() => {
+    if(userAffiliation === "College"){
+      dispatch(getSelectedUniversityInfo(S_no))
+    }
+  }, [userData])
+
+  // console.log(SelectedUniversitiesData)
 
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
@@ -140,34 +161,35 @@ const UserProfile = () => {
                     <PostAddIcon/>
                     <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
                   </div>
-                  <div className="left-container--dashboard--content">
+                  {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-university")}>Add University</button>
-                  </div>
-                  <div className="left-container--dashboard--content">
+                  </div>}
+                  {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-program")}>Add Program</button>
-                  </div>
-                  <div className="left-container--dashboard--content">
+                  </div>}
+                  {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-school")}>Add school</button>
-                  </div>
-                  <div className="left-container--dashboard--content">
+                  </div>}
+                  {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-Collage")}>Add college</button>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </div>
           </div>
           {content === "user-profile" && (
-            <div>
+            <div className="userProfile-RightSide_Container">
               <div className="profilepic-container">
                 <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
-                <p>Student</p>
+                <p>{userAffiliation}</p>
               </div>
-              {<div className="eve-top">Events</div>}
-              <ListEvent eventsData = {eventsData} editImg={editImg}/>
+              {userStatus && <div className="eve-top">Events</div>}
+              {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
+              {!userStatus && <UniversityCard uniInfo={SelectedUniversitiesData} editBtn={editBtn}></UniversityCard>}
             </div>
           )}
           {content === "add-event" && <AddEvent />}
@@ -176,7 +198,6 @@ const UserProfile = () => {
           {content === "new-program" && <AddNewProgram/>}
           {content === "new-school" && <AddNewSchool/>}
           {content === "new-Collage" && <AddNewCollage/>}
-          {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>
     </>
