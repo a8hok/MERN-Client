@@ -18,6 +18,7 @@ import EditEvents from "./component/EditProfile/EditProfile.js";
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/Event/AddEvent";
 // import Navbar from "./component/Navbar/navbar";
+import ContactUs from "./component/ContactUs/ContactUs";
 import About from "./component/About/About";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
 import TopUniversity from "./component/NavComponents/TopUniversity/TopUniversity";
@@ -61,9 +62,10 @@ function App() {
         <Route path="/schools/details" element={<TopSchoolsCardDetail/>}></Route>
         <Route path="/admission" element={<Admission />}></Route>
         <Route path="/internship" element={<Internship/>}></Route>
+        <Route path="/contactus" element={<ContactUs/>}></Route>
 
         
-          <Route path="/search" element={<SearchPage />}></Route>
+        <Route path="/search" element={<SearchPage />}></Route>
         
         
         <Route path="/detail" element={<DetailPage />}></Route>

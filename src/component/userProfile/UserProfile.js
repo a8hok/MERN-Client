@@ -80,7 +80,7 @@ const UserProfile = () => {
   const S_no = parseInt(S_No,10)
 
   useEffect(() => {
-    if(userAffiliation === "College"){
+    if(userAffiliation === "University"){
       dispatch(getSelectedUniversityInfo(S_no))
     }
   }, [userData])

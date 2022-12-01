@@ -58,8 +58,8 @@ const Footer = () => {
       <div className="Line2"></div>
       <div className="footer-link-container">
         <div className="Footer-link">
-          <a href="#/">ABOUT US</a>
-          <a href="#/"> CONTACT US </a>
+          <a href="/about">ABOUT US</a>
+          <a href="/contactus"> CONTACT US </a>
           <a href="#/">HELP</a>
           <a href="#/">PRIVACY POLICY</a>
           <a href="#/"> DISCLAIMER</a>

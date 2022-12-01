@@ -1,0 +1,33 @@
+.contact-form-Container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 50%;
+    margin: 2em auto;
+    background: rgb(104, 197, 255);
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.column_Contact_Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.column_Contact_Form input, .column_Contact_Form select, .column_Contact_Form textarea {
+    padding: 1em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+.Contact-Submit_Button {
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    background: rgb(10, 100, 120);
+}
