@@ -23,17 +23,14 @@ function ContactUs() {
         <label for="the-reason">How can we help you?</label>
         <select name="reason" id="the-reason">
         <option value="">Choose one</option>
-        <option value="web">I need web design services</option>
-        <option value="video">I need you to produce a video</option>
-        <option value="3d">I need 3D polygon things</option>
+        <option value="web">I need top schools</option>
+        <option value="video">I need you to pick best universities</option>
+        <option value="3d">I need college with good facilities</option>
     </select>
     </div>
     <div className="column_Contact_Form">
         <label for="the-message">Message</label>
         <textarea name="message" id="the-message"></textarea>
-        <label>
-        <input type="checkbox" name="newsletter" value="yes"/> Join our mailing list?
-        </label>
         <input type="submit" value="Send Message" className="Contact-Submit_Button"/>
     </div>
 </form>
