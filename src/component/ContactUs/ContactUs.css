@@ -4,32 +4,134 @@
     align-items: center;
     justify-content: center;
     gap: 1em;
-    width: 50%;
+    width: 80%;
+    height: 60vh;
     margin: 2em auto;
-    background: rgb(134, 178, 255);
     padding: 2em;
     border-radius: 1em;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.4),rgba(255, 255, 255, 0.2)); */
 }
 
-.column_Contact_Form {
+.top-Section-ContactPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1em;
 }
 
-.column_Contact_Form input, .column_Contact_Form select, .column_Contact_Form textarea {
-    padding: 1em;
-    border-radius: 0.5em;
+.top-Section-Form_Contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2em;
+}
+
+.inside_Topsection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.inside_Midsection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.contact_Infield-Inputs {
+    width: 100%;
+    height: 3em;
     border: none;
-    width: 80%;
-    margin: auto;
+    padding: 1em;
+}
+
+.contact_Outfield-Inputs {
+    width: 100%;
+    height: 3em;
+    border: none;
+    padding: 1em;   
+}
+
+.contact_Textfield-Inputs {
+    width: 100%;
+    height: 8em;
+    border: none;
+    padding: 1em;   
+}
+
+.Contact-Input_Labels {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9em;
 }
 
 .Contact-Submit_Button {
-    color: white;
+    color: rgb(103, 103, 103);
+    text-transform: uppercase;
+    font-weight: 700;
     font-size: 1em;
     font-weight: 700;
-    background: rgb(10, 100, 120);
+    padding: 1em 1.8em;
+    background: rgb(243, 243, 243);
+    border: none;
+    align-self: flex-start;
+}
+
+.contact-Rightside-contents {
+    display: flex;
+    flex-direction: column;
+    padding: 4em;
+    gap: 1.2em;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.contact-content {
+    color: white;
+    line-height: 2em;
+    font-size: 1.1em;
+}
+
+.contact-heading {
+    color: white;
+    font-weight: 700;
+    font-size: 2.4em;
+    text-transform: capitalize;
+}
+
+.contact-image_Background {
+    background: url("./img/EDUCATION.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* padding: 2em; */
+    width: 80%;
+    /* height: 30em; */
+    /* margin: auto; */
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.all-Contact_Container {
+    width: 100%;
+    display:flex;
+    height: 150vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.contact-Rightside-contents_Button {
+    background: transparent;
+    border: solid 3.5px white;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    padding: 1em 0;
+    width: 30%;
 }
