@@ -19,8 +19,8 @@ body {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    height: 50%;
-    padding: 0em 3em;
+    height: 60%;
+    padding: 3em;
 }
 
 .top-navmenus,
@@ -107,6 +107,11 @@ nav {
   header .nav-btn {
     visibility: visible;
     opacity: 1;
+  }
+
+  .AcademyLogo {
+    width: 3em;
+    height: 3em;
   }
 
   .visible-nav-option a,
@@ -205,21 +210,15 @@ nav {
   }
 
   .AcademyLogo {
-    width: 70%;
-    height: 70%;
-  }
-}
-
-@media only screen and (max-width: 1025px) {
-  .AcademyLogo {
-    width: 15em;
+    width: 30%;
+    height: 30%;
   }
 }
 
 @media only screen and (max-width: 920px) {
   .AcademyLogo {
-    width: 70%;
-    height: 70%;
+    width: 30%;
+    height: 30%;
   }
   .navbars {
     display: flex;
@@ -304,6 +303,8 @@ nav {
   }
   .navbars {
     width: 100%;
+    height: 8em;
+    padding: 5em 1em;
   }
 }
 
