@@ -7,7 +7,7 @@
   justify-items: center;
   justify-content: center;
   width: 34em;
-  height: 39em;
+  /* height: 39em; */
   gap: 2em;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 1em;

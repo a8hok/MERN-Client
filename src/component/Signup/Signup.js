@@ -116,7 +116,7 @@ const Signup = () => {
 
               <input
                 className="Email-input"
-                placeholder="ID *"
+                placeholder="ID / College-ID / University_ID/ School_ID"
                 type="text"
               ></input>
 
