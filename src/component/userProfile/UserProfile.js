@@ -26,8 +26,11 @@ import AddNewUniversity from "../addNew/addNewUniversity/addNewUniversity";
 import AddNewSchool from "../addNew/addNewSchool/addNewSchool";
 import AddNewCollage from "../addNew/addNewCollage/addNewCollage";
 import { getSelectedUniversityInfo } from "../../Store/Slice/selectedUniversity";
+import { getSelectedCollegeInfo } from "../../Store/Slice/selectedCollege";
+import { getSelectedSchoolInfo } from "../../Store/Slice/selectedSchool";
 import CollageCard from "../NavComponents/TopColleges/TopCollageCard/TopCollageCard";
 import UniversityCard from "../NavComponents/TopUniversity/UniversityCard/UniversityCard";
+import SchoolsCard from "../NavComponents/TopSchools/TopSchoolCard/TopSchoolCard";
 
 const UserProfile = () => {
   // const [name, setname] = useState();
@@ -46,6 +49,10 @@ const UserProfile = () => {
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
 
   const { SelectedUniversitiesData } = useSelector((state) => state.getUniversity);
+
+  const { SelectedCollegesData } = useSelector((state) => state.getchoosenCollege);
+
+  const { SelectedSchoolData } = useSelector((state) => state.getChoosenSchool);
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
@@ -77,11 +84,21 @@ const UserProfile = () => {
 
   const S_No = userData?.data?.userAffiliationId
 
+  const c_id = userData?.data?.userAffiliationId
+
+  const SlNo = userData?.data?.userAffiliationId
+
   const S_no = parseInt(S_No,10)
 
   useEffect(() => {
     if(userAffiliation === "University"){
       dispatch(getSelectedUniversityInfo(S_no))
+    }
+    else if(userAffiliation === "College"){
+      dispatch(getSelectedCollegeInfo(c_id))
+    }
+    else if(userAffiliation === "School"){
+      dispatch(getSelectedSchoolInfo(SlNo))
     }
   }, [userData])
 
@@ -131,7 +148,7 @@ const UserProfile = () => {
                 </label>
                 </div>
                 <div className="user-data-container">
-                  <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
+                  {userAffiliation && <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>}
                   <p>{userAffiliation}</p>
                 </div>
               </div>
@@ -190,7 +207,9 @@ const UserProfile = () => {
               </div>
               {userStatus && <div className="eve-top">Events</div>}
               {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
-              {!userStatus && <UniversityCard uniInfo={SelectedUniversitiesData} editBtn={editBtn}></UniversityCard>}
+              {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={editBtn}></UniversityCard>}
+              {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={editBtn}></CollageCard>}
+              {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={editBtn}></SchoolsCard>}
             </div>
           )}
           {content === "add-event" && <AddEvent />}

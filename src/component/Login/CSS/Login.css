@@ -46,7 +46,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 46em;
+  padding: 2em;
+  /* height: 46em; */
 }
 
 .Emails-input,

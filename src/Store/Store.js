@@ -26,6 +26,8 @@ import CollageDetailsReducer from "./Slice/postCollage";
 import CollageDetails from "./Slice/getCollageData";
 import removingSelectedcollage from "./Slice/deleteCollage";
 import selectedUniversity from "./Slice/selectedUniversity";
+import selectedCollege from "./Slice/selectedCollege";
+import selectedSchool from "./Slice/selectedSchool";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -55,6 +57,8 @@ const rootReducer = combineReducers({
   CollageInfo: CollageDetails,
   deleteCollage: removingSelectedcollage,
   getUniversity: selectedUniversity,
+  getchoosenCollege: selectedCollege,
+  getChoosenSchool: selectedSchool
 });
 
 const store = configureStore({
