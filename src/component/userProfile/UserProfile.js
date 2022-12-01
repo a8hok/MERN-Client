@@ -132,7 +132,7 @@ const UserProfile = () => {
                 </div>
                 <div className="user-data-container">
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
-                  <p>Student</p>
+                  <p>{userAffiliation}</p>
                 </div>
               </div>
               <div className="left-container--dashboard">
@@ -184,7 +184,8 @@ const UserProfile = () => {
           {content === "user-profile" && (
             <div className="userProfile-RightSide_Container">
               <div className="profilepic-container">
-                <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
+                {SelectedUniversitiesData ?<h2>{SelectedUniversitiesData.Name_1}</h2>:
+                <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>}
                 <p>{userAffiliation}</p>
               </div>
               {userStatus && <div className="eve-top">Events</div>}
