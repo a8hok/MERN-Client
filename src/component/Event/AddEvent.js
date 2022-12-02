@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
 import file from "./img/pngtree.jpg";
 
-const AddEvent = () => {
+const AddEvent = ({userData}) => {
   const dispatch = useDispatch();
 
   const [name, setname] = useState()
@@ -25,12 +25,13 @@ const AddEvent = () => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
+    const author = userData?.name || undefined;
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
     // element[4].value = "";
-    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files}));
+    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files, author}));
     if (name.length > 0){
       setmessage("Event uploaded successfully")
     }

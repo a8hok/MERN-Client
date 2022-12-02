@@ -40,7 +40,8 @@ const UserProfile = () => {
   const [editBtn, setEditBtn] = useState(true)
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [allUse, setAllUse] = useState({})
   const { userImage, userImageloading } = useSelector(
     (state) => state.newprofilepicInfo
   );
@@ -102,7 +103,19 @@ const UserProfile = () => {
     }
   }, [userData])
 
-  // console.log(SelectedUniversitiesData)
+  useEffect(() => {
+    if(userAffiliation === "University"){
+      setAllUse({name: SelectedUniversitiesData?.Name_1, belong: userAffiliation, key: S_No})
+    }
+    else if(userAffiliation === "College"){
+      setAllUse({name: SelectedCollegesData?.College_Name, belong: userAffiliation, key: S_No})
+    }
+    else if(userAffiliation === "School"){
+      setAllUse({name: SelectedSchoolData?.name, belong: userAffiliation, key: S_No})
+    }
+  }, [userData])
+
+  console.log(userData)
 
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
@@ -148,7 +161,7 @@ const UserProfile = () => {
                 </label>
                 </div>
                 <div className="user-data-container">
-                  {userAffiliation && <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>}
+                  <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>{userAffiliation}</p>
                 </div>
               </div>
@@ -201,8 +214,9 @@ const UserProfile = () => {
           {content === "user-profile" && (
             <div className="userProfile-RightSide_Container">
               <div className="profilepic-container">
-                {SelectedUniversitiesData ?<h2>{SelectedUniversitiesData.Name_1}</h2>:
-                <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>}
+                {SelectedUniversitiesData && <h2>{SelectedUniversitiesData?.Name_1}</h2>}
+                {SelectedCollegesData && <h2>{SelectedCollegesData?.College_Name}</h2>}
+                {SelectedSchoolData && <h2>{SelectedSchoolData?.name}</h2>}
                 <p>{userAffiliation}</p>
               </div>
               {userStatus && <div className="eve-top">Events</div>}
@@ -212,7 +226,7 @@ const UserProfile = () => {
               {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={editBtn}></SchoolsCard>}
             </div>
           )}
-          {content === "add-event" && <AddEvent />}
+          {content === "add-event" && <AddEvent userData={allUse} />}
           {content === "add-quiz" && <AddQuiz/>}
           {content === "new-university" && <AddNewUniversity/>}
           {content === "new-program" && <AddNewProgram/>}

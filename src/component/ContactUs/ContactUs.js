@@ -5,35 +5,67 @@ import Navbar from '../Navbar/navbar';
 function ContactUs() {
   return (
     <div>
-        <Navbar/>
-        <form className="contact-form-Container">
-    <h1>Contact Us</h1>
-    <p>Please take a moment to get in touch, we will get back to you shortly.</p>
+      <Navbar />
+      <div className="all-Contact_Container">
+        <div className="top-Section-ContactPage">
+          <h1>contact us</h1>
+          <p>For more information, please write to:</p>
+          <p>info@learnplusplus.com </p>
+          <p>LPP Learning Technology Solutions Private Limited</p>
+          <p>(Incorporated as a Private Limited Company under the Companies Act, 2013 (18 of 2013))</p>
+          <p>Regd. Office:</p>
+          <p>26 Badrakaliamman Koil Street No. 3</p>
+          <p>Uppilipalayam</p>
+          <p>Coimbatore – 641 015</p>
+          <p>TamilNadu, India.</p>
+        </div>
+        <div className="contact-image_Background">
+          <div className="contact-Rightside-contents">
+            <h1 className="contact-heading">contact us</h1>
+            <p className="contact-content">
+            LearnPlusPlus.com, a knowledge-based digital 
+            technology platform offering educational products 
+            and services to enable learners at all levels to 
+            explore and craft their learning paths.
+            </p>
+            <button className="contact-Rightside-contents_Button">
+              learn more
+            </button>
+          </div>
 
-    <div className="column_Contact_Form">
-        <label for="the-name">Your Name</label>
-        <input type="text" name="name" id="the-name"/>
+          <form className="contact-form-Container">
+            <div className="top-Section-Form_Contact">
+              <div className="inside_Topsection">
+                <label className="Contact-Input_Labels">Email Address</label>
+                <input className="contact_Infield-Inputs" type="email" name="email" id="the-email" 
+                placeholder="enter a valid email"/>
+              </div>       
+              <div className="inside_Topsection">
+                <label className="Contact-Input_Labels">Your Name</label>
+                <input className="contact_Infield-Inputs" type="text" name="name" id="the-name" 
+                placeholder="enter your name"/>
+              </div>       
+            </div>
+            <div className="inside_Midsection">
+                <label className="Contact-Input_Labels">Email Address</label>
+                <input className="contact_Outfield-Inputs" type="text"
+                placeholder="Enter your address">
+                </input>   
+            </div>  
+            <div className="inside_Midsection">
+                <label className="Contact-Input_Labels">Message</label>
+                <textarea className="contact_Textfield-Inputs" type="text"
+                placeholder="Enter your address">
+                </textarea>   
+            </div>
 
-        <label for="the-email">Email Address</label>
-        <input type="email" name="email" id="the-email"/>
-
-        <label for="the-phone">Phone Number</label>
-        <input type="tel" name="phone" id="the-phone"/>
-
-        <label for="the-reason">How can we help you?</label>
-        <select name="reason" id="the-reason">
-        <option value="">Choose one</option>
-        <option value="web">I need top schools</option>
-        <option value="video">I need you to pick best universities</option>
-        <option value="3d">I need college with good facilities</option>
-    </select>
-    </div>
-    <div className="column_Contact_Form">
-        <label for="the-message">Message</label>
-        <textarea name="message" id="the-message"></textarea>
-        <input type="submit" value="Send Message" className="Contact-Submit_Button"/>
-    </div>
-</form>
+            <button type="submit" className="Contact-Submit_Button">
+              Submit
+            </button>  
+          </form>
+        </div>
+      </div>
+      
     </div>
   )
 }
