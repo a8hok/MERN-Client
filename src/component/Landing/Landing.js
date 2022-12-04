@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "../Navbar/navbar";
 import img1 from "./Img/Frame.svg";
 // import img2 from "./Img/button.svg";
@@ -22,6 +21,7 @@ import ListEvent from "../Event/ListEvent/ListEvent";
 function Landing() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [screenedEvents, setScreenedEvents] = useState([]);
   const locationState = useLocation().state;
   const navigateDetail = () => {
     navigate("/detail");
@@ -30,11 +30,16 @@ function Landing() {
     navigate("/search");
   };
 
+  function ScreeningEvents (e) {
+    return (e?.status === 0)
+  }
+
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
     dispatch(userProfileData(locationState?.email));
   }, []);
+
   const handelSearch = (e) => {
     e.preventDefault();
     const ele = e.target.elements
@@ -47,6 +52,12 @@ function Landing() {
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
+
+  
+  useEffect(() => {
+    setScreenedEvents(eventsData.filter(ScreeningEvents))
+  }, [eventsData])
+
   return (
     <div>
       <NavBar profileInfo={userData.data} />
@@ -100,7 +111,7 @@ function Landing() {
             <h1>Top Events</h1>
           </div>
           <div className="third-full-con">
-            <ListEvent eventsData={eventsData} />
+            <ListEvent eventsData={screenedEvents} />
           </div>
         </div>
       </div>

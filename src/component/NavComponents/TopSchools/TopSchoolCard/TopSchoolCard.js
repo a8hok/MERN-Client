@@ -17,7 +17,7 @@ function SchoolsCard({ SchoolInfo, editBtn }) {
     <>
     {!!showEdit ? <EditSelectedSchool value={SchoolInfo}/>:
     <>
-    {editBtn && 
+    {editBtn === false && 
           <label onClick={showEditForm} className="edit-Icon-Card-Label">
             <p className="edit-Icon-Card" title="edit details">Edit</p>
           </label>

@@ -9,7 +9,8 @@ export const editingEvent = createAsyncThunk("EditEvent", async(data) => {
     formdata.append("eventDescription", data.eventDescription);
     formdata.append("eventDate", data.eventDate);
     formdata.append("eventTime", data.eventTime);
-    {data.eventImage != undefined && formdata.append( "eventImage", data.eventImage);}
+    formdata.append("author", data.author);
+    formdata.append("status", data.status);
 
     const config = {
         headers: {
@@ -18,7 +19,6 @@ export const editingEvent = createAsyncThunk("EditEvent", async(data) => {
       }
 
     await axio.put(`/api/editevent`,formdata, config)
-    // return axio.put(`/api/editevent`,data)
 })
 
 const editEventReducer = createSlice({

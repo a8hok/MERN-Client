@@ -8,19 +8,19 @@ import "./EditProfile.css"
 
 function EditEvents({ eventObj }) {
   const [name, setname] = useState()
-  const [eventImage, seteventImage] = useState()
+  // const [eventImage, seteventImage] = useState()
   const [val, setval] = useState()
   const [message, setMessage] = useState()
   const [disabled, setDisabled] = useState(false)
   const dispatch = useDispatch()
   // const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   
-  const onImageChange = (e) => {
-    seteventImage(e.target.files[0])
-    setval("image")
-    setname(e.target.files[0].name)
-    // console.log(name)
-  }
+  // const onImageChange = (e) => {
+  //   seteventImage(e.target.files[0])
+  //   setval("image")
+  //   setname(e.target.files[0].name)
+  //   // console.log(name)
+  // }
 
   const handlingSubmit = (e) => {
     e.preventDefault()
@@ -39,7 +39,7 @@ function EditEvents({ eventObj }) {
     // }else {
     //   dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime}))
     // }
-    dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime, eventImage}))
+    dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime}))
     {eventId ? setMessage("Event updated successfully"): setMessage("Event is not updated")}
   }
 
@@ -78,14 +78,13 @@ function EditEvents({ eventObj }) {
               defaultValue={eventObj.eventTime}
             ></input>
 
-            <label className="add-new-profile-pic">
+            {/* <label className="add-new-profile-pic">
             <img src={file} alt="no img found" className="profile-file-img"></img>
             {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
             </label>}
-            {/* disabled={disabled} */}
             <input type="file" onChange={onImageChange} className="select-new-pic"></input>
-          </label>
+          </label> */}
 
           {message && <div className="addEvent-success-msg">{message}</div>}
 

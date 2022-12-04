@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./ContactUs.css";
 import Navbar from '../Navbar/navbar';
 
 function ContactUs() {
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar />
@@ -28,7 +30,7 @@ function ContactUs() {
             and services to enable learners at all levels to 
             explore and craft their learning paths.
             </p>
-            <button className="contact-Rightside-contents_Button">
+            <button className="contact-Rightside-contents_Button" onClick={() => navigate("/about")}>
               learn more
             </button>
           </div>

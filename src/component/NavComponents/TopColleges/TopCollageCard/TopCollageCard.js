@@ -17,7 +17,7 @@ function CollageCard({ colInfo, editBtn }) {
     <>
     {!!showEdit ? <EditSelectedCollege value={colInfo}/>:
       <>
-    {editBtn && 
+    {editBtn === false && 
           <label onClick={showEditForm} className="edit-Icon-Card-Label">
             <p className="edit-Icon-Card" title="edit details">Edit</p>
           </label>

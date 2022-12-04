@@ -16,6 +16,7 @@ import ListEvent from "../Event/ListEvent/ListEvent";
 import AddQuiz from "../AddQuiz/AddQuiz";
 import AddNewProgram from "../addNew/addNewProgram/addNewProgram";
 import SaveAltOutlinedIcon from '@mui/icons-material/SaveAltOutlined';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import EventIcon from '@mui/icons-material/Event';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
@@ -31,17 +32,20 @@ import { getSelectedSchoolInfo } from "../../Store/Slice/selectedSchool";
 import CollageCard from "../NavComponents/TopColleges/TopCollageCard/TopCollageCard";
 import UniversityCard from "../NavComponents/TopUniversity/UniversityCard/UniversityCard";
 import SchoolsCard from "../NavComponents/TopSchools/TopSchoolCard/TopSchoolCard";
+import AddNewContentCreator from "../addNew/addNewContentCreator/addNewContentCreator";
+import ViewChanges from "../ViewChanges/ViewChanges";
 
 const UserProfile = () => {
-  // const [name, setname] = useState();
-  // const [selectedData, setSelectedData] = useState(null)
   const [img, setimg] = useState();
   const locationState = useLocation()?.state;
-  const [editBtn, setEditBtn] = useState(true)
   const [content, setcontent] = useState("user-profile");
+  const [selectedEvent, setSelectedEvent] = useState([]);
+  const [creator, setCreator] = useState({});
+  const [authorization, setAuthorization] = useState();
+  const [creatorStatus, setCreatorStatus] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [allUse, setAllUse] = useState({})
+  const [allUse, setAllUse] = useState()
   const { userImage, userImageloading } = useSelector(
     (state) => state.newprofilepicInfo
   );
@@ -63,15 +67,74 @@ const UserProfile = () => {
     return () => {}
   }, []);
 
+  const univName = SelectedUniversitiesData?.Name_1
+
+  const colName = SelectedCollegesData?.College_Name
+
+  const SchoolName = SelectedSchoolData?.name
+
   useEffect(() => {
     setTimeout(() => {
       dispatch(getEventInfo());
-    }, "120000")
+    }, "240000")
   }, [eventsData])
 
   useEffect(() => {
     dispatch(GetProfilepic());
   }, [img]);
+
+  function checkSchool (e) {
+    return (e?.author === SchoolName && e?.status === 0)
+  }
+
+  function checkCollege (e) {
+    return (e?.author === colName && e?.status === 0)
+  }
+
+  function checkUniv (e) {
+    return (e?.author === univName && e?.status === 0)
+  }
+
+  function ValUniv (e) {
+    return (e?.author === univName && e?.status === 1)
+  }
+
+  function ValClg (e) {
+    return (e?.author === colName && e?.status === 1)
+  }
+
+  function ValSchool (e) {
+    return (e?.author === SchoolName && e?.status === 1)
+  }
+
+  useEffect(() => {
+    eventsData.filter((i) => {
+      if(i.author === univName){
+        setSelectedEvent(eventsData.filter(checkUniv))
+        setAuthorization(eventsData.filter(ValUniv))
+      }else if (i.author === colName){
+        setSelectedEvent(eventsData.filter(checkCollege))
+        setAuthorization(eventsData.filter(ValClg))
+      }else if (i.author === SchoolName){
+        setSelectedEvent(eventsData.filter(checkSchool))
+        setAuthorization(eventsData.filter(ValSchool))
+      }else {
+        setSelectedEvent(null)
+      }
+    })
+  }, [userData, content, eventsData])
+
+  useEffect(() => {
+    eventsData.filter((i) => {
+      if(i.author === univName){
+        setAuthorization(eventsData.filter(ValUniv))
+      }else if (i.author === colName){
+        setAuthorization(eventsData.filter(ValClg))
+      }else if (i.author === SchoolName){
+        setAuthorization(eventsData.filter(ValSchool))
+      }
+    })
+  }, [userData, content, eventsData])
 
   const forlastimg = userImage.length;
 
@@ -89,33 +152,34 @@ const UserProfile = () => {
 
   const SlNo = userData?.data?.userAffiliationId
 
+  const Status = userData?.data?.contentCreator
+
   const S_no = parseInt(S_No,10)
 
   useEffect(() => {
     if(userAffiliation === "University"){
       dispatch(getSelectedUniversityInfo(S_no))
-    }
-    else if(userAffiliation === "College"){
+    }else if(userAffiliation === "College"){
       dispatch(getSelectedCollegeInfo(c_id))
-    }
-    else if(userAffiliation === "School"){
+    }else if(userAffiliation === "School"){
       dispatch(getSelectedSchoolInfo(SlNo))
     }
   }, [userData])
 
   useEffect(() => {
     if(userAffiliation === "University"){
-      setAllUse({name: SelectedUniversitiesData?.Name_1, belong: userAffiliation, key: S_No})
+      setAllUse({name: univName, belong: userAffiliation, key: S_No, Status: Status})
+      setCreator({name: univName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
+    }else if(userAffiliation === "College"){
+      setAllUse({name: colName, belong: userAffiliation, key: S_No, Status: Status})
+      setCreator({name: colName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
+    }else if(userAffiliation === "School"){
+      setAllUse({name: SchoolName, belong: userAffiliation, key: S_No, Status: Status})
+      setCreator({name: SchoolName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
     }
-    else if(userAffiliation === "College"){
-      setAllUse({name: SelectedCollegesData?.College_Name, belong: userAffiliation, key: S_No})
-    }
-    else if(userAffiliation === "School"){
-      setAllUse({name: SelectedSchoolData?.name, belong: userAffiliation, key: S_No})
-    }
-  }, [userData])
+  }, [userData, content, eventsData])
 
-  console.log(userData)
+  console.log(userData?.data)
 
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
@@ -191,6 +255,14 @@ const UserProfile = () => {
                     <PostAddIcon/>
                     <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
                   </div>
+                  {!userStatus && Status === false && <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-content-creator")}>create content creator</button>
+                  </div>}
+                  {!userStatus && Status === false && <div className="left-container--dashboard--content">
+                    <NotificationsIcon/>
+                    <button onClick={() => setcontent("Change-Requests")}>Creator Requests</button>
+                  </div>}
                   {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-university")}>Add University</button>
@@ -220,10 +292,12 @@ const UserProfile = () => {
                 <p>{userAffiliation}</p>
               </div>
               {userStatus && <div className="eve-top">Events</div>}
+              {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={Status}></UniversityCard>}
+              {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={Status}></CollageCard>}
+              {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={Status}></SchoolsCard>}
               {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
-              {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={editBtn}></UniversityCard>}
-              {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={editBtn}></CollageCard>}
-              {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={editBtn}></SchoolsCard>}
+              {selectedEvent && Status === false &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
+              {selectedEvent && Status === true && <ListEvent eventsData = {selectedEvent}/>}
             </div>
           )}
           {content === "add-event" && <AddEvent userData={allUse} />}
@@ -232,6 +306,8 @@ const UserProfile = () => {
           {content === "new-program" && <AddNewProgram/>}
           {content === "new-school" && <AddNewSchool/>}
           {content === "new-Collage" && <AddNewCollage/>}
+          {content === "new-content-creator" && <AddNewContentCreator data={creator}/>}
+          {content === "Change-Requests" && <ViewChanges data={authorization}/>}
         </div>
       </div>
     </>
