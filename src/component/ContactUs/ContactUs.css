@@ -9,7 +9,7 @@
     margin: 2em auto;
     padding: 2em;
     border-radius: 1em;
-    /* background: linear-gradient(rgba(255, 255, 255, 0.4),rgba(255, 255, 255, 0.2)); */
+    /* background: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.3)); */
 }
 
 .top-Section-ContactPage {
@@ -66,6 +66,7 @@
     color: white;
     font-weight: 700;
     font-size: 0.9em;
+    text-shadow: 0.1em 0.1em 0.1em black;
 }
 
 .Contact-Submit_Button {

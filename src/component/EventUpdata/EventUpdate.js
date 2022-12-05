@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./EventUpdate.css";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
 import { axio } from "../../Config/Config";
-import axios from "axios";
 import file from "./img/pngtree.jpg";
 import { useLocation } from "react-router-dom";
 
@@ -14,7 +13,7 @@ function EventUpdate() {
   const location = useLocation();
 
   const UpdateEventData = () => {
-    axios.put(`api/update-event`, {
+    axio.put(`api/update-event`, {
       eventId: location.state.blockDetails._id,
       NewTitle: NewTitle,
       NewDiscription: NewDiscription,

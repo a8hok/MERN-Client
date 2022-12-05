@@ -9,9 +9,27 @@
     gap: 1em;
 }
 
-.about-container h1 {
+.learnPlus-coverLetter {
+    font-size: 0.8em;
+}
+
+.multicolortext {
+    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 400;
+  }
+
+.learnPlus-heading {
+    font-weight: 700;
+}
+
+.about-container span {
     font-size: 2em;
     font-weight: 700;
+    align-self: flex-start;
 }
 
 .about-right-container {

@@ -19,7 +19,7 @@ const showEditForm = () => {
     <>
     {!!showEdit ? <EditSelectedUniversity value={uniInfo}/>:
     <>
-    {editBtn && 
+    {editBtn === false && 
           <label onClick={showEditForm} className="edit-Icon-Card-Label">
             <p className="edit-Icon-Card" title="edit details">Edit</p>
           </label>

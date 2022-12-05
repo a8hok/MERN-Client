@@ -10,3 +10,26 @@
     justify-content: center;
     margin: auto;
 }
+
+.changes-Button_Container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.changes-Button_Container button {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.Accept_changes-Button {
+    background: rgb(1, 172, 1);
+}
+
+.Reject_changes-Button {
+    background: rgb(255, 69, 69)
+}

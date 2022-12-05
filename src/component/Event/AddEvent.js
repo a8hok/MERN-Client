@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddEvent.css";
-import NavBar from "../Navbar/navbar";
+// import NavBar from "../Navbar/navbar";
 import { useDispatch } from "react-redux";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
 import file from "./img/pngtree.jpg";
 
 const AddEvent = ({userData}) => {
   const dispatch = useDispatch();
+
+  console.log(userData)
+
+  const [statusNum, setStatusNum] = useState(1)
 
   const [name, setname] = useState()
   const [files, setFile] = useState()
@@ -15,8 +19,19 @@ const AddEvent = ({userData}) => {
   const onFileChange = (e) => {
     setFile(e.target.files[0])
     setname(e.target.files[0].name)
-    console.log(name)
   }
+
+  console.log(userData?.Status)
+
+  console.log(statusNum)
+
+  useEffect(() => {
+    if(userData?.Status){
+      setStatusNum(1)
+    }else{
+      setStatusNum(0)
+    }
+  }, [userData])
 
   const HandelEventData = (e) => {
     e.preventDefault();
@@ -25,13 +40,13 @@ const AddEvent = ({userData}) => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const author = userData?.name || undefined;
+    const author = userData?.name;
+    const status = statusNum;
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
-    // element[4].value = "";
-    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files, author}));
+    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files, author, status}));
     if (name.length > 0){
       setmessage("Event uploaded successfully")
     }

@@ -2,12 +2,14 @@ import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const PostEventData = createAsyncThunk("EventData", async (data) => {
-  // console.log(data.files)
+  console.log(data)
   const formdata = new FormData()
         formdata.append("eventName", data.eventName);
         formdata.append("eventDescription", data.eventDescription);
         formdata.append("eventDate", data.eventDate);
         formdata.append("eventTime", data.eventTime);
+        formdata.append("author", data.author);
+        formdata.append("status", data.status);
         formdata.append( "eventImage", data.files);
 
         const config = {
