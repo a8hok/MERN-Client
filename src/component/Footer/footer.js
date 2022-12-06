@@ -28,17 +28,17 @@ const Footer = () => {
 
           <div className="Location-footer">
             <img src={Location} alt="no img found"></img>
-            <p>345 Faulconer Drive, Suite 4 • Charlottesville</p>
+            <p>26 Badrakaliamman Koil Street No. 3, Uppilipalayam • Coimbatore – 641 015</p>
           </div>
 
           <div className="contact-info">
             <div className="Caller-container">
               <img src={callerlogo} alt="no img found"></img>
-              <p>(123) 456-7</p>
+              <p>+91-94421 10920</p>
             </div>
             <div className="printer-container">
               <img src={printerlogo} alt="no img found"></img>
-              <p>(123) 456-7</p>
+              <p>info@learnplusplus.com</p>
             </div>
           </div>
 
