@@ -9,7 +9,8 @@ function ContactUs() {
     <div>
       <Navbar />
       <div className="all-Contact_Container">
-        <div className="top-Section-ContactPage">
+        <div className="contact-Top-Section-Divider">
+        <div className="top-Section-ContactPage-Leftside">
           <h1>contact us</h1>
           <p>For more information, please write to:</p>
           <p>info@learnplusplus.com </p>
@@ -21,6 +22,24 @@ function ContactUs() {
           <p>Coimbatore – 641 015</p>
           <p>TamilNadu, India.</p>
         </div>
+        <div className="top-Section-ContactPage-rightSide">
+          <h1>Other contacts</h1>
+          <p>The Chief Executive Officer: ceo@learnplusplus.com</p>
+          <p>The Chief Technology Officer: cto@learnplusplus.com</p>
+          <p>The Marketing Director: director@learnplusplus.com </p>
+          <p>The System Administrator: sysadmin@learnplusplus.com</p>
+        </div>
+        {/* <div className="top-Section-ContactPage-rightSide">
+          <h1>Other contacts</h1>
+          <ul className="contact-Unordered_list">
+            <li>The Chief Executive Officer: ceo@learnplusplus.com</li>
+            <li>The Chief Technology Officer: cto@learnplusplus.com</li>
+            <li>The Marketing Director: director@learnplusplus.com </li>
+            <li>The System Administrator: sysadmin@learnplusplus.com</li>
+          </ul>
+        </div> */}
+        </div>
+        
         <div className="contact-image_Background">
           <div className="contact-Rightside-contents">
             <h1 className="contact-heading">contact us</h1>
