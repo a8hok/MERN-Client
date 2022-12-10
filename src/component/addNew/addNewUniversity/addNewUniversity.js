@@ -101,7 +101,6 @@ const AddNewUniversity = () => {
         e.preventDefault()
         setError(validate(state))
         setStatus(true)
-        console.log(state)
     }
 
     useEffect(() => {

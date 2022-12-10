@@ -38,7 +38,7 @@ const Navbar = ({ profileInfo }) => {
         <nav ref={navRef}>
           <a href="/#">Home</a>
           <a href="/#">Skills++</a>
-          <a href="/#">Concepts++</a>
+          <a href="/content">Concepts++</a>
           <a href="/#">Career++</a>
           <a href="/#">Entrance++</a>
           <a href="/#">Perceptions++</a>
@@ -66,7 +66,7 @@ const Navbar = ({ profileInfo }) => {
           <div className="inside-nav-option hidden-navbar-options">
           <a href="/#">Home</a>
           <a href="/#">Skills++</a>
-          <a href="/#">Concepts++</a>
+          <a href="/content">Concepts++</a>
           <a href="/#">Career++</a>
           <a href="/#">Entrance++</a>
           <a href="/#">Perceptions++</a>

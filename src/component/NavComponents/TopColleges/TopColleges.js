@@ -16,8 +16,6 @@ const TopColleges = () => {
 
   const {CollageData, CollageLoading} = useSelector((state) => state.CollageInfo)
 
-  console.log(CollageData)
-
   const dispatch = useDispatch();
 
   const [stateSelected, setState] = useState([]);
@@ -41,7 +39,6 @@ const TopColleges = () => {
       return Math.floor(Math.random() * max);
     }
     const randomNumber = generateRandomInt(CollageData.length - 10);
-    console.log(randomNumber);
     setCollageStateData(
       CollageData.slice(randomNumber, randomNumber + 10)
     );

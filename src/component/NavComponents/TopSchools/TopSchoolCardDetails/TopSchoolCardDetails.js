@@ -8,7 +8,6 @@ import Navbar from "../../../Navbar/navbar";
 function TopSchoolsCardDetail() {
   const location = useLocation();
   const details = location.state.state;
-  console.log(details);
 
   return (
     <>

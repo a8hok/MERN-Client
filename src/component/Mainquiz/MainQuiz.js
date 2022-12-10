@@ -104,8 +104,6 @@ const MainQuiz = () => {
     }
   }, [quizInfo]);
 
-  console.log(quizData)
-
   useEffect(() => {
     if (indexTo === noOfPages) {
       setbtnstatus(1);
@@ -115,27 +113,23 @@ const MainQuiz = () => {
 
   const endTest = () => {
     const forAnswer = []
-    console.log(finalQuizAnswer, "final quiz answer");
+    // console.log(finalQuizAnswer, "final quiz answer");
     respondedAnswer.map((e) => {
       forAnswer.push(parseInt(e))
     })
-    console.log(forAnswer, "responded answer");
+    // console.log(forAnswer, "responded answer");
     const a = window.confirm("Do you want to close your test");
     if (a === true) {
       const correctAnswer = forAnswer.filter((element1) =>
         finalQuizAnswer.some((element2) => element1 === element2)
       );
-      console.log(correctAnswer, "correct answer");
+      // console.log(correctAnswer, "correct answer");
       const quizMarkss = correctAnswer.length;
       setQuizMarks(quizMarkss);
       setScoreStatus(1);
       setButtonText("submitted");
     }
   };
-
-  console.log(quizData?.slice(index, indexTo))
-  console.log(index)
-  console.log(indexTo)
 
   const closeQuiz = () => {
     navigate("/quiz");

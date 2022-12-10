@@ -36,7 +36,7 @@ function ListEvent({ eventsData, editImg, allow }) {
   };
 
   const handlingSubmit = (e) => {
-    alert("the made changes are accepted")
+    // alert("the made changes are accepted")
     e.preventDefault()
     const eventName = populate.eventName;
     const eventDescription = populate.eventDescription;
@@ -46,11 +46,13 @@ function ListEvent({ eventsData, editImg, allow }) {
     const author = populate.author
     const status = 0
     dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime, author, status}))
+    window.location.reload(false)
     }
 
     const deletePreviewEvent = (e) => {
-      alert("The submitted data is not accepted")
+      // alert("The submitted data is not accepted")
       dispatch(deleteSelectedEvent(e))
+      window.location.reload(false)
     }
   return (
     <>

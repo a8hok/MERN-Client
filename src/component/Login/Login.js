@@ -20,8 +20,6 @@ const Login = () => {
 
   const from = location?.state?.from?.pathname || "/"
 
-  console.log(loginData)
-
   const HandleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;
@@ -31,8 +29,6 @@ const Login = () => {
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
   };
-
-  console.log(loginData?.data?.superAdminStatus)
 
   useEffect(() => {
     if (!locationState?.logout) {

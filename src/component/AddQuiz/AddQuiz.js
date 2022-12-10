@@ -38,11 +38,6 @@ const AddQuiz = () => {
     EntranceCode: ""
   })
 
-  useEffect(() => {
-    console.log(sample)
-    console.log(sample?.name)
-    }, [sample])
-
   const handleToggle = (e) => {
     setChecked(e.target.checked)
   }

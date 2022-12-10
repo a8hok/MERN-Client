@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import ListEvent from '../Event/ListEvent/ListEvent';
 
 const ViewChanges = ({data}) => {
-    console.log(data)
 const [buttonView, setButtonView] = useState(true)
     return (
         <div>

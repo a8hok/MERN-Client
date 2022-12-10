@@ -29,6 +29,7 @@ import TopCollageCardDetail from "./component/NavComponents/TopColleges/TopColla
 import TopSchoolsCardDetail from "./component/NavComponents/TopSchools/TopSchoolCardDetails/TopSchoolCardDetails";
 import Admission from "./component/NavComponents/TopUniversity/Admission/Admission";
 import Internship from "./component/NavComponents/Internship/Internship";
+import Content from "./component/NavComponents/Content/Content";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -63,6 +64,7 @@ function App() {
         <Route path="/admission" element={<Admission />}></Route>
         <Route path="/internship" element={<Internship/>}></Route>
         <Route path="/contactus" element={<ContactUs/>}></Route>
+        <Route path="/content" element={<Content/>}></Route>
 
         
         <Route path="/search" element={<SearchPage />}></Route>

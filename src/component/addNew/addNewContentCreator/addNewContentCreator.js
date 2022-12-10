@@ -8,7 +8,6 @@ import { postSignupData } from "../../../Store/Slice/SignupSlice";
 import "./addNewContentCreator.css";
 
 const AddNewContentCreator = ({data}) => {
-    console.log(data)
     const dispatch = useDispatch();
     const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
     const { signupData } = useSelector((state) => state.signupInfo);
@@ -58,6 +57,9 @@ const AddNewContentCreator = ({data}) => {
         dispatch(
             postSignupData({ userFirstName, userLastName, userEmail, userPassword, userAffiliationId, userAffiliation, contentCreator })
         );
+        setTimeout(() => {
+            window.location.reload(false)
+          }, "1000")
     };
 
     return (
@@ -99,7 +101,7 @@ const AddNewContentCreator = ({data}) => {
                                 required
                             ></input>
                             <button className="Signup-btn">Add Content Creator</button>
-                            {loginStatus.status === 1 ? (
+                            {/* {loginStatus.status === 1 ? (
                                 <div className="sign-success">
                                     <span>{loginStatus.message}</span>
                                     <Link to="/login" className="sign-success-link">
@@ -109,7 +111,7 @@ const AddNewContentCreator = ({data}) => {
                             ) : null}
                             {loginStatus.status === 2 ? (
                                 <div className="sign-failure">{loginStatus.message}</div>
-                            ) : null}
+                            ) : null} */}
                             {/* <div className="Signup-footer">
                                 <p>Already have an account? </p>
                                 <Link to="/login">LOGIN</Link>

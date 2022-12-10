@@ -8,8 +8,6 @@ import file from "./img/pngtree.jpg";
 const AddEvent = ({userData}) => {
   const dispatch = useDispatch();
 
-  console.log(userData)
-
   const [statusNum, setStatusNum] = useState(1)
 
   const [name, setname] = useState()
@@ -20,10 +18,6 @@ const AddEvent = ({userData}) => {
     setFile(e.target.files[0])
     setname(e.target.files[0].name)
   }
-
-  console.log(userData?.Status)
-
-  console.log(statusNum)
 
   useEffect(() => {
     if(userData?.Status){
@@ -50,6 +44,9 @@ const AddEvent = ({userData}) => {
     if (name.length > 0){
       setmessage("Event uploaded successfully")
     }
+    setTimeout(() => {
+      window.location.reload(false)
+    }, "1000")
   };
 
   return (
