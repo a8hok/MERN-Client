@@ -22,6 +22,7 @@ import EventIcon from '@mui/icons-material/Event';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddchartIcon from '@mui/icons-material/Addchart';
 import AddNewUniversity from "../addNew/addNewUniversity/addNewUniversity";
 import AddNewSchool from "../addNew/addNewSchool/addNewSchool";
@@ -34,6 +35,7 @@ import UniversityCard from "../NavComponents/TopUniversity/UniversityCard/Univer
 import SchoolsCard from "../NavComponents/TopSchools/TopSchoolCard/TopSchoolCard";
 import AddNewContentCreator from "../addNew/addNewContentCreator/addNewContentCreator";
 import ViewChanges from "../ViewChanges/ViewChanges";
+import AddNewContent from "../addNew/addNewContent/addNewContent";
 
 const UserProfile = () => {
   const [img, setimg] = useState();
@@ -179,8 +181,6 @@ const UserProfile = () => {
     }
   }, [userData, content, eventsData])
 
-  console.log(userData?.data)
-
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
     dispatch(PostProfilepic(imagefile));
@@ -279,6 +279,10 @@ const UserProfile = () => {
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-Collage")}>Add college</button>
                   </div>}
+                  {userStatus && <div className="left-container--dashboard--content">
+                    <AddBoxIcon/>
+                    <button onClick={() => setcontent("Add-Content")}>Add content</button>
+                  </div>}
                 </div>
               </div>
             </div>
@@ -289,15 +293,16 @@ const UserProfile = () => {
                 {SelectedUniversitiesData && <h2>{SelectedUniversitiesData?.Name_1}</h2>}
                 {SelectedCollegesData && <h2>{SelectedCollegesData?.College_Name}</h2>}
                 {SelectedSchoolData && <h2>{SelectedSchoolData?.name}</h2>}
-                <p>{userAffiliation}</p>
+                {/* {userStatus && <h2>Welcome Admin !!</h2>} */}
+                {!userStatus &&<p>{userAffiliation}</p>}
               </div>
               {userStatus && <div className="eve-top">Events</div>}
               {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={Status}></UniversityCard>}
               {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={Status}></CollageCard>}
               {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={Status}></SchoolsCard>}
               {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
-              {selectedEvent && Status === false &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
-              {selectedEvent && Status === true && <ListEvent eventsData = {selectedEvent}/>}
+              {Status === false && selectedEvent &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
+              {Status === true && selectedEvent && <ListEvent eventsData = {selectedEvent}/>}
             </div>
           )}
           {content === "add-event" && <AddEvent userData={allUse} />}
@@ -308,6 +313,7 @@ const UserProfile = () => {
           {content === "new-Collage" && <AddNewCollage/>}
           {content === "new-content-creator" && <AddNewContentCreator data={creator}/>}
           {content === "Change-Requests" && <ViewChanges data={authorization}/>}
+          {content === "Add-Content" && <AddNewContent/>}
         </div>
       </div>
     </>

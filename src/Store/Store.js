@@ -29,6 +29,8 @@ import selectedUniversity from "./Slice/selectedUniversity";
 import selectedCollege from "./Slice/selectedCollege";
 import selectedSchool from "./Slice/selectedSchool";
 import removingSelectedEvent from "./Slice/deleteEvent";
+import addContent from "./Slice/NewContent";
+import ContentDetails from "./Slice/getContentData";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -61,6 +63,8 @@ const rootReducer = combineReducers({
   getchoosenCollege: selectedCollege,
   getChoosenSchool: selectedSchool,
   deleteEvent: removingSelectedEvent,
+  newContent: addContent,
+  getContent: ContentDetails,
 });
 
 const store = configureStore({

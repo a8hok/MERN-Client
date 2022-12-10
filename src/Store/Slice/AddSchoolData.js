@@ -3,7 +3,6 @@ import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const postSchools = createAsyncThunk("School",async (data) => {
-    console.log(data)
     return axio.post(`/api/addschool`, data);
   }
 );

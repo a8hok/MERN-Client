@@ -1,0 +1,43 @@
+.Add-Content_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Add-Content_Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    border-radius: 0.5em;
+    background: rgba(0, 129, 254, 0.4);
+    padding: 2em;
+    width: 50%;
+    height: 36em;
+}
+
+.add-Content-Select_Catagory {
+    border: none;
+    border-radius: 0.5em;
+    width: 90%;
+    height: 3.5em;
+    padding: 1em;
+}
+
+.add-Content {
+    border: none;
+    border-radius: 0.5em;
+    width: 90%;
+    height: 10em;
+    padding: 1em;
+}
+
+.add-Content_Button {
+    color: white;
+    background: rgb(42, 105, 240);
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    width: 60%;
+}

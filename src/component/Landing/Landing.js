@@ -44,9 +44,7 @@ function Landing() {
     e.preventDefault();
     const ele = e.target.elements
     const searchedUniversity =ele[0].value
-    console.log( searchedUniversity)
     dispatch(getUniversityInfoByName({searchedUniversity}))
-  
   };
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);

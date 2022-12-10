@@ -18,11 +18,7 @@ const navigate = useNavigate();
 
 const location = useLocation();
 
-console.log(location)
-
 const { loginData, loading } = useSelector((state) => state.loginInfo);
-
-console.log(loginData)
 
 const handleInternshipClick = () => {
     if(loginData?.message === "Login success"){
@@ -45,8 +41,6 @@ const loginClick = () => {
 const signUpClick = () => {
     navigate("/signup")
 }
-
-console.log(location.state)
 
   return (
     <>

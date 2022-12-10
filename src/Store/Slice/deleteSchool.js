@@ -3,7 +3,6 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import { axio } from "../../Config/Config";
 
 export const deleteSelectedSchool = createAsyncThunk("deleteSchool", async (SlNo) => {
-    console.log(SlNo)
     const response = await axio.delete(`/api/delete-school/${SlNo}`)
     return response
 })

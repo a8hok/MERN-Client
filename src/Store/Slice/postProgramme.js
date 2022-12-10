@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
 export const postProgramme = createAsyncThunk("programme", (data) => {
-  console.log(data)
   return axio.post(`/api/programme`, data)
   // const formData = new FormData();
   // formData.append("SNo", data.SNo);

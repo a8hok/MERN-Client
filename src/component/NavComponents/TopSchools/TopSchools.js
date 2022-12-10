@@ -16,8 +16,6 @@ const TopSchools = () => {
 
   const {allSchoolData, schoolLoading} = useSelector((state) => state.getSchoolData)
 
-  console.log(allSchoolData)
-
   const dispatch = useDispatch();
 
   const [stateSelected, setState] = useState([]);
@@ -41,7 +39,6 @@ const TopSchools = () => {
       return Math.floor(Math.random() * max);
     }
     const randomNumber = generateRandomInt(allSchoolData.length - 10);
-    console.log(randomNumber);
     setallSchoolData(
       allSchoolData.slice(randomNumber, randomNumber + 10)
     );

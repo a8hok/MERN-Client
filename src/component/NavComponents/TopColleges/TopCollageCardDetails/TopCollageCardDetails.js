@@ -8,7 +8,6 @@ import Navbar from "../../../Navbar/navbar";
 function TopCollageCardDetail() {
   const location = useLocation();
   const details = location.state.state;
-  console.log(details);
 
   return (
     <>

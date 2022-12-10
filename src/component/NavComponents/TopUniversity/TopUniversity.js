@@ -57,7 +57,6 @@ function TopUniversity() {
       return Math.floor(Math.random() * max);
     }
     const randomNumber = generateRandomInt(universitiesData.length - 10);
-    console.log(randomNumber);
     setuniversityStateData(
       universitiesData.slice(randomNumber, randomNumber + 10)
     );

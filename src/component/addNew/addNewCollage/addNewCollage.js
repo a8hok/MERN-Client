@@ -32,14 +32,6 @@ const AddNewCollage = () => {
         Image_Gallery: "",
         Logo: "",
         About: "",
-        // Updates: "",
-        // Programmes_Offered: "",
-        // Admissions: "",
-        // Placement: "",
-        // admissio_Test: "",
-        // Perceptions: "",
-        // NAAC_Grade_Validity: "",
-        // Ranking: "",
         fB: "",
         tR: "",
         yT: "",
@@ -77,7 +69,7 @@ const AddNewCollage = () => {
 
   return (
     <div className="Add-new_Collage-form-container">
-        <form className="Add-new_Collage-form"onSubmit={handletheSubmit}>
+        <form className="Add-new_Collage-form" onSubmit={handletheSubmit}>
             <h1>Add New Universities</h1>
             
             <input type="Number" name="SNo" placeholder="SNo" onChange={handleChange}></input>
@@ -130,30 +122,6 @@ const AddNewCollage = () => {
 
             <textarea placeholder="About the Institution" name="About" onChange={handleChange} className="textarea-collage_about"></textarea>
             <p>{error.About}</p>
-
-            {/* <input type="text" name="Updates" placeholder="updates" onChange={handleChange}></input>
-            <p>{error.Updates}</p>
-
-            <input type="text" name="Programmes_Offered" placeholder="Programms Offered" onChange={handleChange}></input>
-            <p>{error.Programmes_Offered}</p>
-
-            <input type="text" name="Admissions" placeholder="Admissions" onChange={handleChange}></input>
-            <p>{error.Admissions}</p>
-
-            <input type="text" name="Placement" placeholder="Placement" onChange={handleChange}></input>
-            <p>{error.Placement}</p>
-
-            <input type="text" name="admisso_Test" placeholder="admisson Test" onChange={handleChange}></input>
-            <p>{error.admisso_Test}</p>
-
-            <input type="text" name="Perceptions" placeholder="Perceptions" onChange={handleChange}></input>
-            <p>{error.Perceptions}</p>
-
-            <input type="text" name="NAAC_Grade_Validity" placeholder="NAAC Grade Validity" onChange={handleChange}></input>
-            <p>{error.NAAC_Grade_Validity}</p>
-
-            <input type="text" name="Ranking" placeholder="Ranking" onChange={handleChange}></input>
-            <p>{error.Ranking}</p> */}
 
             <input type="text" name="fB" placeholder="faceBook" onChange={handleChange}></input>
             <p>{error.fB}</p>
