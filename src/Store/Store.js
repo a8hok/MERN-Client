@@ -12,6 +12,7 @@ import userprofileReducer from "./Slice/UserprofilePageSlice";
 import addEventReducer from "./Slice/AddEventSlice";
 import universitiesReducer from "./Slice/getUniversities";
 import quizUploadReducer from "./Slice/uploadQuizSlice";
+import quizUploadFileReducer from "./Slice/uploadQuizSliceByFile";
 import getQuizDataReducer from "./Slice/QuizDataSlice";
 import addProfilepic from "./Slice/profilepicpost";
 import UserProfilepic from "./Slice/getProfilepic";
@@ -31,6 +32,10 @@ import selectedSchool from "./Slice/selectedSchool";
 import removingSelectedEvent from "./Slice/deleteEvent";
 import addContent from "./Slice/NewContent";
 import ContentDetails from "./Slice/getContentData";
+import ContentSubjectDetails from "./Slice/getCOntentSubject";
+import QuizType from "./Slice/QuizType";
+import ResultsDetailsReducer from "./Slice/postResults";
+import ResultsDetails from "./Slice/getResults";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -46,6 +51,7 @@ const rootReducer = combineReducers({
   userProfileInfo: userprofileReducer,
   postEventInfo: addEventReducer,
   quizUploadInfo: quizUploadReducer,
+  quizUploadFile: quizUploadFileReducer,
   getQuizInfo: getQuizDataReducer,
   profilepicInfo: addProfilepic,
   newprofilepicInfo: UserProfilepic,
@@ -65,6 +71,10 @@ const rootReducer = combineReducers({
   deleteEvent: removingSelectedEvent,
   newContent: addContent,
   getContent: ContentDetails,
+  contentBySubject: ContentSubjectDetails,
+  selectTypeQuiz: QuizType,
+  postingResults: ResultsDetailsReducer,
+  getResults: ResultsDetails,
 });
 
 const store = configureStore({

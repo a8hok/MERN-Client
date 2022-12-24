@@ -20,7 +20,7 @@ const AddNewContent = () => {
     ]
 
     const subject = [
-        "Mathamatics",
+        "Mathematics",
         "Physics",
         "Chemistry",
         "Biology",

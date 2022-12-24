@@ -20,6 +20,67 @@ const AddQuiz = () => {
 
   const [buttonText, setButtonText] = useState("Add-Quiz")
 
+  const difficultyOption = [
+    {
+      option: "Select Difficulty Level",
+      value: ""
+    },
+    {
+      option: "Beginner",
+      value: "Beginner"
+    },
+    {
+      option: "Intermediate",
+      value: "Intermediate"
+    },
+    {
+      option: "Advanced",
+      value: "Advanced"
+    }
+  ]
+
+  const domain = [
+    {
+      option: "Select Domain",
+      value: ""
+    },
+    {
+      option: "Medical",
+      value: "Medical"
+    },
+    {
+      option: "Engineering",
+      value: "Engineering"
+    },
+    {
+      option: "Agriculture",
+      value: "Agriculture"
+    },
+    {
+      option: "Law",
+      value: "Law"
+    },
+    {
+      option: "Dental",
+      value: "Dental"
+    }
+  ]
+
+  const quizState = [
+    {
+      option: "Type of Quiz",
+      value: ""
+    },
+    {
+      option: "Skill",
+      value: "Skill"
+    },
+    {
+      option: "Academic",
+      value: "Academic"
+    }
+  ]
+
   const [state, setState] = useState({
     SlNo: "",
     Stem: "",
@@ -28,15 +89,84 @@ const AddQuiz = () => {
     distractor3: "",
     distractor4: "",
     Key: "",
-    Hint: "",
-    Image: "",
+    Hint: "NA",
+    Image: "NA",
     TypeOfAssessment: "",
     CourseTitle: "",
     CognitiveLevel: "",
-    ConceptCode: "",
-    PurposeCode: "",
-    EntranceCode: ""
+    Subdomain: ""
   })
+
+  const [selectedDomain, setSelectedDomain] = useState('');
+
+  const [filteredSubs, setFilteredSubs] = useState([]);
+
+  const filteredSubDomain = {
+    Medical: [{
+      option: "Sub-Domain",
+      value: ""
+    },{
+      option: "Cardiology",
+      value: "Cardiology"
+    },{
+      option: "Gynacology",
+      value: "Gynacology"
+    }],
+    Engineering: [{
+      option: "Sub-Domain",
+      value: ""
+    },{
+      option: "Mechanical Engineering",
+      value: "Mechanical Engineering"
+    },{
+      option: "Electrical Engineering",
+      value: "Electrical Engineering"
+    }],
+    Agriculture: [{
+      option: "Sub-Domain",
+      value: ""
+    },{
+      option: "Agriculture of plants",
+      value: "Agriculture of plants"
+    },{
+      option: "Animal Husbandary",
+      value: "Animal Husbandary"
+    }],
+    Law: [{
+      option: "Sub-Domain",
+      value: ""
+    },{
+      option: "Tax-Laws",
+      value: "Tax-Laws"
+    },{
+      option: "Prosecutor",
+      value: "Prosecutor"
+    }],
+    Dental: [{
+      option: "Sub-Domain",
+      value: ""
+    },{
+      option: "RCT",
+      value: "RCT"
+    },{
+      option: "Anasthetic",
+      value: "Anasthetic"
+    }]
+  }
+
+  useEffect(() => {
+    if(selectedDomain === "Medical"){
+      setFilteredSubs(filteredSubDomain.Medical)
+    }else if (selectedDomain === "Engineering"){
+      setFilteredSubs(filteredSubDomain.Engineering)
+    }else if (selectedDomain === "Agriculture"){
+      setFilteredSubs(filteredSubDomain.Agriculture)
+    }else if (selectedDomain === "Law"){
+      setFilteredSubs(filteredSubDomain.Law)
+    }else if (selectedDomain === "Dental"){
+      setFilteredSubs(filteredSubDomain.Dental)
+    }
+  }, [selectedDomain])
 
   const handleToggle = (e) => {
     setChecked(e.target.checked)
@@ -50,28 +180,31 @@ const AddQuiz = () => {
   const validate = (e) => {
     const errors = {}
     if (!e.SlNo) {
-      errors.SlNo = "enter the serial number"
+      errors.SlNo = "Please enter the serial number"
     }
     if (!e.Stem) {
-      errors.Stem = "enter the question"
+      errors.Stem = "Please enter the question"
     }
     if (!e.distractor1) {
-      errors.distractor1 = "enter the option"
+      errors.distractor1 = "Please enter the option"
     }
     if (!e.distractor2) {
-      errors.distractor2 = "enter the option"
+      errors.distractor2 = "Please enter the option"
     }
     if (!e.Key) {
-      errors.Key = "enter the correct answer"
+      errors.Key = "Please enter the correct answer"
     }
     if (!e.TypeOfAssessment) {
-      errors.TypeOfAssessment = "enter the type of assessment"
+      errors.TypeOfAssessment = "Please select a quiz type"
     }
     if (!e.CourseTitle) {
-      errors.CourseTitle = "enter the Course Title"
+      errors.CourseTitle = "Please select a domain"
     }
     if (!e.CognitiveLevel) {
-      errors.CognitiveLevel = "enter the cognitive level"
+      errors.CognitiveLevel = "Please select a difficulty level"
+    }
+    if (!e.Subdomain) {
+      errors.Subdomain = "Please select a sub domain"
     }
     return errors
   }
@@ -83,6 +216,10 @@ const AddQuiz = () => {
   };
 
   useEffect(() => {
+    setSelectedDomain(state.CourseTitle)
+  }, [handleChange])
+
+  useEffect(() => {
     if (Object.values(error).length === 0 && status) {
       setButtonText("Added-Quiz")
       dispatch(postQuizData(state))
@@ -92,10 +229,6 @@ const AddQuiz = () => {
   const { quizData, quizLoading } = useSelector(
     (state) => state.quizUploadInfo
   );
-
-  useEffect(() => {
-    console.log(quizData);
-  }, [quizData]);
 
   return (
     <div className="total-page">
@@ -128,23 +261,27 @@ const AddQuiz = () => {
               <input type="text" name="Hint" placeholder="Hint" onChange={handleChange}></input>
               <p></p>
 
-              <input type="text" name="TypeOfAssessment" placeholder="Type Of Assessment" onChange={handleChange}></input>
+              <select type="text" name="TypeOfAssessment" onChange={handleChange}>
+                {quizState.map((i) => {return <option value={i.value}>{i.option}</option>})}
+              </select>
               <p>{error.TypeOfAssessment}</p>
 
-              <input type="text" name="CourseTitle" placeholder="Course Title" onChange={handleChange}></input>
+              <select type="text" name="CourseTitle" onChange={handleChange}>
+                {domain.map((i) => {return <option value={i.value}>{i.option}</option>})}
+              </select>
               <p>{error.CourseTitle}</p>
 
-              <input type="text" name="CognitiveLevel" placeholder="Cognitive Level" onChange={handleChange}></input>
+              {filteredSubs.length > 0 &&<>
+                <select name="Subdomain" onChange={handleChange}>
+                {filteredSubs.map((i) => {return <option value={i?.value}>{i?.option}</option>})}
+                </select>
+                <p>{error.Subdomain}</p>
+              </>}
+
+              <select type="text" name="CognitiveLevel" onChange={handleChange}>
+                {difficultyOption.map((i) => (<option value={i.value}>{i.option}</option>))}
+              </select>
               <p>{error.CognitiveLevel}</p>
-
-              <input type="text" name="ConceptCode" placeholder="Concept Code" onChange={handleChange}></input>
-              <p></p>
-
-              <input type="text" name="PurposeCode" placeholder="PurposeCode url" onChange={handleChange}></input>
-              <p></p>
-
-              <input type="text" name="EntranceCode" placeholder="EntranceCode" onChange={handleChange}></input>
-              <p></p>
 
               <FormControlLabel control={<Switch checked={checked} onChange={handleToggle} />} label="toggle to upload image if necessary" />
 
@@ -154,9 +291,6 @@ const AddQuiz = () => {
                   alt="no img found"
                   className="quiz_Question_Image"
                 ></img>
-                {/* {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
-                Upload PNG,JPEG,JPG,SVG only
-              </label>} */}
                 <div className="select-new-Quiz-Picture">
                   <FileBase64
                   multiple={false}
@@ -165,14 +299,6 @@ const AddQuiz = () => {
                   onChange={handleChange}
                   />
                 </div>
-               
-                {/* <input
-                  type="file"
-                  className="select-new-Quiz-Picture"
-                  required={true}
-                // onChange={onFileChange}
-                // accept=".png,.svg,.jpeg,.jpg"
-                ></input> */}
               </label>}
               <p></p>
 

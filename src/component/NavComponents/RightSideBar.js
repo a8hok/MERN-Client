@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import nextlogo from "./TopUniversity/Admission/Img/next-but.png";
 import prevlogo from "./TopUniversity/Admission/Img/prev-but.png";
 
 function RightSideBar({ options }) {
   const [state, setState] = useState();
   const [next, setNext] = useState(0);
+  const [count, setCount] = useState(0);
+  const [index, setIndex] = useState(0)
 
   const settingState = (e) => {
     setState(e.target.value);
   };
+
+  const len = options?.length
+
+  setTimeout(() => {
+    setNext((next + 4)% len)
+  }, "5000")
+
   return (
     <div className="category-options-container">
       {next != 0 && (
@@ -21,18 +30,23 @@ function RightSideBar({ options }) {
           <img className="logo-img" src={prevlogo}></img>
         </button>
       )}
+      {/* <div className="floating_Selector-Container"> */}
       {options.slice(next, next + 4).map((item) => {
         return (
+          
           <button
             value={item}
+            key={item}
             onClick={settingState}
             className="category-options-tile"
           >
             {item}
           </button>
+          
         );
       })}
-      {next < options.length - 4 && (
+      {/* </div> */}
+      {next < options.length && (
         <button
           className="but"
           onClick={() => {

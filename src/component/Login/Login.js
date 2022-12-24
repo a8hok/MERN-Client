@@ -48,7 +48,6 @@ const Login = () => {
         navigate("/profile", { state: loginData.data.userEmail });
       } else if (loginData.error) {
         console.log("No user found");
-        // navigate(from, {replace: true})
       }
     }
   }, [loginData]);

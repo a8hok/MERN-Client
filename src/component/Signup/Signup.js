@@ -31,6 +31,11 @@ const Signup = () => {
     value: "University",
     name: "",
     option: "University"
+  },
+  {
+    value: "Industrial",
+    name: "",
+    option: "Industrial"
   }]
 
   useEffect(() => {

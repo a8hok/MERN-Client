@@ -117,8 +117,6 @@ const Dashboard = () => {
     data.push(values);
   };
 
-  // console.log(data)
-
   const changedValues = async(values) => {
     if (dataState === "Universities"){
       const res = axio.put(`/api/edit-universities`, {
@@ -274,17 +272,6 @@ const Dashboard = () => {
           >
             Colleges
           </button>
-          {/* <hr className="group-divider"></hr>
-          <button>Table</button>
-          <button>Services</button>
-          <div className="dropdown">
-            <button className="dropbtn">Files</button>
-            <div className="dropdown-content">
-              <a href="#/">Link 1</a>
-              <a href="#/">Link 2</a>
-              <a href="#/">Link 3</a>
-            </div>
-          </div> */}
         </div>
         {data ? <MaterialReactTable
           displayColumnDefOptions={{

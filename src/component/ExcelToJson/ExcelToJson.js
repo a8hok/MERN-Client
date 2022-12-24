@@ -8,7 +8,7 @@ import { postUniversities } from "../../Store/Slice/ExcelToJson";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
-import { postQuizData } from "../../Store/Slice/uploadQuizSlice";
+import { postQuizDataByFile } from "../../Store/Slice/uploadQuizSliceByFile";
 import { postSchools } from "../../Store/Slice/AddSchoolData";
 import { postCollageData } from "../../Store/Slice/postCollage";
 import "./exceltojson.css";
@@ -58,8 +58,7 @@ const PostUniversity = () => {
           dispatch(postProgramme(json));
         }
         if (selectedOpt === "Quiz") {
-          dispatch(postQuizData(json));
-          // console.log(json)
+          dispatch(postQuizDataByFile(json));
         }
         if (selectedOpt === "School") {
           dispatch(postSchools(json));

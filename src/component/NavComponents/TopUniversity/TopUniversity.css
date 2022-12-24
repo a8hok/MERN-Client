@@ -55,3 +55,13 @@
   width: 55%;
   margin: auto;
 }
+
+.floating_Selector-Container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+  overflow: hidden;
+  overflow-x: scroll;
+}

@@ -36,6 +36,7 @@ import SchoolsCard from "../NavComponents/TopSchools/TopSchoolCard/TopSchoolCard
 import AddNewContentCreator from "../addNew/addNewContentCreator/addNewContentCreator";
 import ViewChanges from "../ViewChanges/ViewChanges";
 import AddNewContent from "../addNew/addNewContent/addNewContent";
+import ViewResults from "../results/viewResults";
 
 const UserProfile = () => {
   const [img, setimg] = useState();
@@ -247,19 +248,19 @@ const UserProfile = () => {
                     <PermIdentityOutlinedIcon/>
                     <button onClick={() => setcontent("user-profile")}>Profile</button>
                   </div>
-                  <div className="left-container--dashboard--content">
+                  {userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
                     <EventIcon/>
                     <button onClick={() => setcontent("add-event")}>Add Event</button>
-                  </div>
-                  <div className="left-container--dashboard--content">
+                  </div>}
+                  {userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
                     <PostAddIcon/>
                     <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
-                  </div>
-                  {!userStatus && Status === false && <div className="left-container--dashboard--content">
+                  </div>}
+                  {!userStatus && Status === false && userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-content-creator")}>create content creator</button>
                   </div>}
-                  {!userStatus && Status === false && <div className="left-container--dashboard--content">
+                  {!userStatus && Status === false && userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
                     <NotificationsIcon/>
                     <button onClick={() => setcontent("Change-Requests")}>Creator Requests</button>
                   </div>}
@@ -300,6 +301,7 @@ const UserProfile = () => {
               {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={Status}></UniversityCard>}
               {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={Status}></CollageCard>}
               {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={Status}></SchoolsCard>}
+              {!userStatus && userAffiliation === "Industrial" && <ViewResults/>}
               {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
               {Status === false && selectedEvent &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
               {Status === true && selectedEvent && <ListEvent eventsData = {selectedEvent}/>}

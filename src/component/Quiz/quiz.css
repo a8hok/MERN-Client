@@ -104,7 +104,7 @@
   align-items: center;
 }
 
-.chapters-container p {
+.chapters-container button {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
@@ -114,8 +114,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border: none;
   border-radius: 3px;
   color: rgba(70, 70, 70, 0.64);
+  background: none;
 }
 
 .chapter-seemore-btn {
@@ -140,15 +143,11 @@
   background: rgba(18, 103, 186, 0.9);
 }
 
-.chapters-container p:hover {
+.chapters-container button:hover {
   transition-duration: 0.08s;
   background: #0081fee5;
 
   color: white;
-}
-
-.chapters-container {
-  cursor: pointer;
 }
 
 .chapter-seemore-btn:hover {

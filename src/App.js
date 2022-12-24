@@ -35,7 +35,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
 import TopSchools from "./component/NavComponents/TopSchools/TopSchools";
-
 import PrivateRoutes from "./component/CustomComponents/PrivateRoute";
 
 function App() {
@@ -66,9 +65,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs/>}></Route>
         <Route path="/content" element={<Content/>}></Route>
 
-        
         <Route path="/search" element={<SearchPage />}></Route>
-        
         
         <Route path="/detail" element={<DetailPage />}></Route>
 
