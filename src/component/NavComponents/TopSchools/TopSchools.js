@@ -30,51 +30,11 @@ const TopSchools = () => {
     dispatch(getSchoolData())
   }, [])
 
-  useEffect(() => {
-    setallSchoolData(allSchoolData)
-  }, [])
-
-  useEffect(() => {
-    function generateRandomInt(max) {
-      return Math.floor(Math.random() * max);
-    }
-    const randomNumber = generateRandomInt(allSchoolData.length - 10);
-    setallSchoolData(
-      allSchoolData.slice(randomNumber, randomNumber + 10)
-    );
-  }, [allSchoolData]);
-  useEffect(() => {
-    setallSchoolData(
-      allSchoolData.filter((element) => {
-        if (element.State === stateSelected) return element;
-      })
-    );
-  }, [stateSelected]);
-  useEffect(() => {
-    setallSchoolData(
-      allSchoolData.filter((element) => {
-        if (element.District === districtDisplayed) return element;
-      })
-    );
-  }, [districtDisplayed]);
-
-  useEffect(() => {
-    district.splice(0, district.length);
-    allSchoolData.forEach((element) => {
-      if (element.State === stateSelected) district.push(element.District);
-    });
-  }, [stateSelected]);
-
-
   allSchoolData.forEach((element) => {
-    if (!state.includes(element.State)) {
-      state.push(element.State);
+    if (!state.includes(element.state)) {
+      state.push(element.state);
     }
   });
-
-  const settingState = (e) => {
-    setState(e.target.value);
-  };
 
   const handelstate = (e) => {
     e.preventDefault();
@@ -95,6 +55,39 @@ const TopSchools = () => {
       setDistrictDisplayed(value);
     }
   };
+
+  useEffect(() => {
+    function generateRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const randomNumber = generateRandomInt(allSchoolData.length - 10);
+    setallSchoolData(
+      allSchoolData.slice(randomNumber, randomNumber + 10)
+    );
+  }, [allSchoolData]);
+
+  useEffect(() => {
+    setallSchoolData(
+      allSchoolData.filter((element) => {
+        if (element.state === stateSelected) return element;
+      })
+    );
+  }, [stateSelected]);
+
+  useEffect(() => {
+    setallSchoolData(
+      allSchoolData.filter((element) => {
+        if (element.district === districtDisplayed) return element;
+      })
+    );
+  }, [districtDisplayed]);
+
+  useEffect(() => {
+    district.splice(0, district.length);
+    allSchoolData.forEach((element) => {
+      if (element.state === stateSelected) district.push(element.district);
+    });
+  }, [stateSelected]);
 
   return (
     <>

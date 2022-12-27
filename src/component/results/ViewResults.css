@@ -1,0 +1,47 @@
+.results-card_Container {
+    width: 80%;
+    margin: 2em auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.results-card {
+    width: 80%;
+    border-radius: 0.5em;
+    background: rgba(0, 129, 254, 0.4);
+    padding: 1.5em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+.results-card_Right p {
+    font-weight: 500;
+}
+
+.results-card_Left p {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.Results_Button-Container {
+    width: 90%;
+    margin: 2em auto;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Results_Button-Container button {
+    padding: 1em 1.5em;
+    background: #09829D;
+    border-radius: 1em;
+    border: none;
+    color: white;
+    font-weight: 600;
+}

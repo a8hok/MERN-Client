@@ -68,6 +68,7 @@ function TopUniversity() {
       })
     );
   }, [stateSelected]);
+
   useEffect(() => {
     setuniversityStateData(
       universitiesData.filter((element) => {

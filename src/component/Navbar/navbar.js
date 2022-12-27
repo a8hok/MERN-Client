@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { selectTypeAction } from "../../Store/Slice/QuizType";
+
 import "./landingNav.css";
 import Logo from "../About/img/existLogo.png";
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,9 +12,23 @@ import Dropdown from "./Dropdown/Dropdown";
 const Navbar = ({ profileInfo }) => {
   const navRef = useRef();
 
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
+
+  const selectSkill = (e) => {
+    dispatch(selectTypeAction.typeSkill())
+    navigate("/quiz")
+  }
+
+  const selectAcademics = (e) => {
+    dispatch(selectTypeAction.typeAcademic())
+    navigate("/quiz")
+  }
 
   return (
     <header className="navbars">
@@ -43,7 +60,14 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Entrance++</a>
           <a href="/#">Perceptions++</a>
           <a href="/#">Competition++</a>
-          <a href="/quiz">Quiz</a>
+          <div className="dropdown">
+          <a href="/#">Quiz</a>
+            <div className="dropdown-content">
+              <a onClick={selectSkill}>Skill</a>
+              <a onClick={selectAcademics}>Academic</a>
+            </div>
+          </div> 
+          
           {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
 
           {/* <button className="nav-btn nav-close-btn" onClick={showNavbar}>

@@ -206,7 +206,7 @@ h2.topic1 {
   padding: 2em 4em;
   gap: 2em;
   overflow: hidden;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 .eve-img {

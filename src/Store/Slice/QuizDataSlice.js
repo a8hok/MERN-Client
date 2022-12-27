@@ -1,11 +1,12 @@
 import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getQuizData = createAsyncThunk("Quiz", async () => {
-  return axio.get("/api/quizdata");
+export const getQuizData = createAsyncThunk("QuizAnswers", async (allValues) => {
+  // console.log(allValues)
+  return axio.get(`/api/getfilteredquiz?TypeOfAssessment=${allValues.typeOf}&CourseTitle=${allValues.mainDomain}&CognitiveLevel=${allValues.difficulty}`);
 });
 export const getQuizDataReducer = createSlice({
-  name: "Quiz",
+  name: "QuizAnswers",
   initialState: {
     quizInfo: [],
     getQuizDataLoading: true,

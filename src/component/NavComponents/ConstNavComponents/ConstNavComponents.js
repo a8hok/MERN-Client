@@ -12,6 +12,8 @@ export const topColleges = [
   "Top Law Colleges",
 
   "Top Architecture Colleges",
+
+  "Top Agriculture Colleges"
 ];
 export const specialization = [
   "Agriculture",
@@ -42,6 +44,8 @@ export const categoriesOption = [
   "Agriculture and Allied Disciplines",
 
   "Architecture, Planning and Design",
+
+  "Aero-Space Engineering",
 
   "Arts, Humanities and Social Sciences",
 

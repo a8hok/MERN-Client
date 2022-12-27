@@ -19,7 +19,6 @@ function EditEvents({ eventObj }) {
   //   seteventImage(e.target.files[0])
   //   setval("image")
   //   setname(e.target.files[0].name)
-  //   // console.log(name)
   // }
 
   const handlingSubmit = (e) => {

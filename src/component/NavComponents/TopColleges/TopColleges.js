@@ -30,51 +30,11 @@ const TopColleges = () => {
     dispatch(getCollageInfo())
   }, [])
 
-  useEffect(() => {
-    setCollageStateData(CollageData)
-  }, [])
-
-  useEffect(() => {
-    function generateRandomInt(max) {
-      return Math.floor(Math.random() * max);
-    }
-    const randomNumber = generateRandomInt(CollageData.length - 10);
-    setCollageStateData(
-      CollageData.slice(randomNumber, randomNumber + 10)
-    );
-  }, [CollageData]);
-  useEffect(() => {
-    setCollageStateData(
-      CollageData.filter((element) => {
-        if (element.State === stateSelected) return element;
-      })
-    );
-  }, [stateSelected]);
-  useEffect(() => {
-    setCollageStateData(
-      CollageData.filter((element) => {
-        if (element.District === districtDisplayed) return element;
-      })
-    );
-  }, [districtDisplayed]);
-
-  useEffect(() => {
-    district.splice(0, district.length);
-    CollageData.forEach((element) => {
-      if (element.State === stateSelected) district.push(element.District);
-    });
-  }, [stateSelected]);
-
-
   CollageData.forEach((element) => {
     if (!state.includes(element.State)) {
       state.push(element.State);
     }
   });
-
-  const settingState = (e) => {
-    setState(e.target.value);
-  };
 
   const handelstate = (e) => {
     e.preventDefault();
@@ -95,6 +55,39 @@ const TopColleges = () => {
       setDistrictDisplayed(value);
     }
   };
+
+  useEffect(() => {
+    function generateRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const randomNumber = generateRandomInt(CollageData.length - 10);
+    setCollageStateData(
+      CollageData.slice(randomNumber, randomNumber + 10)
+    );
+  }, [CollageData]);
+
+  useEffect(() => {
+    setCollageStateData(
+      CollageData.filter((element) => {
+        if (element.State === stateSelected) return element;
+      })
+    );
+  }, [stateSelected]);
+
+  useEffect(() => {
+    setCollageStateData(
+      CollageData.filter((element) => {
+        if (element.college_District === districtDisplayed) return element;
+      })
+    );
+  }, [districtDisplayed]);
+
+  useEffect(() => {
+    district.splice(0, district.length);
+    CollageData.forEach((element) => {
+      if (element.State === stateSelected) district.push(element.college_District);
+    });
+  }, [stateSelected]);
 
   return (
     <>
