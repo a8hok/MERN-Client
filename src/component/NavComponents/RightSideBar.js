@@ -5,8 +5,6 @@ import prevlogo from "./TopUniversity/Admission/Img/prev-but.png";
 function RightSideBar({ options }) {
   const [state, setState] = useState();
   const [next, setNext] = useState(0);
-  const [count, setCount] = useState(0);
-  const [index, setIndex] = useState(0)
 
   const settingState = (e) => {
     setState(e.target.value);
@@ -16,7 +14,7 @@ function RightSideBar({ options }) {
 
   setTimeout(() => {
     setNext((next + 4)% len)
-  }, "5000")
+  }, "10000")
 
   return (
     <div className="category-options-container">
@@ -30,7 +28,7 @@ function RightSideBar({ options }) {
           <img className="logo-img" src={prevlogo}></img>
         </button>
       )}
-      {/* <div className="floating_Selector-Container"> */}
+      <div className="floating_Selector-Container">
       {options.slice(next, next + 4).map((item) => {
         return (
           
@@ -45,7 +43,7 @@ function RightSideBar({ options }) {
           
         );
       })}
-      {/* </div> */}
+      </div>
       {next < options.length && (
         <button
           className="but"

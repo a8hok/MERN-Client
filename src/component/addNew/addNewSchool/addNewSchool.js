@@ -82,7 +82,7 @@ useEffect(() => {
   }, [status])
 
     return (
-        <div className="Add-new_School-form-container">
+        <div className="Add-new_School-container">
         <form className="Add-new_school-form" onSubmit={handledSubmit}>
             <h1>Add New School</h1>
 

@@ -9,19 +9,19 @@ import { useLocation, Navigate, Outlet } from 'react-router-dom';
 const PrivateRoutes = () => {
     // const {auth} = useAuth()
 
-    const [adminStatus, setAdminStatus] = useState({token : true})
+    const [Verified, setverified] = useState({token : true})
 
     const { userData } = useSelector((state) => state.userProfileInfo);
 
-    const superAdminStatus = userData?.data?.superAdminStatus
+    const verified = userData?.data?.verified
 
     useEffect(() => {
-        adminStatus.token = superAdminStatus
+      Verified.token = verified
     }, [])
 
     const location = useLocation()
   return (
-    !!adminStatus.token ? <Outlet/> : <Navigate to="/login" state={{from: location}} replace/>
+    !!Verified.token ? <Outlet/> : <Navigate to="/login" state={{from: location}} replace/>
   )
 }
 

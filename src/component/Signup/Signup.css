@@ -151,7 +151,7 @@ a.sign-success-link {}
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 30em;
+    /* height: 30em; */
     margin: 0 auto;
     background: transparent;
   }
@@ -176,6 +176,7 @@ a.sign-success-link {}
   }
   .Signup-footer p {
     margin: 0;
+    color: black;
   }
 }
 

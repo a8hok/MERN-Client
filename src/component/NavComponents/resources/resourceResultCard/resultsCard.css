@@ -1,0 +1,62 @@
+.results_card-box {
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    box-shadow: 0 0 0.2em gray;
+    padding: 2em;
+    margin: 0.5em;
+}
+
+.results_card-box_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results_card-box_partition {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0.5em;
+}
+
+.results_card-box_Leftpartition, .results_card-box_Rightpartition {
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    gap: 0.25em;
+}
+
+.results_card-box_Leftpartition button, .results_card-box_Rightpartition button {
+    padding: 0.7em 3em;
+    border-radius: 0.25em;
+    background-color: rgb(64, 104, 236);
+    color: white;
+    border: none;
+    text-align: center;
+    /* margin: 0.5em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_rightPartition {
+    margin-left: 0.5em;
+    padding: 0.7em 3em;
+    border-radius: 0.25em;
+    background-color: rgb(64, 104, 236);
+    color: white;
+    border: none;
+    text-align: center;
+    /* margin: 0.5em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.button_rightPartition:hover {
+    color: white;
+}
+
+.button_leftPartition {
+    margin-right: 0.5em;
+}

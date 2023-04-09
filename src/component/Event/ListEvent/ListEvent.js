@@ -5,17 +5,15 @@ import loader from "../img/loader.gif"
 import { useSelector, useDispatch } from "react-redux";
 import "./ListEvent.css";
 import { deleteSelectedEvent } from "../../../Store/Slice/deleteEvent";
+import HorizontalAutoScroll from "../autoScroll";
 
-function ListEvent({ eventsData, editImg, allow }) {
+function ListEvent({ eventsData, editImg, allow, allow1 }) {
 
   const dispatch = useDispatch();
   const [value, setValue] = useState();
   const [state, setState] = useState("event-list");
   const [data, setData] = useState();
-  const [populate, setPopulate] = useState({})
-  const [count, setCount] = useState(1)
-  const [index, setIndex] = useState(0)
-  const [time, setTime] = useState("1500")
+  const [populate, setPopulate] = useState({});
 
   useEffect(() => {
     eventsData.map((i) => {
@@ -44,27 +42,17 @@ function ListEvent({ eventsData, editImg, allow }) {
     const author = populate.author
     const status = 0
     dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime, author, status}))
-    window.location.reload(false)
+    setTimeout(() => {
+      window.location.reload(false)
+    }, "1000")
   }
 
   const deletePreviewEvent = (e) => {
       dispatch(deleteSelectedEvent(e))
-      window.location.reload(false)
-  }
-
-  const elementRef = useRef(null);
-
-  useEffect(() => {
       setTimeout(() => {
-        const element = elementRef?.current?.children[index];
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setIndex((index + 1) % elementRef?.current?.children?.length);
-      }, "4000");
-    }, [count])
-  
-  setTimeout(() => {
-      setCount(count + 1)
-    }, "4000")
+        window.location.reload(false)
+      }, "1000")
+  }
 
   return (
     <>
@@ -73,7 +61,9 @@ function ListEvent({ eventsData, editImg, allow }) {
                     </div>
     }
       {eventLoading === false && state === "event-list" && (
-        <div className="third-full-con-pro" ref={elementRef}>    
+        <>
+        <HorizontalAutoScroll>  
+       
           {value?.length > 0 &&
             value?.map((obj, keyName) => {
               const base64String = btoa(
@@ -108,17 +98,19 @@ function ListEvent({ eventsData, editImg, allow }) {
                       <p>{obj.eventTime}</p>
                       {obj?.author && <p>{obj?.author}</p>}
                     </p>
-                    {allow && <div className="changes-Button_Container">
-                    <button className="Accept_changes-Button" onClick={handlingSubmit}>accept</button>
-                    <button className="Reject_changes-Button" onClick={() => deletePreviewEvent(obj.eventId)}>reject</button>
+                    {(allow || allow1) && <div className="changes-Button_Container">
+                    {allow && <button className="Accept_changes-Button" onClick={handlingSubmit}>accept</button>}
+                    <button className="Reject_changes-Button" onClick={() => deletePreviewEvent(obj.eventId)}>{allow1 ? "delete" : "reject"}</button>
                     </div>}
                     
                   </div>
                 </div>
               );
-            })}
+            })} 
           {eventsData.length === 0 && <div>No Events Found.</div>}
-        </div>
+        </HorizontalAutoScroll>
+        </>
+        
       )}
       {state === "edit-events" && <EditEvents eventObj={data} />}
     </>

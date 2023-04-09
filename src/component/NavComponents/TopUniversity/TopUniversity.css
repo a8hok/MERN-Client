@@ -1,6 +1,6 @@
 .university-main-heading {
   width: 100%;
-  padding: 1em 5.5em;
+  padding: 0.5em 0em;
   font-size: 2.5em;
   color: rgb(0, 0, 48);
   display: flex;
@@ -9,13 +9,52 @@
 
 .selecting-preferences {
   display: grid;
+  grid-template-columns: 33% 33% 33%;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 1em auto;
+}
+
+.selecting-preferences_Entrance_1{
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: 50% 50%;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 1em auto;
+}
+
+.selecting-preferences_Entrance_2 {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: 33% 33% 33%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 1em auto;
+}
+
+.selecting-preferences_Entrance_3{
+  display: grid;
+  /* grid-template-columns: repeat(4, 1fr); */
   grid-template-columns: 25% 25% 25% 25%;
   width: 60%;
+  align-items: center;
   justify-content: center;
-  margin-left: 21%;
-  height: 3.5em;
   gap: 0;
+  margin: 1em auto;
 }
+
+.selecting-preferences_Children button {
+  border: none;
+  border-radius: 0.5em;
+}
+
 .loader {
   display: flex;
   justify-content: center;
@@ -31,10 +70,11 @@
   font-size: 1em;
   font-weight: 600;
   border-radius: 1em 0 0 1em;
+  padding: 1.5em;
 }
 
 .guide-selector {
-  padding: 0 1.5em;
+  padding: 1.5em;
   border: none;
   background: rgb(240, 240, 240);
 }
@@ -44,24 +84,64 @@
 }
 
 .uni-main-container {
-  display: flex;
+  /* display: flex; */
   width: 100%;
-  gap: 2em;
-  /* align-items: center;
-  justify-content: center; */
+  gap: 3em;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .uni-list-main-container {
-  width: 55%;
-  margin: auto;
+  /* width: 65%; */
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
-.floating_Selector-Container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2em;
-  overflow: hidden;
-  overflow-x: scroll;
+.entance_all_container{
+  margin: 2em 0;
+}
+
+@media only screen and (max-width: 1220px) {
+  .selecting-preferences {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  width: 90%;
+  justify-content: center;
+  height: 3.5em;
+  gap: 0;
+  margin: 2em auto;
+  }
+
+  .uni-list-main-container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .university-main-heading {
+    width: 100%;
+    /* padding: 1em 5.5em; */
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(0, 0, 48);
+    display: flex;
+    justify-content: center;
+  }
+
+  .uni-card-container {
+    margin: 2em auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .guide-selection {
+    padding: 1.5em 0;
+    text-align: center;
+  }
+  
+  .guide-selector {
+    padding: 1.5em 0;
+    text-align: center;
+  }
 }

@@ -9,7 +9,7 @@ const AdminNavBar = ({ profileInfo }) => {
       <div className="mid-navs">
         <Link to="/landing" className="logo-img-contain">
           <img
-            className="AcademyLogo"
+            className="AcademyLogo-Admin"
             src={Logo}
             alt="Logo"
           ></img>

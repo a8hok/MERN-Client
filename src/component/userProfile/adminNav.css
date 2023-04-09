@@ -5,8 +5,34 @@
     align-items: center;
     justify-content: space-between;
     padding: 2em;
-    height: 7em;
+    height: 8em;
     background: rgb(255, 255, 255);
     box-shadow: 0.2em 0.2em 0.5em rgb(222, 222, 222);
+}
+
+.AcademyLogo-Admin {
+    width: 20%;
+    height: 20%;
+}
+
+@media only screen and (max-width: 700px) {
+    .AcademyLogo-Admin {
+        width: 25%;
+        height: 25%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .AcademyLogo-Admin {
+        width: 30%;
+        height: 30%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .AcademyLogo-Admin {
+        width: 50%;
+        height: 50%;
+    }
 }
 

@@ -58,7 +58,9 @@ const AddNewContent = () => {
         if(Object.values(error).length === 0 && status){
         dispatch(AddNewContentData(state))
         setButtonText("saved")
-        window.location.reload(false)
+        setTimeout(() => {
+            window.location.reload(false)
+          }, "1000")
         }
     }, [status])
 

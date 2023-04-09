@@ -25,7 +25,7 @@ const Specialization = () => {
               </p>
             </div>
           ) : (
-            <h1>select the required specialization from the right dashboard</h1>
+            null
           )}
         </div>
       </div>

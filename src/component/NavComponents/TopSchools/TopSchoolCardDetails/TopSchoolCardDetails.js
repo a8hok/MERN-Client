@@ -2,8 +2,8 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../../Navbar/navbar";
 // import "./UniversityCardDetails.css";
-// import UniLogo from "./Img/logo.png";
-// import eduLogo from "./Img/educationlogo.png";
+import UniLogo from "./Img/logo.png";
+import eduLogo from "./Img/educationlogo.png";
 
 function TopSchoolsCardDetail() {
   const location = useLocation();
@@ -30,11 +30,11 @@ function TopSchoolsCardDetail() {
             </div>
             <div className="clg-type">
               {" "}
-              <img className="uni-logo" src={"UniLogo"}></img>
+              <img className="uni-logo" src={UniLogo}></img>
               {details.Type}
             </div>
             <div className="clg-co-education">
-              <img className="edu-logo" src={"eduLogo"}></img>
+              <img className="edu-logo" src={eduLogo}></img>
               <h3 className="clg-topic">Co-Education</h3>
             </div>
             <div className="clg-year">
@@ -66,7 +66,7 @@ function TopSchoolsCardDetail() {
               <button className="clg-detail-button">Placements</button>
               <button className="clg-detail-button">Infrastructure</button>
               <button className="clg-detail-button">Entrance Test</button>
-              <button className="clg-detail-button">Perception/Feedback</button>
+              <button className="clg-detail-button">Feedback</button>
             </div>
           </div>
         </div>

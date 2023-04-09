@@ -110,8 +110,8 @@ nav {
   }
 
   .AcademyLogo {
-    width: 3em;
-    height: 3em;
+    width: 25%;
+    height: 25%;
   }
 
   .visible-nav-option a,
@@ -139,16 +139,20 @@ nav {
     background: transparent;
   }
 
+  .mid-navmenus {
+    padding: 0;
+  }
+
   .navbars {
     box-shadow: 0 0 1em rgb(95, 95, 95);
-    padding: 2em;
+    padding: 4em 2em;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 0.5em;
     align-items: center;
-    height: 8em;
+    height: 5em;
   }
 
   header nav {
@@ -208,17 +212,12 @@ nav {
     color: #e25353;
     font-weight: 700;
   }
-
-  .AcademyLogo {
-    width: 30%;
-    height: 30%;
-  }
 }
 
 @media only screen and (max-width: 920px) {
   .AcademyLogo {
-    width: 30%;
-    height: 30%;
+    width:25%;
+    height:25%;
   }
   .navbars {
     display: flex;
@@ -249,10 +248,6 @@ nav {
   }
   header nav {
     gap: 0;
-  }
-  header .responsive_nav {
-    padding: 1em;
-    height: 40em;
   }
   nav .nav-close-btn {
     position: absolute;
@@ -296,21 +291,28 @@ nav {
     width: 0.6em;
   }
   .AcademyLogo {
-    width: 8em;
-  }
-  .mid-navmenus {
-    padding: 0 2em;
+    width: 35%;
+    height: 35%;
   }
   .navbars {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 8em;
-    padding: 5em 1em;
+    padding: 2em;
   }
+  .mid-navmenus {
+    padding: 0;
+}
 }
 
 @media only screen and (max-width: 570px) {
   .navbars {
     width: 100%;
+  }
+  .AcademyLogo {
+    width: 5em;
   }
 }
 
@@ -320,13 +322,15 @@ nav {
     flex-direction: row;
     justify-content: space-between;
   }
+  .AcademyLogo {
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width: 440px) {
   header {
     width: 100%;
   }
-
   header .responsive_nav {
     transform: none;
     height: 90vh;
@@ -334,5 +338,16 @@ nav {
   .inside-nav-option a {
     font-size: 0.6em;
     padding: 0;
+  }
+  .AcademyLogo {
+    width: 3.5em;
+  }
+  .navbars {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6em;
+    padding: 2em;
   }
 }

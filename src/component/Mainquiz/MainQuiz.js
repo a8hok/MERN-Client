@@ -176,7 +176,7 @@ const MainQuiz = () => {
           </div>
           }
 
-          <h1>{obj?.Stem}</h1>
+          <h1 className="Quiz_Questions">{obj?.Stem}</h1>
           {obj.Image != "NA" && <div>
             <img src={`${obj.Image}`} alt="" className="quiz-Question_Image" />
           </div>}

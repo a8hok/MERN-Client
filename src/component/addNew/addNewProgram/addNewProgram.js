@@ -14,11 +14,14 @@ const AddNewProgram = () => {
     const [status, setStatus] = useState(false)
 
     const [state, setState] = useState({
-      SNo: "",
-      ProgrammeType: "",
-      Programme: "",
-      Name: "",
-      Discipline: ""
+      programmeID: "",
+      programmeDomain: "",
+      programmeSubDomain: "",
+      programmeSpecialisation: "",
+      programmeLevel: "",
+      degreeDescription: "",
+      degreeShortName: "",
+      degreeFullName: "",
     })
 
     const [error, setError] = useState({})
@@ -30,20 +33,29 @@ const AddNewProgram = () => {
 
     const validate = (e) => {
       const errors={}
-      if (!e.SNo){
-        errors.SNo = "enter the serial number"
+      if (!e.programmeID){
+        errors.programmeID = "enter the serial number"
       }
-      if(!e.ProgrammeType){
-        errors.ProgrammeType = "enter the program type"
+      if(!e.programmeDomain){
+        errors.programmeDomain = "enter the program type"
       }
-      if(!e.Programme){
-        errors.Programme = "enter the program"
+      if(!e.programmeSubDomain){
+        errors.programmeSubDomain = "enter the program"
       }
-      if(!e.Name){
-        errors.Name = "enter the course name"
+      if(!e.programmeSpecialisation){
+        errors.programmeSpecialisation = "enter the course name"
       }
-      if(!e.Discipline){
-        errors.Discipline = "enter the discipline"
+      if(!e.programmeLevel){
+        errors.programmeLevel = "enter the programme level"
+      }
+      if(!e.degreeDescription){
+        errors.degreeDescription = "enter the degree description"
+      }
+      if(!e.degreeShortName){
+        errors.degreeShortName = "enter the degree short name"
+      }
+      if(!e.degreeFullName){
+        errors.degreeFullName = "enter the degree full name"
       }
       return errors
     }
@@ -66,20 +78,29 @@ useEffect(() => {
         <form className="Add-new_program-form" onSubmit={handledSubmit}>
             <h1>Add New Program</h1>
 
-            <input type="text" name="SNo" value={state.SNo} placeholder="SNo" onChange={handleChange}></input>
-            <p>{error.SNo}</p>
+            <input type="text" name="programmeID" value={state.programmeID} placeholder="programmeID" onChange={handleChange}></input>
+            <p>{error.programmeID}</p>
 
-            <input type="text" name="ProgrammeType" value={state.ProgrammeType} placeholder="Program Type" onChange={handleChange}></input>
-            <p>{error.ProgrammeType}</p>
+            <input type="text" name="programmeDomain" value={state.programmeDomain} placeholder="Program domain" onChange={handleChange}></input>
+            <p>{error.programmeDomain}</p>
 
-            <input type="text" name="Programme" value={state.Programme} placeholder="Program" onChange={handleChange}></input>
-            <p>{error.Programme}</p>
+            <input type="text" name="programmeSubDomain" value={state.programmeSubDomain} placeholder="Program sub domain" onChange={handleChange}></input>
+            <p>{error.programmeSubDomain}</p>
 
-            <input type="text" name="Name" value={state.Name} placeholder="Name" onChange={handleChange}></input>
-            <p>{error.Name}</p>
+            <input type="text" name="programmeSpecialisation" value={state.programmeSpecialisation} placeholder="Name" onChange={handleChange}></input>
+            <p>{error.programmeSpecialisation}</p>
 
-            <input type="text" name="Discipline" value={state.Discipline} placeholder="Discipline" onChange={handleChange}></input>
-            <p>{error.Discipline}</p>
+            <input type="text" name="programmeLevel" value={state.programmeLevel} placeholder="programme level" onChange={handleChange}></input>
+            <p>{error.programmeLevel}</p>
+
+            <input type="text" name="degreeDescription" value={state.degreeDescription} placeholder="Degree description" onChange={handleChange}></input>
+            <p>{error.degreeDescription}</p>
+
+            <input type="text" name="degreeShortName" value={state.degreeShortName} placeholder="degree short name" onChange={handleChange}></input>
+            <p>{error.degreeShortName}</p>
+
+            <input type="text" name="degreeFullName" value={state.degreeFullName} placeholder="Degree full name" onChange={handleChange}></input>
+            <p>{error.degreeFullName}</p>
 
             <button className={`Add-new_program-form-${buttonText}`}>{buttonText}</button>
         </form>

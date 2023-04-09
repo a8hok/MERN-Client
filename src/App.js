@@ -36,6 +36,12 @@ import "./App.css";
 import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
 import TopSchools from "./component/NavComponents/TopSchools/TopSchools";
 import PrivateRoutes from "./component/CustomComponents/PrivateRoute";
+import Entrance from "./component/NavComponents/Entrance/Entrance";
+import ConfirmMail from "./component/confirmMail/confirmMail";
+
+import HomeBlog from "./component/NavComponents/blogs/homeBlog";
+import IndividualBlog from "./component/NavComponents/blogs/individualBlog/individualBlog";
+import Resources from "./component/NavComponents/resources/resources";
 
 function App() {
 
@@ -64,6 +70,7 @@ function App() {
         <Route path="/internship" element={<Internship/>}></Route>
         <Route path="/contactus" element={<ContactUs/>}></Route>
         <Route path="/content" element={<Content/>}></Route>
+        <Route path="/verifyuseremail/:userEmail" element={<ConfirmMail/>}></Route>
 
         <Route path="/search" element={<SearchPage />}></Route>
         
@@ -75,15 +82,22 @@ function App() {
 
         <Route path="/dropdown" element={<Dropdown />}></Route>
 
+        <Route path="/entrance" element={<Entrance />}></Route>
+
+        <Route path="/blogs" element={<HomeBlog/>}></Route>
+
+        <Route path="/individualblog" element={<IndividualBlog/>}></Route>
+
         {/* admin */}
-        <Route element={<PrivateRoutes/>}>
+        {/* <Route element={<PrivateRoutes/>}> */}
           <Route path="/admin" element={<PostUniversity />}></Route>
           <Route path="/admin/dashboard" element={<Dashboard />}></Route>
           <Route path="/editevents" element={<EditEvents />}></Route>
           <Route path="/profile/addevent" element={<AddEvent />}></Route>
           <Route path="/EventUpdate" element={<EventUpdate />}></Route>
           <Route path="/addquiz" element={<AddQuiz />}></Route>
-        </Route>
+          <Route path="/resources" element={<Resources/>}></Route>
+        {/* </Route> */}
        
       </Routes>
     </div>

@@ -93,7 +93,7 @@
     padding: 0.5em 2.5em;
     border-radius: 0.5em;
     border: none;
-    width: 12em;
+    /* width: 12em; */
     color: white;
     font-weight: 600;
     font-size: 1em;
@@ -107,4 +107,78 @@
     text-transform: capitalize;
   }
 
+  @media only screen and (max-width: 1050px) {
+    .dropdown-container {
+      width: 100%;
+      margin: auto;
+      padding: 2em;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .responsive_Dropdown {
+      display: flex;
+      flex-direction: row;
+      height: 25em;
+      width: max-content;
+      margin-top: 7em;
+      margin-left: 70%;
+      background: rgb(255, 255, 255);
+      overflow: hidden;
+      gap: 3em;
+      box-shadow: 0em 0.4em 1em rgb(198 198 198);
+      border-radius: 0.5em;
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
+    .responsive_Dropdown {
+      display: flex;
+      flex-direction: row;
+      height: 25em;
+      width: max-content;
+      margin-top: 7em;
+      margin-left: 60%;
+      background: rgb(255, 255, 255);
+      overflow: hidden;
+      gap: 3em;
+      box-shadow: 0em 0.4em 1em rgb(198 198 198);
+      border-radius: 0.5em;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .responsive_Dropdown {
+      display: flex;
+      flex-direction: row;
+      height: 25em;
+      width: max-content;
+      margin-top: 7em;
+      margin-left: 50%;
+      background: rgb(255, 255, 255);
+      overflow: hidden;
+      gap: 3em;
+      box-shadow: 0em 0.4em 1em rgb(198 198 198);
+      border-radius: 0.5em;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .responsive_Dropdown {
+      display: flex;
+      flex-direction: row;
+      height: 25em;
+      width: max-content;
+      margin-top: 7em;
+      margin-left: 40%;
+      background: rgb(255, 255, 255);
+      overflow: hidden;
+      gap: 3em;
+      box-shadow: 0em 0.4em 1em rgb(198 198 198);
+      border-radius: 0.5em;
+    }
+  }
   

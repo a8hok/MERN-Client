@@ -7,25 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUniversities } from "../../Store/Slice/ExcelToJson";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postProgramme } from "../../Store/Slice/postProgramme";
-import { useNavigate } from "react-router-dom";
 import { postQuizDataByFile } from "../../Store/Slice/uploadQuizSliceByFile";
 import { postSchools } from "../../Store/Slice/AddSchoolData";
 import { postCollageData } from "../../Store/Slice/postCollage";
+import { PostResources } from "../../Store/Slice/postResources";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const PostUniversity = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const locationState = useLocation().state;
   const [message, setMessage] = useState();
   const [fileName, setFileName] = useState("");
   const [selectedOpt, setselectedOpt] = useState();
-  const { userData, loading } = useSelector((state) => state.userProfileInfo);
-  const { postUniversitiesData } = useSelector(
-    (state) => state.postUniversitiesInfo
-  );
+  const { userData } = useSelector((state) => state.userProfileInfo);
+
   useEffect(() => {
     dispatch(userProfileData(locationState));
   }, []);
@@ -35,6 +32,7 @@ const PostUniversity = () => {
     "Programme",
     "School",
     "Collage",
+    "Resources",
     "Quiz",
     "Topics",
     "Events",
@@ -66,11 +64,14 @@ const PostUniversity = () => {
         if (selectedOpt === "Collage") {
           dispatch(postCollageData(json));
         }
+        if (selectedOpt === "Resources") {
+          dispatch(PostResources(json));
+        }
         setMessage("dashboard");
       };
       reader.readAsArrayBuffer(e.target.files[0]);
     } else {
-      console.log("select drop down");
+      alert("select drop down");
     }
   };
 
@@ -108,7 +109,7 @@ const PostUniversity = () => {
               <Link
                 to="/admin/dashboard"
                 className="success-file-msg"
-                state={userData.data.userEmail}
+                state={userData?.data?.userEmail}
               >
                 {message}
               </Link>

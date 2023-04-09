@@ -37,6 +37,13 @@ import AddNewContentCreator from "../addNew/addNewContentCreator/addNewContentCr
 import ViewChanges from "../ViewChanges/ViewChanges";
 import AddNewContent from "../addNew/addNewContent/addNewContent";
 import ViewResults from "../results/viewResults";
+import AddNewEntanceTest from "../addNew/addNewEntrance/addNewEntrance";
+import AddNewAdvertisement from "../addNew/addNewAdvertisement/addNewAdvertisement";
+import { getAdvertisementsInfo } from "../../Store/Slice/getAdvertisements";
+import AdPublishAccess from "../ViewChanges/AdPublishAccess";
+import { deleteSelectedAdvertisement } from "../../Store/Slice/deleteAdvertisements";
+import AddNewBlog from "../addNew/addNewBlog/addNewBlog";
+import Blogs from "../NavComponents/blogs/Blogs";
 
 const UserProfile = () => {
   const [img, setimg] = useState();
@@ -46,6 +53,7 @@ const UserProfile = () => {
   const [creator, setCreator] = useState({});
   const [authorization, setAuthorization] = useState();
   const [creatorStatus, setCreatorStatus] = useState(true);
+  const [allowAd, setAllowAd] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [allUse, setAllUse] = useState()
@@ -61,9 +69,13 @@ const UserProfile = () => {
   const { SelectedCollegesData } = useSelector((state) => state.getchoosenCollege);
 
   const { SelectedSchoolData } = useSelector((state) => state.getChoosenSchool);
+
+  const {AdvertisementsData} = useSelector((state) => state.getAdvertisements);
+
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
+    dispatch(getAdvertisementsInfo());
     if(locationState){
       dispatch(userProfileData(locationState));
     }
@@ -87,38 +99,42 @@ const UserProfile = () => {
   }, [img]);
 
   function checkSchool (e) {
-    return (e?.author === SchoolName && e?.status === 0)
+    return (SchoolName === e?.author && e?.status === 0)
   }
 
   function checkCollege (e) {
-    return (e?.author === colName && e?.status === 0)
+    return (colName === e?.author && e?.status === 0)
   }
 
   function checkUniv (e) {
-    return (e?.author === univName && e?.status === 0)
+    return (univName === e?.author && e?.status === 0)
   }
 
   function ValUniv (e) {
-    return (e?.author === univName && e?.status === 1)
+    return (univName === e?.author && e?.status === 1)
   }
 
   function ValClg (e) {
-    return (e?.author === colName && e?.status === 1)
+    return (colName === e?.author && e?.status === 1)
   }
 
   function ValSchool (e) {
-    return (e?.author === SchoolName && e?.status === 1)
+    return (SchoolName === e?.author && e?.status === 1)
+  }
+
+  function unauthorizedAds (e) {
+    return (e?.status === 1)
   }
 
   useEffect(() => {
     eventsData.filter((i) => {
-      if(i.author === univName){
+      if(univName){
         setSelectedEvent(eventsData.filter(checkUniv))
         setAuthorization(eventsData.filter(ValUniv))
-      }else if (i.author === colName){
+      }else if (colName){
         setSelectedEvent(eventsData.filter(checkCollege))
         setAuthorization(eventsData.filter(ValClg))
-      }else if (i.author === SchoolName){
+      }else if (SchoolName){
         setSelectedEvent(eventsData.filter(checkSchool))
         setAuthorization(eventsData.filter(ValSchool))
       }else {
@@ -128,12 +144,43 @@ const UserProfile = () => {
   }, [userData, content, eventsData])
 
   useEffect(() => {
+    AdvertisementsData.filter((i) => {
+      if (i.status === 1) {
+        setAllowAd(AdvertisementsData.filter(unauthorizedAds))
+      }
+    })
+  }, [AdvertisementsData])
+
+  useEffect(() => {
+    AdvertisementsData.map((i) => {
+      const acceptedDate = i.date
+      if(i.timeScreening === "1 month") {
+        const date = new Date(Date.parse(acceptedDate));
+        const month = date.setMonth(date.getMonth() + 1)
+        const addedDate = new Date(month)
+        const currentDate = new Date()
+        if (currentDate == addedDate) {
+          dispatch(deleteSelectedAdvertisement(i.advertisementID))
+        }
+      }else if(i.timeScreening === "2 month") {
+        const date = new Date(Date.parse(acceptedDate));
+        const month = date.setMonth(date.getMonth() + 2)
+        const addedDate = new Date(month)
+        const currentDate = new Date()
+        if (currentDate == addedDate) {
+          dispatch(deleteSelectedAdvertisement(i.advertisementID))
+        }
+      }
+    })
+  }, [AdvertisementsData])
+
+  useEffect(() => {
     eventsData.filter((i) => {
-      if(i.author === univName){
+      if(i?.author === univName){
         setAuthorization(eventsData.filter(ValUniv))
-      }else if (i.author === colName){
+      }else if (i?.author === colName){
         setAuthorization(eventsData.filter(ValClg))
-      }else if (i.author === SchoolName){
+      }else if (i?.author === SchoolName){
         setAuthorization(eventsData.filter(ValSchool))
       }
     })
@@ -190,7 +237,7 @@ const UserProfile = () => {
 
   const navigation = (e) => {
     navigate("/quiz")
-  }
+  };
 
   return (
     <>
@@ -227,7 +274,7 @@ const UserProfile = () => {
                 </div>
                 <div className="user-data-container">
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
-                  <p>{userAffiliation}</p>
+                  {!userStatus &&<p>{userAffiliation == "0" ? "User":null}</p>}
                 </div>
               </div>
               <div className="left-container--dashboard">
@@ -248,21 +295,33 @@ const UserProfile = () => {
                     <PermIdentityOutlinedIcon/>
                     <button onClick={() => setcontent("user-profile")}>Profile</button>
                   </div>
-                  {userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
+                  {userAffiliation !== "Industrial" && userAffiliation !== "0" || !!userStatus ? <div className="left-container--dashboard--content">
                     <EventIcon/>
                     <button onClick={() => setcontent("add-event")}>Add Event</button>
-                  </div>}
-                  {userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
+                  </div>: null}
+                  {userAffiliation !== "Industrial" && userAffiliation !== "0" || !!userStatus ? <div className="left-container--dashboard--content">
                     <PostAddIcon/>
                     <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
-                  </div>}
-                  {!userStatus && Status === false && userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
+                  </div>: null}
+                  {!userStatus && Status === false && userAffiliation !== "Industrial" && userAffiliation !== "0" && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-content-creator")}>create content creator</button>
                   </div>}
-                  {!userStatus && Status === false && userAffiliation !== "Industrial" && <div className="left-container--dashboard--content">
+                  {!userStatus && Status === false && userAffiliation !== "Industrial" && userAffiliation !== "0" && <div className="left-container--dashboard--content">
                     <NotificationsIcon/>
                     <button onClick={() => setcontent("Change-Requests")}>Creator Requests</button>
+                  </div>}
+                  {userAffiliation !== "Industrial" && userAffiliation !== "0" || !!userStatus ? <div className="left-container--dashboard--content">
+                    <PostAddIcon/>
+                    <button onClick={() => setcontent("add-advertisement")}>Add Advertisment</button>
+                  </div>: null}
+                  {userStatus && <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-blogs")}>Add blog</button>
+                  </div>}
+                  {userStatus && <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("manage-blogs")}>Manage blogs</button>
                   </div>}
                   {userStatus && <div className="left-container--dashboard--content">
                     <AddchartIcon/>
@@ -281,8 +340,16 @@ const UserProfile = () => {
                     <button onClick={() => setcontent("new-Collage")}>Add college</button>
                   </div>}
                   {userStatus && <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-Entrance")}>Add Entrance</button>
+                  </div>}
+                  {Status === true && <div className="left-container--dashboard--content">
                     <AddBoxIcon/>
                     <button onClick={() => setcontent("Add-Content")}>Add content</button>
+                  </div>}
+                  {userStatus &&  <div className="left-container--dashboard--content">
+                    <NotificationsIcon/>
+                    <button onClick={() => setcontent("Ad-requests")}>AD requests</button>
                   </div>}
                 </div>
               </div>
@@ -294,15 +361,15 @@ const UserProfile = () => {
                 {SelectedUniversitiesData && <h2>{SelectedUniversitiesData?.Name_1}</h2>}
                 {SelectedCollegesData && <h2>{SelectedCollegesData?.College_Name}</h2>}
                 {SelectedSchoolData && <h2>{SelectedSchoolData?.name}</h2>}
-                {/* {userStatus && <h2>Welcome Admin !!</h2>} */}
-                {!userStatus &&<p>{userAffiliation}</p>}
+                {!userStatus &&<p>{userAffiliation == "0" ? "User":null}</p>}
               </div>
               {userStatus && <div className="eve-top">Events</div>}
               {!userStatus && userAffiliation === "University" &&<UniversityCard uniInfo={SelectedUniversitiesData} editBtn={Status}></UniversityCard>}
               {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={Status}></CollageCard>}
               {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={Status}></SchoolsCard>}
               {!userStatus && userAffiliation === "Industrial" && <ViewResults/>}
-              {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg}/>}
+              {!userStatus && userAffiliation === "0" && <ListEvent eventsData = {eventsData}/>}
+              {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg} allow1={true}/>}
               {Status === false && selectedEvent &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
               {Status === true && selectedEvent && <ListEvent eventsData = {selectedEvent}/>}
             </div>
@@ -316,6 +383,11 @@ const UserProfile = () => {
           {content === "new-content-creator" && <AddNewContentCreator data={creator}/>}
           {content === "Change-Requests" && <ViewChanges data={authorization}/>}
           {content === "Add-Content" && <AddNewContent/>}
+          {content === "new-Entrance" && <AddNewEntanceTest/>}
+          {content === "Ad-requests" && <AdPublishAccess filteredAd={allowAd}/>}
+          {content === "add-advertisement" && <AddNewAdvertisement userData={userData?.data}/>}
+          {content === "new-blogs" && <AddNewBlog/>}
+          {content === "manage-blogs" && <Blogs allow={true}/>}
         </div>
       </div>
     </>

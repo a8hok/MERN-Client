@@ -1,0 +1,104 @@
+.testimonials_banner-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 1em auto;
+    gap: 1em;
+    align-items: center;
+}
+
+.testimonials_banner_1, .testimonials_banner_3 {
+    /* align-self: flex-start; */
+    border-radius: 0 3em 3em 0;
+    animation-name: animateLeftSliderBar;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    width: 65%;
+    border-radius: 1em;
+    background: rgba(4, 160, 244, 0.5);
+    color: white;
+    text-shadow: 0 0 0.1em gray;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonials_banner_2 {
+    /* align-self: flex-end; */
+    border-radius: 3em 0 0 3em;
+    width: 65%;
+    border-radius: 1em;
+    background: rgba(4, 160, 244, 0.5);
+    color: white;
+    text-shadow: 0 0 0.1em gray;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1em;
+    animation-name: animateRightSideBar;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Testi-Userimage_Main-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Testi-Userimage-Container {
+    width: 6em;
+    height: 6em;
+}
+
+.Testi-Userimage-Container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.testimonials_text-para_container {
+    padding: 1em;
+
+}
+
+.testimonials_banner_alternate {
+    align-self: center;
+    width: 65%;
+    border-radius: 1em;
+    background: rgba(4, 160, 244, 0.8);
+    color: white;
+    padding: 2em 1em;
+    transition: 1s;
+    opacity: 0;
+}
+
+@keyframes animateLeftSliderBar {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(-300px) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animateRightSideBar {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(300px) translateY(0);
+        opacity: 1;
+    }
+}

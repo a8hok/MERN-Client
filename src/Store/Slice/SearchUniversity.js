@@ -4,7 +4,8 @@ import { axio } from "../../Config/Config.js";
 export const getUniversityInfoByName = createAsyncThunk(
   "Universities",
   async (data) => {
-    return axio.get(`/api/search?Name=${data.searchedUniversity}`);
+    console.log(data)
+    return axio.get(`/api/search?Name=${data}`);
 
   }
 );
@@ -22,7 +23,7 @@ const searchUniversityReducer = createSlice({
       state.SearchedUniversityLoading = true;
     },
     [getUniversityInfoByName.fulfilled]: (state, action) => {
-      state.SearchedUniversity = action.payload;
+      state.SearchedUniversity = action.payload.data.data;
       state.SearchedUniversityLoading = false;
     },
     [getUniversityInfoByName.rejected]: (state, action) => {

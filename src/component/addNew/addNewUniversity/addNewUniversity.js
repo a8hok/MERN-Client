@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from "react";
 
+import Select from 'react-select';
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { postUniversities } from "../../../Store/Slice/ExcelToJson";
+
+import { getProgrammeInfo } from "../../../Store/Slice/getProgramme";
+
+import { postPDFUniversities } from "../../../Store/Slice/forFormUniversity";
 
 import "./addNewUniversity.css";
 
@@ -11,9 +17,27 @@ const AddNewUniversity = () => {
 
     const [status, setStatus] = useState(false)
 
+    const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+
     const [error, setError] = useState({})
 
+    const [name, setname] = useState()
+
+    const [files, setFile] = useState()
+
     const [buttonText, setButtonText] = useState("save")
+
+    const [selectedOption, setSelectedOption] = useState([]);
+
+    const [options, setOptions] = useState([
+      {value: "", label: ""}
+    ]);
+
+    const onFileChange = (e) => {
+      const {name} = e.target;
+      setState({...state, [name]: e.target.files[0]})
+      setname(e.target.files[0].name)
+    }
 
     const [state, setState] = useState({
       S_No: "",
@@ -32,8 +56,18 @@ const AddNewUniversity = () => {
       Email: "",
       Image: "",
       Logo: "",
-      AboutCollege: ""
+      AboutCollege: "",
+      coursesOffered: [],
+      brochure: ""
     })
+
+    useEffect(() => {
+      dispatch(getProgrammeInfo())
+    }, [])
+
+    useEffect(() => {
+      programmeData?.map((i) => options.push({value: i?.programmeID, label: `${i?.degreeFullName}`}))
+    }, [programmeData])
 
     const handleChange = (e) => {
       const {name, value} = e.target
@@ -96,7 +130,6 @@ const AddNewUniversity = () => {
       return errors
     }
 
-
     const handletheSubmit = (e) => {
         e.preventDefault()
         setError(validate(state))
@@ -104,9 +137,13 @@ const AddNewUniversity = () => {
     }
 
     useEffect(() => {
+      setState({...state, ["coursesOffered"]: selectedOption})
+    }, [selectedOption, status])
+
+    useEffect(() => {
       if(Object.values(error).length === 0 && status){
         setButtonText("saved")
-        dispatch(postUniversities(state))
+        dispatch(postPDFUniversities(state))
       }
     }, [status])
 
@@ -120,6 +157,27 @@ const AddNewUniversity = () => {
 
             <input type="text" name="State" placeholder="State" onChange={handleChange}></input>
             <p>{error.State}</p>
+
+            <input type="text" name="District" placeholder="District" onChange={handleChange}></input>
+            <p>{error.District}</p>
+
+            <input type="text" name="City" placeholder="City" onChange={handleChange}></input>
+            <p>{error.City}</p>
+
+            <input type="text" name="Village" placeholder="village" onChange={handleChange}></input>
+            <p>{error.Village}</p>
+
+            <input type="Number" name="PIN" placeholder="PIN" onChange={handleChange}></input>
+            <p>{error.PIN}</p>
+
+            <Select
+              className="multiSelectOption_courses"
+              closeMenuOnSelect={false}
+              isMulti
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+            />
 
             <input type="text" name="Type" placeholder="Type of University" onChange={handleChange}></input>
             <p>{error.Type}</p>
@@ -136,23 +194,11 @@ const AddNewUniversity = () => {
             <input type="text" name="Name_1" placeholder="Name_1" onChange={handleChange}></input>
             <p>{error.Name_1}</p>
 
-            <input type="text" name="City" placeholder="City" onChange={handleChange}></input>
-            <p>{error.City}</p>
-
-            <input type="text" name="District" placeholder="District" onChange={handleChange}></input>
-            <p>{error.District}</p>
-
-            <input type="Number" name="PIN" placeholder="PIN" onChange={handleChange}></input>
-            <p>{error.PIN}</p>
-
             <input type="text" name="url" placeholder="url" onChange={handleChange}></input>
             <p>{error.url}</p>
 
             <input type="Number" name="Phone" placeholder="phone number" onChange={handleChange}></input>
             <p>{error.Phone}</p>
-
-            <input type="text" name="Village" placeholder="village" onChange={handleChange}></input>
-            <p>{error.Village}</p>
 
             <input type="email" name="Email" placeholder="email" onChange={handleChange}></input>
             <p>{error.Email}</p>
@@ -162,6 +208,19 @@ const AddNewUniversity = () => {
 
             <input type="text" name="Logo" placeholder="logo" onChange={handleChange}></input>
             <p>{error.Logo}</p>
+
+            <label className="add-new-profile-pic">
+              <label className="file-label">
+                <input
+                  type="file"
+                  name="brochure"
+                  id="upload"
+                  onChange={onFileChange}
+                  className="admin-file-upload"
+                />
+                <label>{name}</label>
+              </label>
+            </label>
 
             <textarea placeholder="About the Institution" name="AboutCollege" onChange={handleChange} className="textarea-college_about"></textarea>
             <p>{error.AboutCollege}</p>

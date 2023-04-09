@@ -11,11 +11,19 @@ const Signup = () => {
   const dispatch = useDispatch();
   const { signupData } = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
+  const [verified, setVerified] = useState(false);
+  const [disable, setDisable] = useState(false);
+  const [affiliateValue, setAffiliateValue] = useState("")
 
   const rolseJson = [{
     value: 0,
     name: "",
     option: "Please select your type of affiliation"
+  },
+  {
+    value: 0,
+    name: "",
+    option: "Student"
   },
   {
     value: "College",
@@ -42,14 +50,23 @@ const Signup = () => {
     if (
       signupData &&
       signupData.data &&
-      signupData.data.response === "success"
+      signupData.data.response === "waiting"
     ) {
       setLoginStatus({
         status: 1,
-        message: "Registered Successfully!!",
+        message: "Mail has been sent to the registered mail ID, please confirm",
       });
-  
-    } else if (signupData?.data?.response === "Email Exits") {
+    }else if(
+      signupData &&
+      signupData.data &&
+      signupData.data.response === "success"
+      ){
+        setLoginStatus({
+          status: 1,
+          message: "User created successfully!!",
+        });
+        
+    }else if (signupData?.data?.response === "Email Exits") {
       setLoginStatus({
         status: 2,
         message: "This email has been already taken!!",
@@ -63,15 +80,31 @@ const Signup = () => {
     } 
   }, [signupData]);
 
+  const hanldeChange = (e) => {
+    // console.log(e.target.value)
+    if(e.target.value == 0){
+      setVerified(true)
+      setDisable(true)
+    }else {
+      setVerified(false)
+      setDisable(false)
+    }
+  }
+
+  const handleAffiliation = (e) => {
+    setAffiliateValue(e.target.value)
+  }
+
   const handleSignupData = (e) => {
     e.preventDefault();
     const ele = e.target.elements;
     const userFirstName = ele[0].value;
     const userLastName = ele[1].value;
     const userEmail = ele[2].value;
-    const userAffiliationId = ele[3].value;
+    const userAffiliationId = (disable ? "":ele[3].value);
     const userAffiliation = ele[4].value;
     const userPassword = ele[5].value;
+    console.log(userAffiliation)
     ele[0].value = "";
     ele[1].value = "";
     ele[2].value = "";
@@ -79,8 +112,9 @@ const Signup = () => {
     ele[4].value = "";
     ele[5].value = "";
     dispatch(
-      postSignupData({ userFirstName, userLastName, userEmail, userPassword, userAffiliationId, userAffiliation })
+      postSignupData({ userFirstName, userLastName, userEmail, userPassword, userAffiliationId, userAffiliation, verified })
     );
+    // console.log({ userFirstName, userLastName, userEmail, userPassword, userAffiliationId, userAffiliation, verified })
   };
 
   return (
@@ -123,13 +157,17 @@ const Signup = () => {
                 className="Email-input"
                 placeholder="ID / College-ID / University_ID/ School_ID"
                 type="text"
+                onChange={handleAffiliation}
+                value={disable ? "" : affiliateValue}
+                disabled={disable}
               ></input>
 
               <select
                 className="Email-input"
+                onChange={hanldeChange}
                 placeholder="ID *">
-                  {rolseJson.map((e) => {
-                    return<option value={e.value}>
+                  {rolseJson.map((e, index) => {
+                    return<option value={e.value} key={index}>
                             {e.option}
                           </option>
                       }

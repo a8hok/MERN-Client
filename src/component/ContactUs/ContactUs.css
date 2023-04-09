@@ -23,6 +23,8 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    line-height: 1em;
+    /* gap: 0.1em; */
 }
 
 .top-Section-ContactPage-rightSide {
@@ -30,7 +32,8 @@
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
-    margin: 14em 0 0;
+    margin: 12em 0 0;
+    line-height: 0.8em;
 }
 
 /* .top-Section-ContactPage-rightSide h1 {
@@ -48,7 +51,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     gap: 2em;
 }
@@ -160,4 +163,74 @@
     font-weight: 700;
     padding: 1em 0;
     width: 30%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .all-Contact_Container {
+        width: 100%;
+        display: flex;
+        height: max-content;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+    }
+    .contact-Top-Section-Divider{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        margin: 2em auto;
+        gap: 2em;
+    }
+    .top-Section-ContactPage-rightSide, .top-Section-ContactPage-Leftside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .contact-image_Background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .top-Section-Form_Contact {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        width: 100%;
+        gap: 2em;
+    }
+
+    .contact_Infield-Inputs {
+        width: 100%;
+        height: 3em;
+        border: none;
+        padding: 1em;
+    }
+
+    .contact-Rightside-contents_Button {
+        background: transparent;
+        border: solid 3.5px white;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        padding: 1em;
+        width: 75%;
+    }
+
+    .contact-Rightside-contents {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 1.2em;
+    }
 }

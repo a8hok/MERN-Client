@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config.js";
 
 export const postCollageData = createAsyncThunk("Collage", async(data) => {
-    return axio.post(`/api//postcollage`, data);
+    return axio.post(`/api/postcollage`, data);
 });
 
 const CollageData = createSlice({

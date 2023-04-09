@@ -17,6 +17,7 @@ const Login = () => {
   const { loginData, loading } = useSelector((state) => state.loginInfo);
   const location = useLocation()
   const locationState = location.state;
+  const [message, setMessage] = useState("")
 
   const from = location?.state?.from?.pathname || "/"
 
@@ -32,10 +33,14 @@ const Login = () => {
 
   useEffect(() => {
     if (!locationState?.logout) {
-      if (
+      if(loginData &&
+        loginData.message === "Please verify your Mail ID"){
+          setMessage(loginData.message)
+      }else if (
         loginData &&
         loginData.message === "Login success" &&
-        loginData.data.superAdminStatus
+        loginData.data.superAdminStatus &&
+        loginData.data.verified
       ) {
         navigate("/admin/dashboard", {
           state: loginData.data.userEmail,
@@ -43,7 +48,8 @@ const Login = () => {
       } else if (
         loginData &&
         loginData.message === "Login success" &&
-        !loginData.data.superAdminStatus
+        !loginData.data.superAdminStatus &&
+        loginData.data.verified
       ) {
         navigate("/profile", { state: loginData.data.userEmail });
       } else if (loginData.error) {
@@ -82,6 +88,9 @@ const Login = () => {
                 <button className="login-btn">LOGIN</button>
                 {loginData.error ? (
                   <div className="sign-failure">{loginData.error}</div>
+                ) : null}
+                {message != "" ? (
+                  <div className="sign-failure">{message}</div>
                 ) : null}
                 <div className="login-footer">
                   <p>Don't have an account?</p>

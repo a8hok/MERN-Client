@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from "react";
 
+import Select from 'react-select';
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { postCollageData } from "../../../Store/Slice/postCollage";
+
+import { getProgrammeInfo } from "../../../Store/Slice/getProgramme";
+
+import { postPDFColleges } from "../../../Store/Slice/forFormCollege";
 
 import "./addNewCollage.css";
 
@@ -15,6 +21,16 @@ const AddNewCollage = () => {
     const [error, setError] = useState({})
 
     const [buttonText, setButtonText] = useState("save")
+
+    const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+
+    const [selectedOption, setSelectedOption] = useState([]);
+
+    const [options, setOptions] = useState([
+      {value: "", label: ""}
+    ]);
+
+    const [name, setname] = useState()
 
     const [state, setState] = useState({
         SNo: "",
@@ -36,13 +52,37 @@ const AddNewCollage = () => {
         tR: "",
         yT: "",
         iG: "",
-        LinkedIn: ""
+        LinkedIn: "",
+        coursesOffered: [],
+        brochureCol: ""
     })
+
+    const onFileChange = (e) => {
+      const {name} = e.target;
+      const newFile = new File(
+        [e.target.files[0]],
+        `${state.c_id}.pdf`
+      )
+      setState({...state, [name]: newFile})
+      setname(e.target.files[0].name)
+    }
+
+    useEffect(() => {
+      dispatch(getProgrammeInfo())
+    }, [])
+
+    useEffect(() => {
+      programmeData?.map((i) => options.push({value: i?.programmeID, label: `${i?.degreeFullName}`}))
+    }, [programmeData])
 
     const handleChange = (e) => {
       const {name, value} = e.target
       setState({...state, [name]: value})
     }
+
+    useEffect(() => {
+      setState({...state, ["coursesOffered"]: selectedOption})
+    }, [selectedOption, status])
 
     const validate = (e) => {
       const errors={}
@@ -63,20 +103,35 @@ const AddNewCollage = () => {
     useEffect(() => {
       if(Object.values(error).length === 0 && status){
         setButtonText("saved")
-        dispatch(postCollageData(state))
+        // dispatch(postCollageData(state))
+        dispatch(postPDFColleges(state))
       }
     }, [status])
+
+       useEffect(() => {
+        console.log(selectedOption)
+        console.log(state)
+      }, [selectedOption])
 
   return (
     <div className="Add-new_Collage-form-container">
         <form className="Add-new_Collage-form" onSubmit={handletheSubmit}>
-            <h1>Add New Universities</h1>
+            <h1>Add New College</h1>
             
             <input type="Number" name="SNo" placeholder="SNo" onChange={handleChange}></input>
             <p>{error.SNo}</p>
 
             <input type="text" name="c_id" placeholder="c_id" onChange={handleChange}></input>
             <p>{error.c_id}</p>
+
+            <Select
+              className="multiSelectOption_courses"
+              closeMenuOnSelect={false}
+              isMulti
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+            />
 
             <input type="text" name="State" placeholder="State" onChange={handleChange}></input>
             <p>{error.State}</p>
@@ -87,7 +142,7 @@ const AddNewCollage = () => {
             <input type="Number" name="Yrofestab" placeholder="Year of establishment" onChange={handleChange}></input>
             <p>{error.Yrofestab}</p>
 
-            <input type="text" name="Collage_Name" placeholder="Collage Name" onChange={handleChange}></input>
+            <input type="text" name="College_Name" placeholder="College Name" onChange={handleChange}></input>
             <p>{error.Collage_Name}</p>
 
             <input type="text" name="Specialisation" placeholder="Specialisation" onChange={handleChange}></input>
@@ -117,9 +172,6 @@ const AddNewCollage = () => {
             <input type="text" name="Image" placeholder="image url" onChange={handleChange}></input>
             <p>{error.Image}</p>
 
-            <input type="text" name="Logo" placeholder="logo" onChange={handleChange}></input>
-            <p>{error.Logo}</p>
-
             <textarea placeholder="About the Institution" name="About" onChange={handleChange} className="textarea-collage_about"></textarea>
             <p>{error.About}</p>
 
@@ -137,6 +189,19 @@ const AddNewCollage = () => {
 
             <input type="text" name="LinkedIn" placeholder="LinkedIn" onChange={handleChange}></input>
             <p>{error.LinkedIn}</p>
+
+            <label className="add-new-profile-pic">
+              <label className="file-label">
+                <input
+                  type="file"
+                  name="brochureCol"
+                  id="upload"
+                  onChange={onFileChange}
+                  className="admin-file-upload"
+                />
+                <label>{name}</label>
+              </label>
+            </label>
 
             <button className={`Add-new_Collage-form-${buttonText}`}>{buttonText}</button>
         </form>

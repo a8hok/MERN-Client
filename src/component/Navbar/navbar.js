@@ -37,7 +37,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/about">About us</a>
           <a href="/#">Study Abroad</a>
           <a href="/#">Announcement</a>
-          <a href="/#">Forum</a>
+          <a href="/blogs">Blog</a>
           <a href="/#">Ask a Question</a>
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
@@ -57,7 +57,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Skills++</a>
           <a href="/content">Concepts++</a>
           <a href="/#">Career++</a>
-          <a href="/#">Entrance++</a>
+          <a href="/entrance">Entrance++</a>
           <a href="/#">Perceptions++</a>
           <a href="/#">Competition++</a>
           <div className="dropdown">
@@ -70,9 +70,6 @@ const Navbar = ({ profileInfo }) => {
           
           {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
 
-          {/* <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-            <FaTimes />
-          </button> */}
         </nav>
       </div>
       <div className="bot-navmenus">
@@ -81,7 +78,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/about">About us</a>
           <a href="/#">Study Abroad</a>
           <a href="/#">Announcement</a>
-          <a href="/#">Forum</a>
+          <a href="/blogs">Blog</a>
           <a href="/#">Ask a Question</a>
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
@@ -92,21 +89,27 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Skills++</a>
           <a href="/content">Concepts++</a>
           <a href="/#">Career++</a>
-          <a href="/#">Entrance++</a>
+          <a href="/entrance">Entrance++</a>
           <a href="/#">Perceptions++</a>
           <a href="/#">Competition++</a>
-          <a href="/quiz">Quiz</a>
+          <div className="dropdown">
+          <a href="/#">Quiz</a>
+            <div className="dropdown-content">
+              <a onClick={selectSkill}>Skill</a>
+              <a onClick={selectAcademics}>Academic</a>
+            </div>
+          </div> 
           </div>
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option visible-nav-option">
-            <a href="/categories">category++</a>
+            <a href="/categories">Programme++</a>
             <a href="/specialization">Specialization++</a>
             <a href="/universities">Top Universities</a>
             <a href="/colleges">Top Colleges</a>
             <a href="/schools">Top Schools</a>
             <a href="/#">Top Placements</a>
             <a href="/#">Top Events</a>
-            <a href="/#">Resources</a>
+            <a href="/resources">Resources</a>
             <a href="/internship">Internships/Jobs</a>
           </div>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
@@ -114,10 +117,6 @@ const Navbar = ({ profileInfo }) => {
           </button>
         </nav>
       </div>
-
-      {/* <div onClick={logout}>
-          <button className='Logout-btn' id="logout-button">Log out</button>
-        </div> */}
 
       <button className="nav-btn" onClick={showNavbar}>
         <MenuIcon />

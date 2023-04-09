@@ -14,7 +14,7 @@
     background: rgba(0, 129, 254, 0.4);
     padding: 2em;
     width: 50%;
-    height: 36em;
+    /* height: 36em; */
 }
 
 .add-Content-Select_Catagory {
@@ -40,4 +40,36 @@
     border-radius: 0.5em;
     padding: 0.5em 1em;
     width: 60%;
+}
+
+@media only screen and (max-width: 750px) {
+    .Add-Content_Form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(0, 129, 254, 0.4);
+        border-radius: 1em;
+        width: 90%;
+        margin: auto;
+        padding: 2em;
+        gap: 0.5em;
+        height: max-content;
+    }
+
+    .Add-Content_Form input, .Add-Content_Form select {
+        width: 90%;
+        height: 2.5em;
+        border: none;
+        border-radius: 0.5em;
+        padding: 0 1em;
+    }
+
+    .Add-Content_Form textarea {
+        border: none;
+        border-radius: 0.5em;
+        width: 90%;
+        height: 10em;
+        padding: 1em;
+    }
 }

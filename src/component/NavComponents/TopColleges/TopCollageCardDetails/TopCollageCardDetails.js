@@ -1,13 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../../Navbar/navbar";
 // import "./UniversityCardDetails.css";
-// import UniLogo from "./Img/logo.png";
-// import eduLogo from "./Img/educationlogo.png";
+import UniLogo from "./Img/logo.png";
+import eduLogo from "./Img/educationlogo.png";
 
 function TopCollageCardDetail() {
   const location = useLocation();
   const details = location.state.state;
+
+  const [showData, setShowData] = useState(0)
+
+  const [coursesOffered, setCoursesOffered] = useState([]);
+
+  useEffect(() => {
+    setCoursesOffered(details?.coursesOffered)
+  }, [details])
 
   return (
     <>
@@ -30,11 +38,11 @@ function TopCollageCardDetail() {
             </div>
             <div className="clg-type">
               {" "}
-              <img className="uni-logo" src={"UniLogo"}></img>
+              <img className="uni-logo" src={UniLogo}></img>
               {details.Type}
             </div>
             <div className="clg-co-education">
-              <img className="edu-logo" src={"eduLogo"}></img>
+              <img className="edu-logo" src={eduLogo}></img>
               <h3 className="clg-topic">Co-Education</h3>
             </div>
             <div className="clg-year">
@@ -60,20 +68,37 @@ function TopCollageCardDetail() {
           </div>
           <div className="clg-sec-head">
             <div className="clg-sec-row">
-              <button className="clg-detail-button">
-                Programmes Offered&Fee
-              </button>
+              <button className="clg-detail-button" onClick={() => setShowData(1)}>Programmes Offered&Fee</button>
               <button className="clg-detail-button">Placements</button>
               <button className="clg-detail-button">Infrastructure</button>
               <button className="clg-detail-button">Entrance Test</button>
-              <button className="clg-detail-button">Perception/Feedback</button>
+              <button className="clg-detail-button">Feedback</button>
             </div>
           </div>
         </div>
       </div>
 
       <div className="about_university_Card">
-        <p>{details.About}</p>
+        {showData === 0 && <p>{details.About}</p>}
+        {showData === 1 &&
+            <table className="table-of_Coursesoffered">
+              <thead className="table-head-and_body">
+                <tr className="table_Contents">
+                  <th>SNO</th>
+                  <th>Course code</th>
+                  <th>Course Name</th>
+                </tr>
+              </thead>
+            {coursesOffered.map((i, index) => (
+              <tbody key={index} className="table-head-and_body">
+                <tr className="table_Contents">
+                  <td>{index+1}</td>
+                  <td>{i?.value}</td>
+                  <td>{i?.label}</td>
+                </tr>
+              </tbody>))}
+            </table>
+            }
       </div>
     </>
   );

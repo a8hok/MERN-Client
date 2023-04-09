@@ -162,7 +162,7 @@ const Dashboard = () => {
 
   const handleDeleteforProgramme = useCallback((row) => {
     alert(`Do you really want to delete this data`)
-    const serialNumber = (row._valuesCache.SNo)
+    const serialNumber = (row._valuesCache.programmeID)
     dispatch(deleteSelectedProgramme(serialNumber))
     },
     [data]

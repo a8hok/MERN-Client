@@ -36,6 +36,30 @@ import ContentSubjectDetails from "./Slice/getCOntentSubject";
 import QuizType from "./Slice/QuizType";
 import ResultsDetailsReducer from "./Slice/postResults";
 import ResultsDetails from "./Slice/getResults";
+import entranceReducer from "./Slice/AddEntranceExam";
+import EntranceDetails from "./Slice/getEntranceDetailsByType";
+import EntranceDetailsBySubType from "./Slice/getEntranceDetailsBySubType";
+import EntranceDetailsByStateExams from "./Slice/getEntranceDetailsbyStateExams";
+import addAdvertisementReducer from "./Slice/AddNewAdvertisements";
+import AdvertisementsDetails from "./Slice/getAdvertisements";
+import editAdvertisementReducer from "./Slice/editAdvertisements";
+import removingSelectedAdvertisement from "./Slice/deleteAdvertisements";
+import addBlogReducer from "./Slice/AddNewBlogs";
+import selectedBlogReducer from "./Slice/getFIlteredBlogsData";
+import AllBlogReducer from "./Slice/getAllBlogData";
+import selectedBlogbyDomainReducer from "./Slice/getBlogbyDomain";
+import selectedData from "./Slice/individualBlogData";
+import postQueryBlogReducer from "./Slice/UserQueryBlog";
+import removingSelectedBlog from "./Slice/deleteBlogs";
+import updateBlogReducer from "./Slice/editBlogData";
+import postResourceSlice from "./Slice/postResources";
+import getGASlice from "./Slice/getGAresources";
+import getGSSASlice from "./Slice/getGSSAresources";
+import getGSSVSlice from "./Slice/getGSSVresources";
+import getGVSlice from "./Slice/getGVresources";
+import PDFunivSlice from "./Slice/forFormUniversity";
+import PDFColSlice from "./Slice/forFormCollege";
+import PDFBrochureDownloadDetails from "./Slice/downloadBrochure";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -75,6 +99,30 @@ const rootReducer = combineReducers({
   selectTypeQuiz: QuizType,
   postingResults: ResultsDetailsReducer,
   getResults: ResultsDetails,
+  postEntrance: entranceReducer,
+  EntranceByType: EntranceDetails,
+  EntranceBySubType: EntranceDetailsBySubType,
+  EntranceByStateExams: EntranceDetailsByStateExams,
+  addAdvertisements: addAdvertisementReducer,
+  getAdvertisements: AdvertisementsDetails,
+  editAdvertisement: editAdvertisementReducer,
+  deleteAdvertisement: removingSelectedAdvertisement,
+  addBlog: addBlogReducer,
+  SelectedBlog: selectedBlogReducer,
+  allBlog: AllBlogReducer,
+  blogByDomain: selectedBlogbyDomainReducer,
+  choosenBlog: selectedData,
+  queryBlog: postQueryBlogReducer,
+  deleteBlog: removingSelectedBlog,
+  updateBlog: updateBlogReducer,
+  postResource: postResourceSlice,
+  GAresource: getGASlice,
+  GSSAresource: getGSSASlice,
+  GSSVresource: getGSSVSlice,
+  GVresource: getGVSlice,
+  PDFuniv: PDFunivSlice,
+  PDFCol: PDFColSlice,
+  DownloadPDF: PDFBrochureDownloadDetails
 });
 
 const store = configureStore({

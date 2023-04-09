@@ -7,8 +7,10 @@ import Footer from "../../Footer/footer";
 import RightSideBar from "../RightSideBar";
 import Loadergif from "../../Event/img/loader.gif";
 
-import { topColleges, specialization } from "../ConstNavComponents/ConstNavComponents.js";
+import { topColleges, specialization, categoriesOption } from "../ConstNavComponents/ConstNavComponents.js";
 import SchoolsCard from "./TopSchoolCard/TopSchoolCard";
+import { getAdvertisementsInfo } from "../../../Store/Slice/getAdvertisements";
+import { AdvertisementViewer } from "../../AdvertisementViewer/AdvertisementViewer";
 
 const TopSchools = () => {
 
@@ -18,16 +20,23 @@ const TopSchools = () => {
 
   const dispatch = useDispatch();
 
-  const [stateSelected, setState] = useState([]);
+  const [stateSelected, setState] = useState("");
 
   const [district, setDistrict] = useState([]);
 
-  const [districtDisplayed, setDistrictDisplayed] = useState([]);
+  const [districtDisplayed, setDistrictDisplayed] = useState("");
 
   const [allSchoolDatafinal, setallSchoolData] = useState([]);
 
+  const [filteredAd, setFilteredAd] = useState([]);
+
+  const [searchText, setSearchText] = useState("Top Schools");
+
+  const {AdvertisementsData} = useSelector((state) => state.getAdvertisements);
+
   useEffect(() => {
     dispatch(getSchoolData())
+    dispatch(getAdvertisementsInfo());
   }, [])
 
   allSchoolData.forEach((element) => {
@@ -35,6 +44,18 @@ const TopSchools = () => {
       state.push(element.state);
     }
   });
+
+  function filterSchools (e) {
+    return (e?.catagory === "Schools" && e.status === 0)
+  }
+
+  useEffect(() => {
+    AdvertisementsData.map((i) => {
+      if(i.catagory === "Schools" && i.status === 0){
+        setFilteredAd(AdvertisementsData.filter(filterSchools))
+      }
+    })
+  }, [AdvertisementsData])
 
   const handelstate = (e) => {
     e.preventDefault();
@@ -56,30 +77,49 @@ const TopSchools = () => {
     }
   };
 
-  useEffect(() => {
-    function generateRandomInt(max) {
-      return Math.floor(Math.random() * max);
+  const isTopSchool = (e) => {
+    if(e.isTopSchool === true){
+      return e
     }
-    const randomNumber = generateRandomInt(allSchoolData.length - 10);
+  }
+
+  useEffect(() => {
     setallSchoolData(
-      allSchoolData.slice(randomNumber, randomNumber + 10)
+      allSchoolData.filter(isTopSchool)
     );
   }, [allSchoolData]);
 
   useEffect(() => {
-    setallSchoolData(
-      allSchoolData.filter((element) => {
-        if (element.state === stateSelected) return element;
-      })
-    );
+    if(stateSelected === "") {
+      setDistrictDisplayed("")
+      setallSchoolData(
+        allSchoolData.filter(isTopSchool)
+      );
+    }else {
+      setallSchoolData(
+        allSchoolData.filter((element) => {
+          if (element.state === stateSelected) return element;
+        })
+      );
+    }
   }, [stateSelected]);
 
   useEffect(() => {
-    setallSchoolData(
-      allSchoolData.filter((element) => {
-        if (element.district === districtDisplayed) return element;
-      })
-    );
+    if(stateSelected !== "" || districtDisplayed !== ""){
+      setSearchText("Top Schools for your searches")
+    }else {
+      setSearchText("Top Schools")
+    }
+  }, [stateSelected, districtDisplayed])
+
+  useEffect(() => {
+    if(districtDisplayed !== ""){
+      setallSchoolData(
+        allSchoolData.filter((element) => {
+          if (element.district === districtDisplayed) return element;
+        })
+      );
+    }
   }, [districtDisplayed]);
 
   useEffect(() => {
@@ -94,21 +134,24 @@ const TopSchools = () => {
       <Navbar />
       <div className="category-page-container">
         <div className="category-details">
-          <RightSideBar options={topColleges} />
+          {/* <RightSideBar options={topColleges} /> */}
 
-          <div className="university-main-heading">Top Schools</div>
+          <AdvertisementViewer children={filteredAd}/>
+
+          <div className="university-main-heading">{searchText}</div>
 
           <div className="selecting-preferences">
         <div className="guide-selection">
-          <span>select your preferences</span>
+          <span>Filters</span>
         </div>
-        <select className="guide-selector">
+        
+        {/* <select className="guide-selector">
           <option>Specialization</option>
           {specialization.length > 0 &&
             specialization.map((obj) => <option>{obj}</option>)}
-        </select>
+        </select> */}
         <select onChange={handelstate} id="state" className="guide-selector">
-          <option>State</option>
+          <option value="">State</option>
           {state?.length > 0 &&
             state.map((obj) => <option value={obj}>{obj}</option>)}
         </select>
@@ -117,7 +160,7 @@ const TopSchools = () => {
           id="district"
           className="guide-selector guide-Selector_Last"
         >
-          <option>District</option>
+          <option value="">District</option>
           {district.length > 0 && district.map((obj) => <option>{obj}</option>)}
         </select>
       </div>

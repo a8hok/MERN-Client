@@ -207,11 +207,18 @@
   flex-direction: row;
   gap: 1em;
   /* height: 34em; */
-  overflow: hidden;
-  /* overflow-x: scroll; */
-  padding: 3em 2em;
+  /* overflow: hidden; */
+  overflow: auto;
+  padding: 2em;
   width: 100%;
   border-radius: 15px;
+  -moz-scrollbars-none: true;
+  scrollbar-width: none;
+}
+
+.third-full-con-pro::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 
@@ -246,4 +253,102 @@
   color: #4c4c4d;
   box-shadow: 2px 2px 12px #e5d9db;
   border-radius: 1em;
+}
+
+.Front-Arrow_Button {
+  font-size: 2em;
+  font-weight: 700;
+  border: none;
+  background: rgba(0, 129, 254, 0.4);
+  padding: 0.4em;
+  border-radius: 0.2em 1em 1em 0.2em;
+  display: flex;
+  align-items: center;
+}
+
+.Back-Arrow_Button {
+  font-size: 2em;
+  font-weight: 700;
+  border: none;
+  background: rgba(0, 129, 254, 0.4);
+  padding: 0.4em;
+  border-radius: 1em 0.2em 0.2em 1em;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+ .profilepage-container{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    width: 100%;
+    margin: 1em auto;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .profilepage-container{
+    /* display: grid;
+    grid-template-columns: 35% 65%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 1em auto;
+    gap: 2em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .third-full-con-pro {
+      background: rgba(149,200,251,0.4);
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+      /* height: 34em; */
+      /* overflow: hidden; */
+      overflow: auto;
+      padding: 2em;
+      /* width: 50em; */
+      border-radius: 15px;
+  }
+  .third-full-con {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    gap: 2em;
+  }
+  .third-sub-con {
+    display: flex;
+    flex-direction: column;
+    margin: auto 1em;
+    height: 95%;
+    width: 15em;
+    background: #ffffff;
+    color: #4c4c4d;
+    box-shadow: 2px 2px 12px #e5d9db;
+    border-radius: 1em;
+  }
+  .Front-Arrow_Button {
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    background: rgba(0, 129, 254, 0.4);
+    padding: 0.2em;
+    border-radius: 0.2em 1em 1em 0.2em;
+    display: flex;
+    align-items: center;
+  }
+
+  .Back-Arrow_Button {
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    background: rgba(0, 129, 254, 0.4);
+    padding: 0.2em;
+    border-radius: 1em 0.2em 0.2em 1em;
+    display: flex;
+    align-items: center;
+  }
+
 }

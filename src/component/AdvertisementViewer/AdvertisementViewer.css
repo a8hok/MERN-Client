@@ -1,0 +1,101 @@
+.Back-Arrow-AD_Button, .Front-Arrow-AD_Button{
+    font-size: 2em;
+    font-weight: 700;
+    border: none;
+    padding: 0.4em;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.third-sub-con-advertisement {
+    display: flex;
+    flex-direction: column;
+    margin: auto 1em;
+    height: 100%;
+    width: 18em;
+    background: #ffffff;
+    color: #4c4c4d;
+    box-shadow: 2px 2px 12px #e5d9db;
+    border-radius: 1em;
+}
+
+.third-sub-con-advertisement:hover {
+    transform: translateY(-8px);
+    transition: 0.5s;
+  }
+
+  .third-full-con-pro-Ad {
+    background: rgba(225, 240, 255, 0.4);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    overflow: auto;
+    padding: 2em;
+    width: 100%;
+    border-radius: 15px;
+    -moz-scrollbars-none: true;
+    scrollbar-width: none;
+  }
+  
+  .third-full-con-pro-Ad::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .advertisement-Heading {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  .advertisement-main-container_Main {
+    margin: 2em auto;
+  }
+
+@media only screen and (max-width: 700px) {
+    .third-full-con-pro-Ad {
+        background: rgba(149,200,251,0.4);
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        /* height: 34em; */
+        /* overflow: hidden; */
+        overflow: auto;
+        padding: 2em;
+        /* width: 50em; */
+        border-radius: 15px;
+    }
+    .third-full-con {
+      display: flex;
+      width: 100%;
+      padding: 1em;
+      gap: 2em;
+    }
+    .third-sub-con-advertisement {
+      display: flex;
+      flex-direction: column;
+      margin: auto 1em;
+      height: 95%;
+      width: 15em;
+      background: #ffffff;
+      color: #4c4c4d;
+      box-shadow: 2px 2px 12px #e5d9db;
+      border-radius: 1em;
+    }
+    .Back-Arrow-AD_Button, .Front-Arrow-AD_Button {
+      font-size: 1em;
+      font-weight: 600;
+      border: none;
+      /* background: rgba(0, 129, 254, 0.4); */
+      padding: 0.2em;
+      /* border-radius: 1em 0.2em 0.2em 1em; */
+      display: flex;
+      align-items: center;
+      background: transparent;
+    }
+  
+  }
+  

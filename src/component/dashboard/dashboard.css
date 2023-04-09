@@ -27,8 +27,6 @@
 }
 
 .dropdown {
-  /* position: relative;
-  display: inline-block; */
   color: black;
   padding: 1em 2em;
   text-decoration: none;
@@ -80,17 +78,51 @@
   background: rgb(83, 117, 226);
 }
 
-/* ::-webkit-scrollbar {
-  width: 14px;
-  background: rgb(3, 51, 77);
+@media only screen and (max-width: 1200px) {
+  .dropdown {
+    color: black;
+    padding: 0;
+    text-decoration: none;
+    /* width: 90%; */
+    text-align: justify;
+    margin: auto;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(10, 110, 110);
-  -webkit-border-radius: 0.1em;
-  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
+@media only screen and (max-width: 850px) {
+  .dropdown {
+    color: black;
+    padding: 0;
+    text-decoration: none;
+    width: 90%;
+    text-align: justify;
+    margin: auto;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(202, 223, 255);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: 1em 0 0 -5em;
+    width: 12em;
+    margin: 0 1em;
+  }
+  .dashboard-divider {
+    display: flex;
+    flex-direction: column;
+  }
+  .option-toggle{
+    overflow-y: scroll;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    /* height: 15vh; */
+    box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
+    width: 70%;
+    margin: auto;
+  }
 }
 
-::-webkit-scrollbar-corner {
-  background: #000;
-} */

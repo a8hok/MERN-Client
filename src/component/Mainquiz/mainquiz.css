@@ -370,3 +370,224 @@ justify-content: space-between;
 .hint_Box {
   display: none;
 }
+
+@media only screen and (max-width: 760px) {
+  .quiz-questions {
+    width: 90%;
+    background: rgba(240, 240, 240, 0.3);
+    border-radius: 1em;
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 1em;
+  }
+
+  .Question-number {
+    /* margin: 1em; */
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    color: #0a142f;
+  }
+
+  .meter-scale {
+    width: 90%;
+    margin: 0 auto;
+    height: 1em;
+    z-index: -1;
+  }
+
+  .Quiz_Questions {
+    font-size: 1.2em;
+  }
+
+  .option--container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+  }
+
+  .next {
+    width: 60%;
+    background: #09829D;
+    /* border-radius: 0.5em; */
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 3px;
+  }
+
+  .Endtest-btn, .Skip-btn {
+    padding: 1em 2em;
+    border: 1.58025px solid #fb4b4b;
+    border-radius: 7.90123px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8em;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fb4b4b;
+  }
+
+  .endtest-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+  }
+
+  .submit {
+    width: 60%;
+    /* background: #099d33; */
+    /* color: white; */
+    /* border: none; */
+    /* font-family: 'Poppins'; */
+    /* font-style: normal; */
+    font-weight: 500;
+    font-size: 1em;
+    padding: 0.4em 0;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: auto;
+    /* border-radius: 3px;*/
+  }
+
+  .quiz-Hint_Container {
+    background: rgb(255, 255, 255);
+    padding: 1em;
+    border-radius: 0.5em;
+    border: solid 3px rgb(255, 229, 36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quiz-Hint_Container h2 {
+    font-size: 0.7em;
+  }
+}
+
+@media only screen and (min-width: 250px) and (max-width: 760px) {
+  .Endtest-btn, .Skip-btn {
+    padding: 1em;
+    border: 1.58025px solid #fb4b4b;
+    border-radius: 7.90123px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.5em;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fb4b4b;
+  }
+  .endtest-block {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    margin: auto;
+  }
+
+  .question-option {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .next {
+    width: 50%;
+    background: #09829D;
+    /* border-radius: 0.5em; */
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8em;
+    padding: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 3px;
+  }
+
+  .Quiz_Questions {
+    font-size: 1em;
+  }
+
+  .quiz-questions {
+    width: 95%;
+    background: rgba(240, 240, 240, 0.3);
+    border-radius: 1em;
+    display: flex;
+    padding: 0.5em;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 1em;
+  }
+
+  .next-button_Result {
+    width: 30%;
+    background: #09829D;
+    /* border-radius: 0.5em; */
+    color: white;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    /* padding: 1em 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    margin: auto;
+  }
+
+  .quiz-questions_Results {
+    width: 90%;
+    background: rgba(240, 240, 240, 0.7);
+    border-radius: 1em;
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .quiz-questions_Results h1, .quiz-questions_Results h4 {
+    font-size: 1em;
+  }
+
+  .results-submission_Form {
+    width: 90%;
+    height: 2em;
+    margin: auto;
+    padding: 0 1em;
+  }
+}

@@ -47,7 +47,6 @@
   background-size: cover;
   background-position: center;
   padding: 2em;
-  /* height: 46em; */
 }
 
 .Emails-input,
@@ -120,6 +119,7 @@
   }
   .image {
     background: transparent;
+    /* height: 46em; */
   }
   .Login-main {
     margin: 0 auto;

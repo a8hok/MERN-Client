@@ -74,8 +74,6 @@ const Quiz = () => {
       alert(`Please select main domain and difficulty level`)
     }else if (mainDomain.length > 0 && difficulty.length > 0) {
       dispatch(getQuizData(allValues));
-      // console.log(typeOf,mainDomain,difficulty)
-      // console.log(allValues)
       setTimeout(() => {
         navigate("/quiz/start");
       }, "1500")
@@ -136,7 +134,7 @@ const Quiz = () => {
         {difficultyOption.map((i) => {
           return <button onClick={(e) => setDifficulty(e.target.value)} value={i.value}>{i.option}</button>
         })}
-        <hr></hr>
+        <br></br>
         {domain.map((i) => {
           return <button onClick={(e) => setMainDomain(e.target.value)} value={i.value}>{i.option}</button>
         })}

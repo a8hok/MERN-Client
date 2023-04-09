@@ -65,3 +65,39 @@
     width: 90%;
     text-align: center;
 }
+
+.all-events-Scroller_Container {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+@media only screen and (max-width: 750px) {
+    .form-container{
+        width: max-content;
+        height: max-content;
+        margin: auto;
+    }
+    .form-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(0, 129, 254, 0.4);
+        border-radius: 1em;
+        width: 90%;
+        margin: auto;
+        padding: 2em;
+        gap: 2em;
+        height: max-content;
+    }
+
+    .form-content input {
+        width: 90%;
+        height: 2.5em;
+        border: none;
+        border-radius: 0.5em;
+        padding: 0 1em;
+    }
+}

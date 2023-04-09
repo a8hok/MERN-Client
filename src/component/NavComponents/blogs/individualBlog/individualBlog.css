@@ -1,0 +1,98 @@
+.individual_blog-data_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4em auto;
+}
+
+.individual_blog-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 1em;
+    background: rgb(117, 167, 253);
+    border-radius: 0.25em;
+    gap: 1em;
+}
+
+.individual_blog-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    width: 100%;
+}
+
+.blog_readableData-container {
+    width: 90%;
+    background: rgb(250, 250, 250);
+    border-radius: 0.25em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.review_form-section-FAQ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    gap: 1em;
+    background: rgb(240, 240, 240);
+    padding: 2em 1em;
+    border-radius: 0.5em
+}
+
+.review_form-section-FAQ input {
+    width: 80%;
+    height: 3em;
+    border: none;
+    box-shadow: 0 0 0.45em black;
+    border-radius: 0.4em;
+    padding: 1em;
+}
+
+.review_form-section-FAQ textarea {
+    width: 80%;
+    height: 10em;
+    border: none;
+    box-shadow: 0 0 0.45em black;
+    border-radius: 0.4em;
+    padding: 1em;
+}
+
+.review_form-section-FAQ button {
+    padding: 0.75em 1em;
+    border: none;
+    border-radius: 0.4em;
+    background: rgb(45, 126, 161);
+    color: white;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-transform: capitalize;
+    width: 40%;
+}
+
+.review_message-status {
+    width: 95%;
+    padding: 1.5em;
+    color: rgb(207, 2, 2);
+    font-weight: 700;
+    font-size: 1.2em;
+    background: rgb(251, 70, 70);
+    text-align: center;
+}
+
+.review_message-recieved {
+    width: 95%;
+    padding: 1.5em;
+    color: rgb(0, 145, 0);
+    font-weight: 700;
+    font-size: 1.2em;
+    background: rgb(70, 251, 70);
+    text-align: center;
+}

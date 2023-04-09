@@ -56,7 +56,7 @@ const Content = () => {
   return (
     <div>
         <Navbar/>
-        <div className="category-options-container">
+        <div className="floating_Selector-Container">
       {catagory.map((item) => {
         return (
           <button
@@ -69,7 +69,7 @@ const Content = () => {
         );
       })}
         </div>
-        <div className="category-options-container">
+        <div className="floating_Selector-Container">
       {Subjects.map((item) => {
         return (
           <button

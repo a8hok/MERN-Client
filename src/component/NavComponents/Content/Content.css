@@ -21,7 +21,7 @@
 
 .content-Card p {
     padding: 1em;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .content-Card_Top {
@@ -34,7 +34,46 @@
 }
 
 .content-Card_Top h2 {
-    font-size: 1.4em;
-    font-weight: 600;
+    font-size: 1.3em;
+    font-weight: 500;
     text-transform: capitalize;
+}
+
+@media only screen and (max-width: 800px) {
+    .content-card {
+        border-radius: 0.5em;
+        padding: 1em;
+        width: 90%;
+        margin: auto;
+    }
+
+    .content-card_Container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .content-Card_Top h2 {
+        font-size: 1.2em;
+        font-weight: 500;
+        /* text-transform: capitalize; */
+    }
+
+    .content-Card p {
+        padding: 1em;
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .content-Card {
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 129, 254, 0.4);
+        border-radius: 0.5em; */
+        padding: 1em;
+        width: 90%;
+        margin: auto;
+    }
 }
