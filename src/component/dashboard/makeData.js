@@ -1,4 +1,4 @@
-const Universities = ['S_No', 'State', 'Type', 'Yrofestab', 'Name', 'Village', 'City', 'District', 'PIN', 'url', 'Phone', 'Email', 'Image', 'Logo', 'Location_Coordinates', 'AboutCollege', 'isTopUniv'];
+const Universities = ['S_No', 'U_id', 'State', 'Type', 'Yrofestab', 'Name', 'Village', 'City', 'District', 'PIN', 'url', 'Phone', 'Email', 'Image', 'Logo', 'Location_Coordinates', 'AboutCollege', 'isTopUniv'];
 
 const Programme = ['programmeID', 'programmeDomain', 'programmeSubDomain', 'programmeSpecialisation', 'programmeLevel', 'degreeDescription', 'degreeShortName', 'degreeFullName'];
 

@@ -315,7 +315,7 @@ p.details {
   align-items: center;
   justify-content: space-between;
   padding: 1em;
-  gap: 2em;
+  /* gap: 2em; */
 }
 
 .after_search-results_cards {
@@ -375,6 +375,16 @@ p.details {
   text-align: center;
   /* width: 20em; */
   align-self: center;
+}
+
+.search_index-container-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1.5em auto;
+  width: 90%;
+  gap: 1.5em;
 }
 
 /* responsive for table above 768 */

@@ -196,7 +196,7 @@ const UserProfile = () => {
 
   const userAffiliation = userData?.data?.userAffiliation
 
-  const S_No = userData?.data?.userAffiliationId
+  const U_id = userData?.data?.userAffiliationId
 
   const c_id = userData?.data?.userAffiliationId
 
@@ -204,11 +204,11 @@ const UserProfile = () => {
 
   const Status = userData?.data?.contentCreator
 
-  const S_no = parseInt(S_No,10)
+  // const S_no = parseInt(S_No,10)
 
   useEffect(() => {
     if(userAffiliation === "University"){
-      dispatch(getSelectedUniversityInfo(S_no))
+      dispatch(getSelectedUniversityInfo(U_id))
     }else if(userAffiliation === "College"){
       dispatch(getSelectedCollegeInfo(c_id))
     }else if(userAffiliation === "School"){
@@ -218,14 +218,14 @@ const UserProfile = () => {
 
   useEffect(() => {
     if(userAffiliation === "University"){
-      setAllUse({name: univName, belong: userAffiliation, key: S_No, Status: Status})
-      setCreator({name: univName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
+      setAllUse({name: univName, belong: userAffiliation, key: U_id, Status: Status})
+      setCreator({name: univName, belong: userAffiliation, key: U_id, state: creatorStatus, Status: Status})
     }else if(userAffiliation === "College"){
-      setAllUse({name: colName, belong: userAffiliation, key: S_No, Status: Status})
-      setCreator({name: colName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
+      setAllUse({name: colName, belong: userAffiliation, key: U_id, Status: Status})
+      setCreator({name: colName, belong: userAffiliation, key: U_id, state: creatorStatus, Status: Status})
     }else if(userAffiliation === "School"){
-      setAllUse({name: SchoolName, belong: userAffiliation, key: S_No, Status: Status})
-      setCreator({name: SchoolName, belong: userAffiliation, key: S_No, state: creatorStatus, Status: Status})
+      setAllUse({name: SchoolName, belong: userAffiliation, key: U_id, Status: Status})
+      setCreator({name: SchoolName, belong: userAffiliation, key: U_id, state: creatorStatus, Status: Status})
     }
   }, [userData, content, eventsData])
 

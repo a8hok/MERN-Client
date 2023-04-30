@@ -5,6 +5,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const postPDFUniversities = createAsyncThunk("pdfUniv",async (data) => {
     const formdata = new FormData()
     formdata.append("S_No", data.S_No);
+    formdata.append("U_id", data.U_id);
     formdata.append("State", data.State);
     formdata.append("Type", data.Type);
     formdata.append("Yrofestab", data.Yrofestab);

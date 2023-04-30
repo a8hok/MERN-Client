@@ -79,6 +79,9 @@ const AddNewUniversity = () => {
       if (!e.S_No){
         errors.S_No = "please enter the serial number"
       }
+      if (!e.U_id){
+        errors.U_id = "please enter the University ID"
+      }
       if(!e.State){
         errors.State = "please enter the State Name"
       }
@@ -154,6 +157,9 @@ const AddNewUniversity = () => {
             
             <input type="Number" name="S_No" placeholder="S_No" onChange={handleChange}></input>
             <p>{error.S_No}</p>
+
+            <input type="Number" name="U_id" placeholder="U_id" onChange={handleChange}></input>
+            <p>{error.U_id}</p>
 
             <input type="text" name="State" placeholder="State" onChange={handleChange}></input>
             <p>{error.State}</p>

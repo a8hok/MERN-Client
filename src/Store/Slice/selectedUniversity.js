@@ -3,9 +3,9 @@ import { axio } from "../../Config/Config";
 
 export const getSelectedUniversityInfo = createAsyncThunk(
   "University",
-  async (S_no) => {
+  async (U_id) => {
     return axio.get(
-      `/api/getselecteduniversity/?S_No=${S_no}`
+      `/api/getselecteduniversity/?U_id=${U_id}`
     );
   }
 );

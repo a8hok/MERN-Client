@@ -94,7 +94,7 @@ const IndividualBlog = () => {
         </div>
         <form className="review_form-section-FAQ" onSubmit={submitQuery}>
           {!!showMessage ? <div className={blogsentStatus?.message === "Please verify your mail" ? "review_message-status" : "review_message-recieved"}>{blogsentStatus?.message}</div>:null}
-          <h4>FAQ Section</h4>
+          <h4>Review/Comment's</h4>
           <input 
             type={"email"} 
             placeholder="Your Registered Mail Id"

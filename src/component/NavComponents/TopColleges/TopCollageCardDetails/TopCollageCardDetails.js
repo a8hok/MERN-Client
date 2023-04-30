@@ -68,11 +68,11 @@ function TopCollageCardDetail() {
           </div>
           <div className="clg-sec-head">
             <div className="clg-sec-row">
-              <button className="clg-detail-button" onClick={() => setShowData(1)}>Programmes Offered&Fee</button>
+              <button className="clg-detail-button" onClick={() => setShowData(1)}>Programmes Offered & Fee</button>
               <button className="clg-detail-button">Placements</button>
               <button className="clg-detail-button">Infrastructure</button>
               <button className="clg-detail-button">Entrance Test</button>
-              <button className="clg-detail-button">Feedback</button>
+              <button className="clg-detail-button">Rating</button>
             </div>
           </div>
         </div>
