@@ -1,5 +1,6 @@
 import axios from "axios";
-export const BASE_URL = "http://localhost:8001"
+export const BASE_URL = "https://api.learnplusplus.com"
+//http://localhost:8001
 export const axio = axios.create({
   baseURL: BASE_URL,
   // https://academy-server-gray.vercel.app https://academy-server-side.vercel.app
