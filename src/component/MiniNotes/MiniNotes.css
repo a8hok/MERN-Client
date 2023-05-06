@@ -59,3 +59,56 @@
     background: #0281fe;
     color: white;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 800px) {
+    .MiniNotes-Container {
+        /* display: grid;
+        grid-template-columns: 40% 60%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        margin: 1em auto;
+        background: rgba(4, 160, 244, 0.5);
+        border-radius: 1em;
+    }
+
+    .slider {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .slider img {
+        border-radius: 1em 1em 0 0;
+    }
+
+    .mini_aboutus-container {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mini_aboutus-container h1 {
+        font-weight: 600;
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .mini_aboutus-container p {
+        font-weight: 300;
+        font-size: 0.8em;
+    }
+
+    .mini_aboutus-container button {
+        /* align-self: center; */
+        padding: 0.5em 1.5em;
+        border: none;
+        border-radius: 0.25em;
+        background: #0281fe;
+        color: white;
+        font-size: 0.7em;
+    }
+}

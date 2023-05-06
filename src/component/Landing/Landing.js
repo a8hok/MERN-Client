@@ -135,15 +135,18 @@ function Landing() {
     setInstType(e.target.value)
     setSelectedState("")
     setSelectedDistrict("")
+    setForFilterData([])
   }
 
   const handleState = (e) => {
     setSelectedState(e.target.value)
     setSelectedDistrict("")
+    // setForFilterData([])
   }
 
   const handleDistrict = (e) => {
     setSelectedDistrict(e.target.value)
+    // setForFilterData([])
   }
 
   useEffect(() => {
@@ -276,7 +279,7 @@ function Landing() {
 
       <h1 className="after_search-results-top10">Select to search for any Institution</h1>
 
-      <div className={(instType === "") ? "selecting-preferences_Entrance_1" : ((instType !== "" && selectedState === "") ? "selecting-preferences_Entrance_2" : ((instType !== "" && selectedState !== "") ? "selecting-preferences_Entrance_3" : "selecting-preferences_Entrance_3"))}>
+      <div className={(instType === "") ? "Home_selecting-preferences_Entrance_1" : ((instType !== "" && selectedState === "") ? "Home_selecting-preferences_Entrance_2" : ((instType !== "" && selectedState !== "") ? "Home_selecting-preferences_Entrance_3" : "Home_selecting-preferences_Entrance_3"))}>
         <div className="guide-selection">
           <span>Filter</span>
         </div>

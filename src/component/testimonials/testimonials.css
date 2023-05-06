@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin: 1em auto;
+    margin: 2em auto;
     gap: 1em;
     align-items: center;
 }
@@ -67,7 +67,6 @@
 
 .testimonials_text-para_container {
     padding: 1em;
-
 }
 
 .testimonials_banner_alternate {
@@ -81,6 +80,48 @@
     opacity: 0;
 }
 
+@media only screen and (min-width: 300px) and (max-width: 800px) {
+    .testimonials_banner_1, .testimonials_banner_3 {
+        /* align-self: flex-start; */
+        border-radius: 0 1.5em 1.5em 0;
+        animation-name: mobileAnimateLeft;
+        animation-duration: 2.5s;
+        animation-fill-mode: forwards;
+        width: 85%;
+        border-radius: 1em;
+        background: rgba(4, 160, 244, 0.5);
+        color: white;
+        text-shadow: 0 0 0.1em gray;
+        font-size: 0.8em;
+        font-weight: 500;
+        padding: 1em;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .testimonials_banner_2 {
+        /* align-self: flex-end; */
+        border-radius: 1.5em 0 0 1.5em;
+        width: 85%;
+        border-radius: 1em;
+        background: rgba(4, 160, 244, 0.5);
+        color: white;
+        text-shadow: 0 0 0.1em gray;
+        font-size: 0.8em;
+        font-weight: 500;
+        padding: 1em;
+        animation-name: mobileAnimateRight;
+        animation-duration: 2.5s;
+        animation-fill-mode: forwards;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 @keyframes animateLeftSliderBar {
     from {
         transform: translateX(0) translateY(0);
@@ -92,6 +133,17 @@
     }
 }
 
+@keyframes mobileAnimateLeft {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(-5em) translateY(0);
+        opacity: 1;
+    }
+}
+
 @keyframes animateRightSideBar {
     from {
         transform: translateX(0) translateY(0);
@@ -99,6 +151,17 @@
     }
     to {
         transform: translateX(300px) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes mobileAnimateRight {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(5em) translateY(0);
         opacity: 1;
     }
 }

@@ -38,8 +38,14 @@
   align-items: center;
 }
 
-.Location-footer p {
+.Location-footer a {
   margin: 1em 0;
+  text-decoration: none;
+  color: black;
+}
+
+.Location-footer a:hover {
+  color: black;
 }
 
 .contact-info {

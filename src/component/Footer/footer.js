@@ -28,7 +28,7 @@ const Footer = () => {
 
           <div className="Location-footer">
             <img src={Location} alt="no img found"></img>
-            <p>26 Badrakaliamman Koil Street No. 3, Uppilipalayam • Coimbatore – 641 015</p>
+            <a href="https://goo.gl/maps/8yHGcudpmHuTUnh38" target="_blank">26 Badrakaliamman Koil Street No. 3, Uppilipalayam • Coimbatore – 641 015</a>
           </div>
 
           <div className="contact-info">
