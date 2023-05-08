@@ -61,8 +61,9 @@ const Footer = () => {
           <a href="/about">ABOUT US</a>
           <a href="/contactus"> CONTACT US </a>
           <a href="#/">HELP</a>
-          <a href="#/">PRIVACY POLICY</a>
+          <a href="/privacy">PRIVACY POLICY</a>
           <a href="#/"> DISCLAIMER</a>
+          <a href="/visionandmission"> VISION & MISSION</a>
         </div>
         <div className="Copyright-container">
           <p>Copyright © 2022 Learnplusplus•</p>

@@ -1,0 +1,56 @@
+.VPQ_Container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 2em auto;
+    /* display: grid;
+    grid-template-columns: 60% 40%; */
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.VisionMissionImages {
+    width: 100%;
+    height: max-content;
+    box-shadow: 0 0 0.6em black;
+    margin-bottom: 3em;
+    align-self: center;
+    object-fit: contain;
+}
+
+.VandP_Container {
+    display: flex;
+    flex-direction: column;
+    /* height: 60em; */
+    padding: 1em 3em;
+    margin-top: 3em;
+    width: 50%;
+}
+
+.Quality_Container {
+    display: flex;
+    flex-direction: column;
+    /* height: 60em; */
+    padding: 1em 3em;
+    margin-top: 3em;
+    width: 50%;
+}
+
+.Mission_Container h3, .Vision_Container h3 {
+    color: rgb(120, 120, 120)
+}
+
+.Vision_Container p, .Mission_Container ol li, .Quality_Container p {
+    color: rgb(120, 120, 120)
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .VPQ_Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .VandP_Container, .Quality_Container {
+        width: 100%;
+    }
+}

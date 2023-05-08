@@ -41,7 +41,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Ask a Question</a>
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
-          <a href="#">WhatsApp: +91-94421 10920</a>
+          <a href="https://wa.me/918248066429" target="_blank">WhatsApp: +91-94421 10920</a>
         </nav>
       </div>
       <div className="mid-navmenus">

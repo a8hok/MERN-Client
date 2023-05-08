@@ -31,16 +31,10 @@ const navigateLogin = () => {
             <div className="mini_aboutus-container">
                 <h1>We make you Learn ++</h1>
                     <p>
-                        We serve the educational software industry 
-                        with products and services including online 
-                        programme management, training, and student services. 
-                        Primarily we assist students pursuing or planning to 
-                        pursue higher education in finding suitable 
-                        schools/ colleges/ universities and programmes and 
-                        provide content for learning and competitive 
-                        examinations. Further, the industry can also search 
-                        our portal for competent learners to support with their 
-                        internship and placement offers.
+                        Welcome to highereducationupdates.com©, your one-stop destination for all your higher education needs. We are a part of LPP Learning Technology Solutions Pvt. Ltd. and are committed to promoting transparency in the quality of education offered by institutions and universities in India and abroad.
+                    </p>
+                    <p>
+                        Our mission is to empower prospective students with comprehensive and up-to-date information about the various career options available in India and around the world. In today's competitive world, education and career choices are crucial to success, and we strive to provide accurate and reliable information that can help students make informed decisions about their future.
                     </p>
                     {/* <div> */}
                         <button onClick={navigateLogin} className="mini_notes-button">Join Us</button>

@@ -43,6 +43,9 @@ import HomeBlog from "./component/NavComponents/blogs/homeBlog";
 import IndividualBlog from "./component/NavComponents/blogs/individualBlog/individualBlog";
 import Resources from "./component/NavComponents/resources/resources";
 
+import Vision from "./component/Vision/Vision"
+import Privacy from "./component/Privacy/Privacy"
+
 function App() {
 
   const { userData } = useSelector((state) => state.userProfileInfo);
@@ -97,6 +100,9 @@ function App() {
           <Route path="/EventUpdate" element={<EventUpdate />}></Route>
           <Route path="/addquiz" element={<AddQuiz />}></Route>
           <Route path="/resources" element={<Resources/>}></Route>
+
+          <Route path="/visionandmission" element={<Vision/>}></Route>
+          <Route path="/privacy" element={<Privacy/>}></Route>
         {/* </Route> */}
        
       </Routes>

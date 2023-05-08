@@ -1,0 +1,85 @@
+.Privacy_policy-Container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    width: 100%;
+    margin: 2em auto;
+}
+
+.allPrivacy_Policy-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3em auto;
+}
+
+.allPrivacy_Policy-Container h2 {
+    text-align: center;
+    font-size: 3em;
+    color: rgb(120, 120, 120);
+}
+
+.privacyImg_component {
+    width: 80%;
+    height: max-content;
+    box-shadow: 0 0 0.6em black;
+    object-fit: contain;
+    margin: 3em auto;
+}
+
+.right_privacy-Policy {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 1em;
+}
+
+.left_privact-Policy{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: max-content;
+}
+
+.right_privacy-Policy p, .right_privacy-Policy div, .right_privacy-Policy div a {
+    color: rgb(120, 120, 120);
+    font-size: 1.1em;
+}
+
+.right_privacy-Policy p span {
+    color: rgb(100, 100, 100);
+    font-size: 1.12em;
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 770px) {
+    .Privacy_policy-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .allPrivacy_Policy-Container h2 {
+        text-align: center;
+        font-size: 1.5em;
+        color: rgb(120, 120, 120);
+    }
+
+    .right_privacy-Policy p, .right_privacy-Policy div, .right_privacy-Policy div a {
+        color: rgb(120, 120, 120);
+        font-size: 0.9em;
+    }
+    
+    .right_privacy-Policy p span {
+        color: rgb(100, 100, 100);
+        font-size: 1em;
+        font-weight: 600;
+    }
+
+    .right_privacy-Policy h3{
+        font-size: 1.1em;
+    }
+
+    .right_privacy-Policy {
+        padding: 1em 2.2em;
+    }
+
+}
