@@ -23,6 +23,14 @@
     padding: 1em;
 }
 
+.Add-new_blog-form select {
+    width: 70%;
+    height: 4.5em;
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
 .Add-new_blog-form textarea {
     width: 70%;
     height: 8em;

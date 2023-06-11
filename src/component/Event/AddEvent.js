@@ -7,9 +7,8 @@ import file from "./img/pngtree.jpg";
 
 const AddEvent = ({userData}) => {
   const dispatch = useDispatch();
-
+  
   const [statusNum, setStatusNum] = useState(1)
-
   const [name, setname] = useState()
   const [files, setFile] = useState()
   const [message, setmessage] = useState()

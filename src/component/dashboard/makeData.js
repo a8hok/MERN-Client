@@ -1,6 +1,6 @@
-const Universities = ['S_No', 'U_id', 'State', 'Type', 'Yrofestab', 'Name', 'Village', 'City', 'District', 'PIN', 'url', 'Phone', 'Email', 'Image', 'Logo', 'Location_Coordinates', 'AboutCollege', 'isTopUniv'];
+const Universities = ['S_No', 'U_id', 'State', 'UorR', 'Yrofestab', 'Univ_name', 'Village', 'City', 'District', 'PIN', 'url', 'Phone', 'Email', 'Image', 'Logo', 'Location_Coordinates', 'AboutCollege', 'isTopUniv'];
 
-const Programme = ['programmeID', 'programmeDomain', 'programmeSubDomain', 'programmeSpecialisation', 'programmeLevel', 'degreeDescription', 'degreeShortName', 'degreeFullName'];
+const Programme = ['programmeID', 'programmeDomain', 'programmeSubDomain', 'programmeLevel', 'degreeDescription', 'degreeShortName', 'degreeFullName'];
 
 const School = ['SlNo', 'name', 'code', 'estdYr', 'Catagory', 'address', 'Village', 'City', 'pin', 'district', 'state', 'location', 'areaType', 'principal', 'url', 'email', 'phone', 'AffiliationBody', 'AfiliationNumber', 'ClassesFrom', 'ClassesTo', 'Mol', 'streamsOffered', 'AboutSchool', 'facilities', 'events', 'management', 'gender', 'AccStatus', 'schoolArea', 'facultyStrength', 'studentStrength', 'des', 'blogPosts', 'Gallery', "Apply", "isTopSchool"]
 

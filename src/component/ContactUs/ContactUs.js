@@ -88,7 +88,7 @@ function ContactUs() {
       </div>
 
       <div className="location_map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31329.904171821763!2d76.97750880062047!3d11.020760155150716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s26%20Badrakaliamman%20Koil%20Street%20No.%203%2C%20Uppilipalayam%20%E2%80%A2%20Coimbatore%20%E2%80%93%20641%20015!5e0!3m2!1sen!2sin!4v1683379234340!5m2!1sen!2sin" width="100%" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7832.3674026137305!2d77.01722!3d11.02484!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857851bf11fdf%3A0x4f7e5f4cb6bbac94!2sSrinagar%20Rd%2C%20Periyar%20Nagar%2C%20Hope%20College%2C%20Coimbatore%2C%20Tamil%20Nadu%20641004!5e0!3m2!1sen!2sin!4v1686460463239!5m2!1sen!2sin" width="100%" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>

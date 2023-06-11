@@ -1,10 +1,61 @@
 .selecting-preferences-blogs {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
     align-items: center;
     justify-content: center;
     width: 65%;
     margin: 3em auto 1em;
+    gap: 0.25em;
+}
+
+.selecting-preferences-first-blogs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    margin: 3em auto 1em;
+}
+
+ .guide-Selector_First {
+    border-radius: 0 0 0 0;
+    width: 100%;
+    border: solid 1.5px black;
+    padding: 1.5em;
+    background: rgb(240, 240, 240);
+}
+
+/* .guide-Selector_First_option {
+    padding: 1.5em;
+} */
+
+/* .guide-Selector_First {
+    padding: 8px 12px;
+    font-size: 14px;
+    appearance: none;
+    border: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+    &:hover,
+    &:focus {
+      background-color: #f5f5f5;
+    }
+  } */
+  
+  /* .guide-Selector_First_option {
+    padding: 8px 12px;
+    border: none;
+    color: #333;
+    background-color: #fff;
+  } */
+
+.no_blog-message {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10em;
 }
 
 /* .all_blog-posts-container {
@@ -18,9 +69,13 @@
 
 .all_blog-posts-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* align-items: center; */
+    flex-direction: column;
     margin: 2em auto;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .blog_main_card-posts {
@@ -75,12 +130,13 @@
 
 .blog_contents-squares {
     padding: 1em;
-    background: rgb(238, 238, 238);
+    /* background: rgb(238, 238, 238);
     width: 14em;
     height: 20em;
-    margin: auto;
-    border-radius: 0.25em;
+    margin: auto; */
+    /* border-radius: 0.25em; */
     box-shadow: 0 0 0.25em rgb(57, 57, 57);
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -137,3 +193,4 @@
 .blog-bottom_icons:hover {
     color: rgb(100, 100, 100);
 }
+

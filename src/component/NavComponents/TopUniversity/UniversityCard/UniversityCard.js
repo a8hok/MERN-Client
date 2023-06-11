@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import "./UniversityCard.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import EditSelectedUniversity from "../../../Edit/EditUniversity";
+import subBuilding from "../../../Landing/Img/substitute.png"
 
 function UniversityCard({ uniInfo, editBtn }) {
+
   const navigate = useNavigate();
   const [showEdit, setShowEdit] = useState(false);
   const location = useLocation().state;
@@ -15,6 +17,7 @@ const showEditForm = () => {
   const handelDetail = (e) => {
     navigate("/universities/details", { state: { state: uniInfo } });
   };
+  
   return (
     <>
     {!!showEdit ? <EditSelectedUniversity value={uniInfo}/>:
@@ -26,7 +29,7 @@ const showEditForm = () => {
             }
     <div className="uni-card-container" onClick={handelDetail}>
       <div className="uni-img-container">
-        <img src={uniInfo?.Image}></img>
+        <img src={uniInfo?.Image ? uniInfo?.Image : subBuilding}></img>
       </div>
       <div className="uni-content-container">
         <div className="uni-title">
@@ -42,14 +45,12 @@ const showEditForm = () => {
         </div>
         <div className="uni-other-container">
           <span className="uni-Yrofestab">{uniInfo?.Yrofestab}</span>
-          <span className="uni-type">{uniInfo?.Type}</span>
+          <span className="uni-type">{uniInfo?.Univ_name}</span>
         </div>
-        <div className="uni-description"></div>
+        <div className="uni-description">
+          {uniInfo?.Specialised === "No" ? `Specialisation: None` : `Specialisation: ${uniInfo?.Specialised}`}
+        </div>
       </div>
-      {/* <div className="uni-stats-container">
-        <div className="uni-stat-title"></div>
-        <div className="uni-stat-value"></div>
-      </div> */}
     </div>
     </>
     }

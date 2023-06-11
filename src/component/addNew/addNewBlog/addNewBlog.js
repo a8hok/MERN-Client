@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getProgrammeInfo } from '../../../Store/Slice/getProgramme';
 
 import { toAddNewBlog } from '../../../Store/Slice/AddNewBlogs';
 
@@ -26,8 +27,47 @@ const AddNewBlog = () => {
         body7: ""
     });
 
+    const [domain, setDomain] = useState([])
+
+    const [subDomain, setSubDomain] = useState([])
+
+    const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+
     const {addedBlogs} = useSelector((state) => state.addBlog);
 
+    useEffect(() => {
+        dispatch(getProgrammeInfo())
+    }, [])
+
+    useEffect(() => {
+        if (programmeData.length > 0) {
+            const newDomainData = programmeData.map((item) => {
+                return item.programmeDomain
+            });
+
+            const returnData = [...new Set(newDomainData)]
+    
+            setDomain(returnData);
+        }
+    }, [programmeData]);
+
+    useEffect(() => {
+        if (domain.length > 0 && blogData.Domain) {
+
+            const filteredData = programmeData.filter((item) => {
+                return item.programmeDomain === blogData.Domain;
+            });
+    
+            const subDomainData = filteredData.map((item) => {
+                return item.programmeSubDomain;
+            });
+    
+            const uniqueSubDomains = [...new Set(subDomainData)];
+
+            setSubDomain(uniqueSubDomains);
+        }
+    }, [programmeData, domain, blogData]);
+    
     const dispatch = useDispatch();
 
     const [buttonText, setButtonText] = useState("save");
@@ -76,13 +116,25 @@ const AddNewBlog = () => {
                 <form className="Add-new_blog-form" onSubmit={handleSave}>
                     <h1>Add New Blog</h1>
 
-                    <input type={"text"} name="Domain" 
-                    placeholder="Domain" onChange={onChangeFields}></input>
-                    <p>{error?.Domain}</p>
+                    <select onChange={onChangeFields} className="admin-select" name="Domain">
+                        <option value="">Select Domain</option>
+                        {domain.map((item, index) => (
+                            <option key={index} value={item}>
+                            {item}
+                            </option>
+                        ))}
+                        </select>
+                        <p>{error?.Domain}</p>
 
-                    <input type={"text"} name="subDomain" 
-                    placeholder="sub Domain" onChange={onChangeFields}></input>
-                    <p>{error?.subDomain}</p>
+                    <select onChange={onChangeFields} className="admin-select" name="subDomain">
+                        <option value="">Select SubDomain</option>
+                        {subDomain.map((item) => (
+                            <option key={item} value={item}>
+                            {item}
+                            </option>
+                        ))}
+                        </select>
+                        <p>{error?.subDomain}</p>
 
                     <h3>Blog 1</h3>
                     <input type={"text"} name="title1" 

@@ -28,7 +28,7 @@ const Footer = () => {
 
           <div className="Location-footer">
             <img src={Location} alt="no img found"></img>
-            <a href="https://goo.gl/maps/8yHGcudpmHuTUnh38" target="_blank">26 Badrakaliamman Koil Street No. 3, Uppilipalayam • Coimbatore – 641 015</a>
+            <a href="https://goo.gl/maps/kx3kjJoabw8a4kze7" target="_blank">Office: #112, First Floor, Srinagar, B.R.Puram, Hopes College, Peelamedu, Coimbatore–641004.</a>
           </div>
 
           <div className="contact-info">

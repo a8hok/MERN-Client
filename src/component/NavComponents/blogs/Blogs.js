@@ -57,7 +57,6 @@ const Blogs = ({allow}) => {
     }
 
     const editBlogData = (e) => {
-        console.log(e)
         setSelected(e)
         setViewStatus(1)
     }
@@ -81,7 +80,8 @@ const Blogs = ({allow}) => {
             const forDomain = alldataBlog.map((i) => i.Domain)
             const uniqueDomain = [...new Set(forDomain)]
             setDomain(uniqueDomain)
-            const forSubDomain = (alldataBlog.map((i) => i.subDomain))
+            const filteredData = alldataBlog.filter((i) => i.Domain === selectedDomain);
+            const forSubDomain = filteredData.map((i) => i.subDomain);
             const uniqueSubDomain = [...new Set (forSubDomain)]
             setSubDomain(uniqueSubDomain)
         }
@@ -99,24 +99,21 @@ const Blogs = ({allow}) => {
 
     useEffect(() => {
         if(selectedSubDomain === "" && selectedDomain === ""){
-            console.log("no selection is alos working fine")
             setShowBlog(alldataBlog)
         }else if (selectedDomain !== "" && selectedSubDomain !== ""){
             setShowBlog(selectedBlog)
         }else if (selectedDomain !== "" && selectedSubDomain === ""){
-            console.log("the single selection is working")
             setShowBlog(selectedDomainBlog)
         }
     }, [selectedDomain, selectedSubDomain, alldataBlog, selectedBlog, selectedDomainBlog]);
 
     const settingDomain = (e) => {
-        setSelectedDomain(e.target.value);
         setSelectedSubDomain("")
+        setSelectedDomain(e.target.value)
         allSelector(e.target.name, e.target.value)
     };
 
     const settingSubDomain = (e) => {
-        console.log(e.target.value)
         setSelectedSubDomain(e.target.value)
         allSelector(e.target.name, e.target.value)
     };
@@ -130,80 +127,36 @@ const Blogs = ({allow}) => {
     return (
         <>
                 {viewStatus === 0 ? <div>
-                    <div className="selecting-preferences-blogs">
-                        <div className="guide-selection">
+                    <div className={bothOptions.Domain ? "selecting-preferences-blogs" : "selecting-preferences-first-blogs"}>
+                        {/* <div className="guide-selection">
                             Filter
-                        </div>
-                        <select name="Domain" className="guide-selector" onChange={settingDomain}>
-                        <option value="">select Domain</option>
+                        </div> */}
+                        <select name="Domain" className="guide-Selector_First" onChange={settingDomain}>
+                        <option className="guide-Selector_First_option" style={{padding: "1.5em"}} value="">select Domain</option>
                             {domain.map((i, index) => {
                             return (
-                                <option key={index} value={i}>{i}</option>
+                                <option className="guide-Selector_First_option" style={{padding: "1.5em"}} key={index} value={i}>{i}</option>
                             )
                             })}
                         </select>
-                        <select name="subDomain" className="guide-selector guide-Selector_Last" onChange={settingSubDomain}>
-                        <option value="">select Sub-Domain</option>
+                        {bothOptions.Domain && <select name="subDomain" className="guide-Selector_First" onChange={settingSubDomain}>
+                        <option className="guide-Selector_First_option" style={{padding: "1.5em"}} value="">select Sub-Domain</option>
                             {subDomain.map((i, index) => {
                             return (
-                                <option key={index} value={i}>{i}</option>
+                                <option className="guide-Selector_First_option" style={{padding: "1.5em"}} key={index} value={i}>{i}</option>
                             )
                             })}
-                        </select>
+                        </select>}
                     </div>
                     {showBlog.length > 0 ? 
                     <div className="all_blog-posts-container">
                         {showBlog.map((i, index) => {
                          return (
-                            // <div key={index} className="blog_main_card-posts">
-                            //     <div className="blog_filter-Holder">
-                            //         <h2>{i.Domain}</h2>
-                            //         <h2>{i.subDomain}</h2>
-                            //     </div>
-                            //     <div className="blog_contents">
-                            //         <div className="blog_contents-top">
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title1}</h3>
-                            //                 <p>{i.body1}</p>
-                            //             </div>
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title2}</h3>
-                            //                 <p>{i.body2}</p>
-                            //             </div>
-                            //         </div>
-                            //         <div className="blog_contents-mid">
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title3}</h3>
-                            //                 <p>{i.body3}</p>
-                            //             </div>
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title4}</h3>
-                            //                 <p>{i.body4}</p>
-                            //             </div>
-                            //         </div>
-                            //         <div className="blog_contents-bot">
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title5}</h3>
-                            //                 <p>{i.body5}</p>
-                            //             </div>
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title6}</h3>
-                            //                 <p>{i.body6}</p>
-                            //             </div>
-                            //             <div className="blog_contents-squares">
-                            //                 <h3>{i.title7}</h3>
-                            //                 <p>{i.body7}</p>
-                            //             </div>
-                            //         </div>
-                            //     </div>
-                            // </div>
                             <div key={index} className="blog_contents-squares">
-                                {/* <div className="blog_image-banner"></div> */}
                                 <div className="blog_card-contents">
                                     <h2>{i.Domain}</h2>
-                                    {/* <h2>{i.subDomain}</h2> */}
                                     <h3>{i.title1}</h3>
-                                    <p>{i?.body1?.length > 80 ? i?.body1.slice(0, 80) : i?.body1}</p>
+                                    <p>{i?.body1?.length > 300 ? `${i?.body1.slice(0, 300)}...` : i?.body1}</p>
                                 </div>
                                 {allow ?<div className="blog_bottom-navigationBox">
                                     <EditIcon onClick={() => editBlogData(i)} className="blog-bottom_icons"/>
@@ -214,7 +167,7 @@ const Blogs = ({allow}) => {
                             </div>
                          )
                         })}
-                    </div>:<div>No Blog currently available</div>}
+                    </div>:<div className="no_blog-message">No Blog currently available</div>}
                 </div>: <ManageBlogs blogData={selected} screenChange={viewchangeFunction}/>}
         </>
     )

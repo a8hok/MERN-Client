@@ -29,6 +29,7 @@ function EditEvents({ eventObj }) {
     const eventDate = element[2].value;
     const eventTime = element[3].value;
     const eventId = eventObj.eventId;
+    const status = eventObj.status;
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
@@ -38,7 +39,7 @@ function EditEvents({ eventObj }) {
     // }else {
     //   dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime}))
     // }
-    dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime}))
+    dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime, status}))
     {eventId ? setMessage("Event updated successfully"): setMessage("Event is not updated")}
   }
 

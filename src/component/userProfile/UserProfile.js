@@ -204,8 +204,6 @@ const UserProfile = () => {
 
   const Status = userData?.data?.contentCreator
 
-  // const S_no = parseInt(S_No,10)
-
   useEffect(() => {
     if(userAffiliation === "University"){
       dispatch(getSelectedUniversityInfo(U_id))
@@ -238,6 +236,11 @@ const UserProfile = () => {
   const navigation = (e) => {
     navigate("/quiz")
   };
+
+  const propUserData = {
+    name: `${userData?.data?.userFirstName} ${userData?.data?.userLastName}`,
+    status: userStatus
+  }
 
   return (
     <>
@@ -374,7 +377,7 @@ const UserProfile = () => {
               {Status === true && selectedEvent && <ListEvent eventsData = {selectedEvent}/>}
             </div>
           )}
-          {content === "add-event" && <AddEvent userData={allUse} />}
+          {content === "add-event" && <AddEvent userData={propUserData} />}
           {content === "add-quiz" && <AddQuiz/>}
           {content === "new-university" && <AddNewUniversity/>}
           {content === "new-program" && <AddNewProgram/>}

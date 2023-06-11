@@ -12,7 +12,7 @@
     justify-content: center;
     width: 80%;
     padding: 1em;
-    background: rgb(117, 167, 253);
+    /* background: rgb(117, 167, 253); */
     border-radius: 0.25em;
     gap: 1em;
 }
@@ -28,8 +28,9 @@
 .blog_readableData-container {
     width: 90%;
     background: rgb(250, 250, 250);
-    border-radius: 0.25em;
-    padding: 1em;
+    /* border-radius: 0.25em; */
+    box-shadow: 0 0 0.25em rgb(57, 57, 57);
+    padding: 1em 2em;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -95,4 +96,15 @@
     font-size: 1.2em;
     background: rgb(70, 251, 70);
     text-align: center;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 850px) {
+    .individual_blog-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        width: 100%;
+    }
 }

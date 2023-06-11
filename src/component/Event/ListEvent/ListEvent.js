@@ -39,8 +39,9 @@ function ListEvent({ eventsData, editImg, allow, allow1 }) {
     const eventDate = populate.eventDate;
     const eventTime = populate.eventTime;
     const eventId = populate.eventId;
-    const author = populate.author
-    const status = 0
+    const status = 0;
+    const author = populate.author;
+    
     dispatch(editingEvent({eventId, eventName, eventDescription, eventDate, eventTime, author, status}))
     setTimeout(() => {
       window.location.reload(false)
