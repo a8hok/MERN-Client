@@ -6,7 +6,7 @@ const ViewChanges = ({data}) => {
 const [buttonView, setButtonView] = useState(true)
     return (
         <div>
-            <ListEvent eventsData={data} allow={buttonView}/>
+            <ListEvent eventsData={data ?? []} allow={buttonView}/>
         </div>
   )
 }

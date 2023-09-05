@@ -82,7 +82,7 @@ const UserProfile = () => {
     return () => {}
   }, []);
 
-  const univName = SelectedUniversitiesData?.Name_1
+  const univName = SelectedUniversitiesData?.Univ_name
 
   const colName = SelectedCollegesData?.College_Name
 
@@ -238,8 +238,8 @@ const UserProfile = () => {
   };
 
   const propUserData = {
-    name: `${userData?.data?.userFirstName} ${userData?.data?.userLastName}`,
-    status: userStatus
+    name: `${SelectedUniversitiesData?.Univ_name}`,
+    status: userData?.data?.contentCreator
   }
 
   return (
@@ -371,10 +371,10 @@ const UserProfile = () => {
               {!userStatus && userAffiliation === "College" &&<CollageCard colInfo={SelectedCollegesData} editBtn={Status}></CollageCard>}
               {!userStatus && userAffiliation === "School" &&<SchoolsCard SchoolInfo={SelectedSchoolData} editBtn={Status}></SchoolsCard>}
               {!userStatus && userAffiliation === "Industrial" && <ViewResults/>}
-              {!userStatus && userAffiliation === "0" && <ListEvent eventsData = {eventsData}/>}
-              {userStatus && <ListEvent eventsData = {eventsData} editImg={editImg} allow1={true}/>}
-              {Status === false && selectedEvent &&<ListEvent eventsData = {selectedEvent} editImg={editImg}/>}
-              {Status === true && selectedEvent && <ListEvent eventsData = {selectedEvent}/>}
+              {!userStatus && userAffiliation === "0" && <ListEvent eventsData={eventsData}/>}
+              {userStatus && <ListEvent eventsData={eventsData} editImg={editImg} allow1={true}/>}
+              {Status === false && selectedEvent &&<ListEvent eventsData={selectedEvent} editImg={editImg}/>}
+              {Status === true && selectedEvent && <ListEvent eventsData={selectedEvent}/>}
             </div>
           )}
           {content === "add-event" && <AddEvent userData={propUserData} />}

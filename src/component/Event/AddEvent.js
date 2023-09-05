@@ -19,7 +19,7 @@ const AddEvent = ({userData}) => {
   }
 
   useEffect(() => {
-    if(userData?.Status){
+    if(userData?.status){
       setStatusNum(1)
     }else{
       setStatusNum(0)
