@@ -282,7 +282,7 @@ const UserProfile = () => {
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
-                  <div className="left-container--dashboard--content">
+                  {/* <div className="left-container--dashboard--content">
                     <QuizOutlinedIcon/>
                     <button onClick={navigation}>Quiz</button>
                   </div>
@@ -293,7 +293,7 @@ const UserProfile = () => {
                   <div className="left-container--dashboard--content">
                     <SaveAltOutlinedIcon/>
                     <button>Saved Items</button>
-                  </div>
+                  </div> */}
                   <div className="left-container--dashboard--content">
                     <PermIdentityOutlinedIcon/>
                     <button onClick={() => setcontent("user-profile")}>Profile</button>

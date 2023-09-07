@@ -35,10 +35,10 @@ const Navbar = ({ profileInfo }) => {
       <div className="top-navmenus">
         <nav ref={navRef}>
           <a href="/about">About us</a>
-          <a href="/#">Study Abroad</a>
-          <a href="/#">Announcement</a>
+          {/* <a href="/#">Study Abroad</a> */}
+          {/* <a href="/#">Announcement</a> */}
           <a href="/blogs">Blog</a>
-          <a href="/#">Ask a Question</a>
+          {/* <a href="/#">Ask a Question</a> */}
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
           <a href="https://wa.me/918248066429" target="_blank">WhatsApp: +91-94421 10920</a>
@@ -53,13 +53,13 @@ const Navbar = ({ profileInfo }) => {
           ></img>
         </Link>
         <nav ref={navRef}>
-          <a href="/#">Home</a>
-          <a href="/#">Skills++</a>
+          {/* <a href="/#">Home</a> */}
+          {/* <a href="/#">Skills++</a> */}
           <a href="/content">Concepts++</a>
-          <a href="/#">Career++</a>
+          {/* <a href="/#">Career++</a> */}
           <a href="/entrance">Entrance++</a>
-          <a href="/#">Perceptions++</a>
-          <a href="/#">Competition++</a>
+          {/* <a href="/#">Perceptions++</a> */}
+          {/* <a href="/#">Competition++</a> */}
           <div className="dropdown">
           <a href="/#">Quiz</a>
             <div className="dropdown-content">
@@ -76,22 +76,22 @@ const Navbar = ({ profileInfo }) => {
         <nav ref={navRef}>
           <div className="inside-nav-option hidden-navbar-options ">
           <a href="/about">About us</a>
-          <a href="/#">Study Abroad</a>
-          <a href="/#">Announcement</a>
+          {/* <a href="/#">Study Abroad</a> */}
+          {/* <a href="/#">Announcement</a> */}
           <a href="/blogs">Blog</a>
-          <a href="/#">Ask a Question</a>
+          {/* <a href="/#">Ask a Question</a> */}
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
           </div>
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option hidden-navbar-options">
-          <a href="/#">Home</a>
-          <a href="/#">Skills++</a>
+          {/* <a href="/#">Home</a> */}
+          {/* <a href="/#">Skills++</a> */}
           <a href="/content">Concepts++</a>
-          <a href="/#">Career++</a>
+          {/* <a href="/#">Career++</a> */}
           <a href="/entrance">Entrance++</a>
-          <a href="/#">Perceptions++</a>
-          <a href="/#">Competition++</a>
+          {/* <a href="/#">Perceptions++</a> */}
+          {/* <a href="/#">Competition++</a> */}
           <div className="dropdown">
           <a href="/#">Quiz</a>
             <div className="dropdown-content">
@@ -107,8 +107,8 @@ const Navbar = ({ profileInfo }) => {
             <a href="/universities">Top Universities</a>
             <a href="/colleges">Top Colleges</a>
             <a href="/schools">Top Schools</a>
-            <a href="/#">Top Placements</a>
-            <a href="/#">Top Events</a>
+            {/* <a href="/#">Top Placements</a> */}
+            {/* <a href="/#">Top Events</a> */}
             <a href="/resources">Resources</a>
             <a href="/internship">Internships/Jobs</a>
           </div>
